@@ -38,7 +38,7 @@
           <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>Login Ucssser Admin</h3>
           <div class="form-group">
             <label class="control-label">Username</label>
-            <input class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" type="text" placeholder="Email" name="username" autofocus value="{{old('username')}}">
+            <input class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" type="text" placeholder="Email" name="username" autofocus value="{{ENV('APP_ENV') == 'development' ? 'admin' : old('username')}}">
             @if ($errors->has('username'))
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $errors->first('username') }}</strong>
@@ -47,7 +47,7 @@
           </div>
           <div class="form-group">
             <label class="control-label">Password</label>
-            <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" type="password" placeholder="Password" name="password">
+          <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" type="password" placeholder="Password" name="password" value="{{ENV('APP_ENV') == 'development' ? '121212' : ''}}">
             @if ($errors->has('password'))
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $errors->first('password') }}</strong>
