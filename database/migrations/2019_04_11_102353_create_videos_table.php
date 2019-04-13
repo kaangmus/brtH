@@ -17,7 +17,7 @@ class CreateVideosTable extends Migration
             $table->bigIncrements('id');
             $table->integer('penulis_id');
             $table->string('judul');
-            $table->string('embed');
+            $table->string('url');
             $table->string('kategori')->nullable();
             $table->enum('publish', ['Public', 'Hidden'])->default('Hidden');
             $table->integer('dilihat');

@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::post('/upload/gambar', 'ImagesController@upload')->name('upload.gambar');
+Route::post('/galeri/store', 'ImagesController@store')->name('galeri.store');
+Route::delete('/galeri/delete/{id}', 'ImagesController@delete')->name('galeri.delete');
+
 Route::get('login', function (){
-    dd("login");
+    print("Halaman Belum Tersedia");
 })->name('login');

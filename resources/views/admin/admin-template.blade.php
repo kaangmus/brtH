@@ -62,7 +62,9 @@
 
         <li><a class="app-menu__item {{(Request::is('admin'))? 'active': ''}}" href="{{route('admin.home')}}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
 
-        {{-- <li><a class="app-menu__item {{(Request::is('admin/gunung') OR \Request::is('admin/gunung/*'))? 'active': ''}}" href="{{route('admin.gunung')}}"><i class="app-menu__icon fa fa-tasks"></i><span class="app-menu__label"> Gunung</span></a></li> --}}
+        <li><a class="app-menu__item {{(Request::is('admin/berita') OR \Request::is('admin/berita/*'))? 'active': ''}}" href="{{route('admin.berita')}}"><i class="app-menu__icon fa fa-tasks"></i><span class="app-menu__label">Berita</span></a></li>
+        <li><a class="app-menu__item {{(Request::is('admin/video') OR \Request::is('admin/video/*'))? 'active': ''}}" href="{{route('admin.video')}}"><i class="app-menu__icon fa fa-tasks"></i><span class="app-menu__label">URL Video</span></a></li>
+        <li><a class="app-menu__item {{(Request::is('admin/foto') OR \Request::is('admin/foto/*'))? 'active': ''}}" href="{{route('admin.foto')}}"><i class="app-menu__icon fa fa-tasks"></i><span class="app-menu__label">Foto</span></a></li>
 
         {{-- <li><a class="app-menu__item {{(Request::is('admin/berita') OR \Request::is('admin/berita/*'))? 'active': ''}}" href="{{route('admin.berita')}}"><i class="app-menu__icon fa fa-newspaper-o"></i><span class="app-menu__label"> Berita</span></a></li> --}}
       </ul>
@@ -78,7 +80,7 @@
     <script src="{{asset('back/js/plugins/pace.min.js')}}"></script>
     <!-- Page specific javascripts-->
 
-    <script src="{{asset('back/js/sweetalert.min.js')}}"></script>
+    <script src="{{asset('js/sweetalert.min.js')}}"></script>
 
     <!-- Google analytics script-->
     @yield('script')

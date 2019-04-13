@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Video extends Model
 {
     protected $fillable = [
-        'penulis_id','judul','embed','kategori','publish','dilihat','data'
+        'penulis_id','judul','url','kategori','publish','dilihat','data'
     ];
     protected $casts = [
         'data' => 'array'
