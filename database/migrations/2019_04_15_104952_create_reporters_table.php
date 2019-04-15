@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePenulisTable extends Migration
+class CreateReportersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreatePenulisTable extends Migration
      */
     public function up()
     {
-        Schema::create('penulis', function (Blueprint $table) {
+        Schema::create('reporters', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nama');
             $table->string('username')->unique();
             $table->string('password');
-            $table->enum('akses', ['Aktif', 'Blok'])->default('Blok');
+            $table->string('foto')->nullable();
+            $table->enum('status', ['Aktif', 'Blok'])->default('Blok');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -31,6 +32,6 @@ class CreatePenulisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('penulis');
+        Schema::dropIfExists('reporters');
     }
 }

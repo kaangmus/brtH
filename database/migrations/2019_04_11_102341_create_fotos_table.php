@@ -15,7 +15,7 @@ class CreateFotosTable extends Migration
     {
         Schema::create('fotos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('penulis_id');
+            $table->integer('reporter_id');
             $table->string('foto');
             $table->string('kategori')->nullable();
             $table->enum('publish', ['Public', 'Hidden'])->default('Hidden');

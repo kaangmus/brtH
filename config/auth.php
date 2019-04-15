@@ -40,9 +40,9 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        'penulis' => [
+        'reporter' => [
             'driver' => 'session',
-            'provider' => 'penuliss',
+            'provider' => 'reporters',
         ],
         'admin' => [
             'driver' => 'session',
@@ -79,9 +79,9 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-        'penuliss' => [
+        'reporters' => [
             'driver' => 'eloquent',
-            'model' => App\Models\Penulis::class,
+            'model' => App\Models\Reporter::class,
         ],
         'admins' => [
             'driver' => 'eloquent',

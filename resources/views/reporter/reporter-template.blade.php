@@ -40,8 +40,8 @@
           <ul class="dropdown-menu settings-menu dropdown-menu-right">
             {{-- <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-cog fa-lg"></i> Settings</a></li> --}}
             {{-- <li><a class="dropdown-item" href="{{ route('admin.profil') }}"><i class="fa fa-user fa-lg"></i> Profile</a></li> --}}
-            <li><a class="dropdown-item" href="{{ route('admin.logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-sign-out fa-lg"></i>  {{ __('Logout') }}</a></li>
-            <form id="logout-form" action="{{ route('admin.logout') }}" method="POST">
+            <li><a class="dropdown-item" href="{{ route('reporter.logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-sign-out fa-lg"></i>  {{ __('Logout') }}</a></li>
+            <form id="logout-form" action="{{ route('reporter.logout') }}" method="POST">
                     {{ csrf_field() }}
             </form>
           </ul>
@@ -53,21 +53,19 @@
     <aside class="app-sidebar" style="background-color: {{env('THEME_COLOR_3')}}">
       <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="{{asset(env('APP_LOGO', 'https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg'))}}" alt="User Image" style="max-height: 64px; max-width: 64px">
         <div>
-          <p class="app-sidebar__user-name">Admin</p>
+          <p class="app-sidebar__user-name">{{Auth::user()->nama}}</p>
 
-          <p class="app-sidebar__user-name"><small>Admin</small></p>
+          <p class="app-sidebar__user-name"><small>Reporter</small></p>
         </div>
       </div>
       <ul class="app-menu">
 
-        <li><a class="app-menu__item {{(Request::is('admin'))? 'active': ''}}" href="{{route('admin.home')}}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
+        <li><a class="app-menu__item {{(Request::is('reporter'))? 'active': ''}}" href="{{route('reporter.home')}}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
 
-        <li><a class="app-menu__item {{(Request::is('admin/berita') OR \Request::is('admin/berita/*'))? 'active': ''}}" href="{{route('admin.berita')}}"><i class="app-menu__icon fa fa-tasks"></i><span class="app-menu__label">Berita</span></a></li>
+        <li><a class="app-menu__item {{(Request::is('reporter/berita') OR \Request::is('reporter/berita/*'))? 'active': ''}}" href="{{route('reporter.berita')}}"><i class="app-menu__icon fa fa-tasks"></i><span class="app-menu__label">Berita</span></a></li>
 
-        <li><a class="app-menu__item {{(Request::is('admin/reporter') OR \Request::is('admin/reporter/*'))? 'active': ''}}" href="{{route('admin.reporter')}}"><i class="app-menu__icon fa fa-tasks"></i><span class="app-menu__label">Reporter</span></a></li>
-
-        <li><a class="app-menu__item {{(Request::is('admin/video') OR \Request::is('admin/video/*'))? 'active': ''}}" href="{{route('admin.video')}}"><i class="app-menu__icon fa fa-tasks"></i><span class="app-menu__label">URL Video</span></a></li>
-        <li><a class="app-menu__item {{(Request::is('admin/foto') OR \Request::is('admin/foto/*'))? 'active': ''}}" href="{{route('admin.foto')}}"><i class="app-menu__icon fa fa-tasks"></i><span class="app-menu__label">Foto</span></a></li>
+        <li><a class="app-menu__item {{(Request::is('reporter/video') OR \Request::is('reporter/video/*'))? 'active': ''}}" href="{{route('reporter.video')}}"><i class="app-menu__icon fa fa-tasks"></i><span class="app-menu__label">URL Video</span></a></li>
+        <li><a class="app-menu__item {{(Request::is('reporter/foto') OR \Request::is('reporter/foto/*'))? 'active': ''}}" href="{{route('reporter.foto')}}"><i class="app-menu__icon fa fa-tasks"></i><span class="app-menu__label">Foto</span></a></li>
 
         {{-- <li><a class="app-menu__item {{(Request::is('admin/berita') OR \Request::is('admin/berita/*'))? 'active': ''}}" href="{{route('admin.berita')}}"><i class="app-menu__icon fa fa-newspaper-o"></i><span class="app-menu__label"> Berita</span></a></li> --}}
       </ul>

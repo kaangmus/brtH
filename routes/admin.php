@@ -23,6 +23,15 @@ Route::get('/berita/edit/{id}', 'Admin\BeritaController@edit')->name('admin.beri
 Route::put('/berita/update', 'Admin\BeritaController@update')->name('admin.berita.update');
 Route::delete('/berita/delete/{id}', 'Admin\BeritaController@delete')->name('admin.berita.delete');
 
+Route::get('/reporter', 'Admin\ReporterController@index')->name('admin.reporter');
+Route::get('/reporter/status', 'Admin\ReporterController@status')->name('admin.reporter.status');
+Route::get('/reporter/tambah', 'Admin\ReporterController@create')->name('admin.reporter.create');
+Route::get('/reporter/show/{id}', 'Admin\ReporterController@show')->name('admin.reporter.show');
+Route::post('/reporter/tambah', 'Admin\ReporterController@store')->name('admin.reporter.store');
+Route::get('/reporter/edit/{id}', 'Admin\ReporterController@edit')->name('admin.reporter.edit');
+Route::put('/reporter/update', 'Admin\ReporterController@update')->name('admin.reporter.update');
+Route::delete('/reporter/delete/{id}', 'Admin\ReporterController@delete')->name('admin.reporter.delete');
+
 Route::get('/video', 'Admin\VideoController@index')->name('admin.video');
 Route::get('/video/publish', 'Admin\VideoController@publish')->name('admin.video.publish');
 Route::get('/video/tambah', 'Admin\VideoController@create')->name('admin.video.create');

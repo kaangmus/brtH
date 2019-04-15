@@ -1,4 +1,4 @@
-@extends('admin.admin-template')
+@extends('reporter.reporter-template')
 @section('css')
 
 @endsection
@@ -15,7 +15,7 @@
         <div class="col-md-12">
 			<div class="tile">
 			  <div class="tile-body">
-				<form class="form-horizontal" id="submit-form" enctype="multipart/form-data" method="post" action="{{route('admin.berita.store')}}">
+				<form class="form-horizontal" id="submit-form" enctype="multipart/form-data" method="post" action="{{route('reporter.berita.store')}}">
                 {{ csrf_field() }}
 
                     <div class="row">

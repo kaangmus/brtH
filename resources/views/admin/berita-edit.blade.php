@@ -6,8 +6,8 @@
 <main class="app-content">
     <div class="app-title">
         <div>
-            <h1>Gunung Indonesia</h1>
-            <p>Informasi deskripsi gunung yang ada di Indonesia</p>
+            <h1>{{env("APP_NAME")}}</h1>
+            <p>Berita Edit</p>
         </div>
     </div>
 

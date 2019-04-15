@@ -6,12 +6,12 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Penulis extends Authenticatable
+class Reporter extends Authenticatable
 {
     use Notifiable;
 
     protected $fillable = [
-        'nama', 'username', 'password',
+        'nama', 'username', 'password', 'status', 'foto'
     ];
     protected $hidden = [
         'password', 'remember_token',
@@ -19,16 +19,16 @@ class Penulis extends Authenticatable
 
     public function berita()
     {
-        return $this->hasMany(Berita::class, 'penulis_id', 'id');
+        return $this->hasMany(Berita::class, 'reporter_id', 'id');
     }
 
     public function foto()
     {
-        return $this->hasMany(Foto::class, 'penulis_id', 'id');
+        return $this->hasMany(Foto::class, 'reporter_id', 'id');
     }
 
-    public function vidio()
+    public function video()
     {
-        return $this->hasMany(Vidio::class, 'penulis_id', 'id');
+        return $this->hasMany(Video::class, 'reporter_id', 'id');
     }
 }

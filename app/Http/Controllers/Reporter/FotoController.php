@@ -1,21 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Reporter;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Foto;
 
 class FotoController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:admin');
+        $this->middleware('auth:reporter');
     }
     public function index()
     {
-        $fotos = Foto::paginate(20);
-    	return view('admin.foto', compact('fotos'));
+        $fotos = Foto::where('reporter_id', Auth::user()->id)->paginate(20);
+    	return view('reporter.foto', compact('fotos'));
     }
     public function store(Request $request)
     {
@@ -28,6 +29,7 @@ class FotoController extends Controller
             $upload = app('App\Helper\Images')->upload($request->file('file'), 'galeri');
             $foto['foto'] = $upload['url'];
         }
+        $foto['reporter_id'] = Auth::user()->id;
         $foto->save();
 
     }

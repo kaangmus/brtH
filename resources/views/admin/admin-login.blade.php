@@ -35,7 +35,7 @@
         @else
         <form class="login-form" method="post" action="{{route('admin.login')}}">
           @csrf
-          <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>Login Ucssser Admin</h3>
+          <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>Login Admin</h3>
           <div class="form-group">
             <label class="control-label">Username</label>
             <input class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" type="text" placeholder="Email" name="username" autofocus value="{{ENV('APP_ENV') == 'development' ? 'admin' : old('username')}}">
@@ -61,7 +61,7 @@
                   <input type="checkbox"><span class="label-text" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>Stay Signed in</span>
                 </label>
               </div>
-              {{-- <p class="semibold-text mb-2"><a href="#" data-toggle="flip">Login Pengunjung ?</a></p> --}}
+              <p class="semibold-text mb-2"><a href="#" data-toggle="flip">Login Reporter ?</a></p>
             </div>
           </div>
           <div class="form-group btn-container">
@@ -78,7 +78,7 @@
           <br><br>
 
 
-        <a href="{{url('pengunjung')}}" class="btn btn-primary">Beranda Pengunjung</a>
+        <a href="{{url('reporter')}}" class="btn btn-primary">Beranda Reporter</a>
 
         <br><br>
         atau
@@ -87,12 +87,12 @@
           </div>
       </div>
         @else
-        <form class="forget-form" method="POST" action="{{route('penulis.login')}}" aria-label="{{ __('Login Pengunjung') }}">
+        <form class="forget-form" method="POST" action="{{route('reporter.login')}}" aria-label="{{ __('Login Reporter') }}">
             @csrf
-            <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>Login Pengunjung</h3>
+            <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>Login Reporter</h3>
             <div class="form-group">
               <label class="control-label">Username</label>
-              <input class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" type="text" placeholder="Email" name="usernamePengunjung" autofocus value="{{old('usernamePengunjung')}}">
+              <input class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" type="text" placeholder="Email" name="username" autofocus value="{{ENV('APP_ENV') == 'development' ? 'admin' : old('username')}}">
               @if ($errors->has('username'))
                   <span class="invalid-feedback" role="alert">
                       <strong>{{ $errors->first('username') }}</strong>
@@ -101,7 +101,7 @@
             </div>
             <div class="form-group">
               <label class="control-label">Password</label>
-              <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" type="password" placeholder="Password" name="password">
+              <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" type="password" placeholder="Password" name="password"  value="{{ENV('APP_ENV') == 'development' ? '121212' : ''}}">
               @if ($errors->has('password'))
                   <span class="invalid-feedback" role="alert">
                       <strong>{{ $errors->first('password') }}</strong>
@@ -115,7 +115,7 @@
                     <input type="checkbox"><span class="label-text" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>Stay Signed in</span>
                   </label>
                 </div>
-                  <p class="semibold-text mb-0"><a href="#" data-toggle="flip"><i class="fa fa-angle-left fa-fw"></i> Login Pengunjung</a></p>
+                  <p class="semibold-text mb-0"><a href="#" data-toggle="flip"><i class="fa fa-angle-left fa-fw"></i> Login Admin</a></p>
               </div>
             </div>
             <div class="form-group btn-container">

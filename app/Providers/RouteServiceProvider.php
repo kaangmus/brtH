@@ -55,9 +55,9 @@ class RouteServiceProvider extends ServiceProvider
              ->namespace($this->namespace)
              ->group(base_path('routes/web.php'));
         Route::middleware('web')
-             ->prefix('penulis')
+             ->prefix('reporter')
              ->namespace($this->namespace)
-             ->group(base_path('routes/penulis.php'));
+             ->group(base_path('routes/reporter.php'));
         Route::middleware('web')
              ->prefix('admin')
              ->namespace($this->namespace)

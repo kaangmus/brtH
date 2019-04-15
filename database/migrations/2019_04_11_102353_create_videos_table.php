@@ -15,7 +15,7 @@ class CreateVideosTable extends Migration
     {
         Schema::create('videos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('penulis_id');
+            $table->integer('reporter_id')->default(0);
             $table->string('judul');
             $table->string('url');
             $table->string('kategori')->nullable();

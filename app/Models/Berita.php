@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Berita extends Model
 {
     protected $fillable = [
-        'penulis_id','judul','gambar','berita','dilihat','kategori','publish','data'
+        'reporter_id','judul','gambar','berita','dilihat','kategori','publish','data'
     ];
 
     protected $hidden = [
@@ -18,8 +18,8 @@ class Berita extends Model
         'data'=> 'array'
     ];
 
-    public function penulis(){
-        return $this->belongsTo(Penulis::class, 'penulis_id', 'id');
+    public function reporter(){
+        return $this->belongsTo(Reporter::class, 'reporter_id', 'id');
     }
 
 }

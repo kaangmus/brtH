@@ -1,4 +1,4 @@
-@extends('admin.admin-template')
+@extends('reporter.reporter-template')
 @section('css')
 
 @endsection

@@ -23,9 +23,9 @@ class RedirectIfAuthenticated
                     return redirect()->route('admin.home');
                 }
                 break;
-             case 'penulis':
+             case 'reporter':
                 if (Auth::guard($guard)->check()) {
-                    return redirect()->route('penulis.home');
+                    return redirect()->route('reporter.home');
                 }
                 break;
             default:
