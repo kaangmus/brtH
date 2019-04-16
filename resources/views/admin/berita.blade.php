@@ -25,7 +25,9 @@
                     <table class="table table-sm">
                         <thead>
                             <tr>
-                                <th>Nama Gunung</th>
+                                <th>Berita</th>
+                                <th>Reporter</th>
+                                <th class="text-center">Dilihat</th>
                                 <th class="text-center">Publish</th>
                                 <th class="text-center">Berita</th>
                                 <th></th>
@@ -44,6 +46,7 @@
                                     </div>
                                     </div>
                                 </td>
+                                <td>{{$berita->reporter_id != 0 ? $berita->reporter->nama : 'Admin'}}</td>
                                 <td class="text-center">{{$berita->dilihat}}</td>
                                 <td class="text-center">{{$berita->publish}}</td>
                                 <td class="text-center">

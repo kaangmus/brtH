@@ -16,4 +16,12 @@ class Video extends Model
     public function reporter(){
         return $this->belongsTo(Reporter::class, 'reporter_id', 'id');
     }
+
+    public function ThumbnailYoutube($url)
+    {
+        dd(\explode("/", $url)[4]);
+        // $thumnail = "https://i.ytimg.com/vi/url/mqdefault.jpg";
+        // $thumnail = str_replace('url', ,$thumnail);
+        # code...
+    }
 }

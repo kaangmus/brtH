@@ -21,7 +21,7 @@ class CreateBeritasTable extends Migration
             $table->longText('berita');
             $table->integer('dilihat');
             $table->string('kategori')->nullable();
-            $table->enum('publish', ['Public', 'Hidden'])->default('Hidden');
+            $table->enum('publish', ['Public', 'Private'])->default('Private');
             $table->longText('data')->nullable();
             $table->timestamps();
         });

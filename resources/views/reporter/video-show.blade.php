@@ -22,9 +22,8 @@
                         <h3>{{$video->judul}}</h3>
                     </div>
                     @if (strpos($video->url, 'www.youtube.com'))
-                <div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" src="{{$video->url}}" allowfullscreen></iframe></div>
+                        <div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" src="{{$video->url}}" allowfullscreen></iframe></div>
                     @endif
-                    {!!$video->url!!}
             <div class="tile-footer">
                 Terakhir diupdate {{hari_tanggal_waktu($video->updated_at, true)}}
 

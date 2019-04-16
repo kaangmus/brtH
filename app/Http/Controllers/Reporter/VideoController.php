@@ -39,6 +39,9 @@ class VideoController extends Controller
         $video = new Video();
         $video->fill($request->all());
         $video['reporter_id'] = Auth::user()->id;
+        if (strpos($request->url, 'watch?v=') !== false) {
+            $video['url'] = str_replace("watch?v=","embed/",$request->url);
+        }
         $video['dilihat'] = '0';
         $video->save();
 
@@ -76,6 +79,9 @@ class VideoController extends Controller
 
         $video =Video::findOrFail($request->id);
         $video->fill($request->all());
+        if (strpos($request->url, 'watch?v=') !== false) {
+            $video['url'] = str_replace("watch?v=","embed/",$request->url);
+        }
         $video->save();
 
         if($video){

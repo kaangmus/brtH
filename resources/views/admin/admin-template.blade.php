@@ -24,8 +24,8 @@
   </head>
   <body class="app sidebar-mini rtl">
     <!-- Navbar-->
-  <header class="app-header">
-    <a class="app-header__logo" href="{{url('admin')}}">{{env('APP_NAME')}}</a>
+  <header class="app-header"  style="background-color: #ff6600" >
+    <a class="app-header__logo"  style="background-color: #ff6600"  href="{{url('admin')}}">{{env('APP_NAME')}}</a>
       <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
       <!-- Navbar Right Menu-->
       <ul class="app-nav">
@@ -67,7 +67,7 @@
         <li><a class="app-menu__item {{(Request::is('admin/reporter') OR \Request::is('admin/reporter/*'))? 'active': ''}}" href="{{route('admin.reporter')}}"><i class="app-menu__icon fa fa-tasks"></i><span class="app-menu__label">Reporter</span></a></li>
 
         <li><a class="app-menu__item {{(Request::is('admin/video') OR \Request::is('admin/video/*'))? 'active': ''}}" href="{{route('admin.video')}}"><i class="app-menu__icon fa fa-tasks"></i><span class="app-menu__label">URL Video</span></a></li>
-        <li><a class="app-menu__item {{(Request::is('admin/foto') OR \Request::is('admin/foto/*'))? 'active': ''}}" href="{{route('admin.foto')}}"><i class="app-menu__icon fa fa-tasks"></i><span class="app-menu__label">Foto</span></a></li>
+        <li><a class="app-menu__item {{(Request::is('admin/foto') OR \Request::is('admin/foto/*'))? 'active': ''}}" href="{{route('admin.foto')}}"><i class="app-menu__icon fa fa-tasks"></i><span class="app-menu__label">Galeri</span></a></li>
 
         {{-- <li><a class="app-menu__item {{(Request::is('admin/berita') OR \Request::is('admin/berita/*'))? 'active': ''}}" href="{{route('admin.berita')}}"><i class="app-menu__icon fa fa-newspaper-o"></i><span class="app-menu__label"> Berita</span></a></li> --}}
       </ul>

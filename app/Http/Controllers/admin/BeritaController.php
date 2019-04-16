@@ -38,6 +38,7 @@ class BeritaController extends Controller
         $berita = new Berita();
         $berita->fill($request->all());
         $berita['dilihat'] = '0';
+        $berita['reporter_id'] = '0';
         if($request->hasFile('gambar')){
             $upload = app('App\Helper\Images')->upload($request->file('gambar'), 'berita');
             $berita['gambar'] = $upload['url'];
