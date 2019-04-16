@@ -1,9 +1,9 @@
 <?php
 
-Route::get('/', 'admin\HomeController@index')->name('admin.home');
-Route::get('/login', 'admin\LoginController@form');
-Route::post('/login', 'admin\LoginController@login')->name('admin.login');
-Route::post('/logout', 'admin\LoginController@logout')->name('admin.logout');
+Route::get('/', 'Admin\HomeController@index')->name('admin.home');
+Route::get('/login', 'Admin\LoginController@form');
+Route::post('/login', 'Admin\LoginController@login')->name('admin.login');
+Route::post('/logout', 'Admin\LoginController@logout')->name('admin.logout');
 
 // Route::get('/gunung', 'Admin\GunungController@index')->name('admin.gunung');
 // Route::get('/gunung/publish', 'Admin\GunungController@publish')->name('admin.gunung.publish');
@@ -22,7 +22,6 @@ Route::post('/berita/tambah', 'Admin\BeritaController@store')->name('admin.berit
 Route::get('/berita/edit/{id}', 'Admin\BeritaController@edit')->name('admin.berita.edit');
 Route::put('/berita/update', 'Admin\BeritaController@update')->name('admin.berita.update');
 Route::delete('/berita/delete/{id}', 'Admin\BeritaController@delete')->name('admin.berita.delete');
-
 
 Route::get('/literasi', 'Admin\LiterasiController@index')->name('admin.literasi');
 Route::get('/literasi/publish', 'Admin\LiterasiController@publish')->name('admin.literasi.publish');
