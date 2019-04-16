@@ -51,7 +51,7 @@
     <!-- Sidebar menu-->
     <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
     <aside class="app-sidebar" style="background-color: {{env('THEME_COLOR_3')}}">
-      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="{{asset(env('APP_LOGO', 'https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg'))}}" alt="User Image" style="max-height: 64px; max-width: 64px">
+      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="{{asset(Auth::user()->foto)}}" alt="User Image" style="max-height: 64px; max-width: 64px">
         <div>
           <p class="app-sidebar__user-name">{{Auth::user()->nama}}</p>
 
@@ -66,6 +66,8 @@
 
         <li><a class="app-menu__item {{(Request::is('reporter/video') OR \Request::is('reporter/video/*'))? 'active': ''}}" href="{{route('reporter.video')}}"><i class="app-menu__icon fa fa-tasks"></i><span class="app-menu__label">URL Video</span></a></li>
         <li><a class="app-menu__item {{(Request::is('reporter/foto') OR \Request::is('reporter/foto/*'))? 'active': ''}}" href="{{route('reporter.foto')}}"><i class="app-menu__icon fa fa-tasks"></i><span class="app-menu__label">Galeri</span></a></li>
+
+        <li><a class="app-menu__item {{(Request::is('reporter/literasi') OR \Request::is('reporter/literasi/*'))? 'active': ''}}" href="{{route('reporter.literasi')}}"><i class="app-menu__icon fa fa-tasks"></i><span class="app-menu__label">Literasi</span></a></li>
 
         {{-- <li><a class="app-menu__item {{(Request::is('admin/berita') OR \Request::is('admin/berita/*'))? 'active': ''}}" href="{{route('admin.berita')}}"><i class="app-menu__icon fa fa-newspaper-o"></i><span class="app-menu__label"> Berita</span></a></li> --}}
       </ul>

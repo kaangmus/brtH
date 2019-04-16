@@ -7,7 +7,7 @@
     <div class="app-title">
         <div>
             <h1>{{env("APP_NAME")}}</h1>
-            <p>Tambah Berita</p>
+            <p>Literasi Edit</p>
         </div>
     </div>
 
@@ -15,24 +15,24 @@
         <div class="col-md-12">
 			<div class="tile">
 			  <div class="tile-body">
-				<form class="form-horizontal" id="submit-form" enctype="multipart/form-data" method="post" action="{{route('reporter.berita.store')}}">
-                {{ csrf_field() }}
-
+				<form class="form-horizontal" id="submit-form" enctype="multipart/form-data" method="post" action="{{route('reporter.literasi.update')}}">
+                {{ csrf_field() }} @method('put') <input type="hidden" name="id" value="{{$literasi->id}}">
                     <div class="row">
                         <div class="col-md-9 col-sm-12">
-                           <div class="form-group row">
-                                <label for="judul" class="col-sm-2 col-form-label">Judul Berita</label>
+                            <div class="form-group row">
+                                <label for="judul" class="col-sm-2 col-form-label">Judul literasi</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="judul" id="judul" placeholder="Judul Berita" value="{{old('judul')}}">
+                                    <input type="text" class="form-control" name="judul" id="judul" placeholder="Judul literasi" value="{{$literasi->judul}}">
                                     @if ($errors->has('judul'))
                                         <small class="form-text text-muted">{{ $errors->first('judul') }}</small>
                                     @endif
                                 </div>
+
                             </div>
                             <div class="form-group row">
-                                <label for="kategori" class="col-sm-2 col-form-label">Kategori Berita</label>
+                                <label for="kategori" class="col-sm-2 col-form-label">Kategori</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="kategori" id="kategori" placeholder="kategori Berita" value="{{old('kategori')}}">
+                                   <input type="text" class="form-control" name="kategori" id="kategori" placeholder="Judul literasi" value="{{$literasi->kategori}}">
                                     @if ($errors->has('kategori'))
                                         <small class="form-text text-muted">{{ $errors->first('kategori') }}</small>
                                     @endif
@@ -50,15 +50,21 @@
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-3">
-                            <img src="{{asset('images/thumbnail.svg')}}" style="max-height: 130px" class="rounded" alt="thumbnail" id="gambar">
+                            @if (!empty($literasi->gambar))
+                                <img src="{{asset($literasi->gambar)}}" style="max-height: 130px" class="rounded" alt="thumbnail" id="gambar">
+                            @else
+                                <img src="{{asset('images/thumbnail.svg')}}" style="max-height: 130px" class="rounded" alt="thumbnail" id="gambar">
+                            @endif
                         </div>
                     </div>
                     <hr>
                     <div class="row">
                         <div class="col-sm-12">
-                        <textarea id="summernote" name="berita">{{old('berita')}}</textarea>
+                        <textarea id="summernote" name="artikel">{{$literasi->artikel}}</textarea>
                     </div>
                     </div>
+
+                    <input type="hidden" name="redirect" value="{{url()->previous()}}">
 
 				</form>
 
@@ -66,9 +72,8 @@
 			  <div class="tile-footer">
 				<div class="row">
 				  <div class="col-md-8 col-md-offset-3">
-					<button class="btn btn-primary" onclick="event.preventDefault(); document.getElementById('submit-form').submit();"><i class="fa fa-fw fa-lg fa-check-circle"></i>Tambah</button>
+					<button class="btn btn-primary" onclick="event.preventDefault(); document.getElementById('submit-form').submit();"><i class="fa fa-fw fa-lg fa-check-circle"></i>Update</button>
 					<a class="btn btn-secondary" href="{{url()->previous()}}"><i class="fa fa-fw fa-lg fa-times-circle"></i>Batal</a>
-					{{-- <small class="form-text text-muted" id="jadwalhelp">Foto galeri diinputkan setelah nama gunung dan deskripsi gunung sudah ditambah</small> --}}
 				</div>
 				</div>
 			  </div>
@@ -85,11 +90,11 @@
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.js"></script>
-<script src="{{asset('js/plugins/select2.min.js')}}"></script>
+
 <script>
 $(document).ready(function() {
 $("#summernote").summernote({
-    placeholder: 'Isi Berita',
+    placeholder: 'Isi literasi',
         height: 300,
             callbacks: {
         onImageUpload : function(files, editor, welEditable) {
@@ -132,9 +137,5 @@ function fotoURl(input) {
         reader.readAsDataURL(input.files[0]);
     }
 }
-
-$(document).ready(function() {
-    $('.select2').select2();
-});
 </script>
 @endsection

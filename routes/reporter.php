@@ -14,6 +14,15 @@ Route::get('/berita/edit/{id}', 'Reporter\BeritaController@edit')->name('reporte
 Route::put('/berita/update', 'Reporter\BeritaController@update')->name('reporter.berita.update');
 Route::delete('/berita/delete/{id}', 'Reporter\BeritaController@delete')->name('reporter.berita.delete');
 
+Route::get('/literasi', 'Reporter\LiterasiController@index')->name('reporter.literasi');
+Route::get('/literasi/publish', 'Reporter\LiterasiController@publish')->name('reporter.literasi.publish');
+Route::get('/literasi/tambah', 'Reporter\LiterasiController@create')->name('reporter.literasi.create');
+Route::get('/literasi/show/{id}', 'Reporter\LiterasiController@show')->name('reporter.literasi.show');
+Route::post('/literasi/tambah', 'Reporter\LiterasiController@store')->name('reporter.literasi.store');
+Route::get('/literasi/edit/{id}', 'Reporter\LiterasiController@edit')->name('reporter.literasi.edit');
+Route::put('/literasi/update', 'Reporter\LiterasiController@update')->name('reporter.literasi.update');
+Route::delete('/literasi/delete/{id}', 'Reporter\LiterasiController@delete')->name('reporter.literasi.delete');
+
 Route::get('/video', 'Reporter\VideoController@index')->name('reporter.video');
 Route::get('/video/publish', 'Reporter\VideoController@publish')->name('reporter.video.publish');
 Route::get('/video/tambah', 'Reporter\VideoController@create')->name('reporter.video.create');

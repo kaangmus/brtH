@@ -23,6 +23,16 @@ Route::get('/berita/edit/{id}', 'Admin\BeritaController@edit')->name('admin.beri
 Route::put('/berita/update', 'Admin\BeritaController@update')->name('admin.berita.update');
 Route::delete('/berita/delete/{id}', 'Admin\BeritaController@delete')->name('admin.berita.delete');
 
+
+Route::get('/literasi', 'Admin\LiterasiController@index')->name('admin.literasi');
+Route::get('/literasi/publish', 'Admin\LiterasiController@publish')->name('admin.literasi.publish');
+Route::get('/literasi/tambah', 'Admin\LiterasiController@create')->name('admin.literasi.create');
+Route::get('/literasi/show/{id}', 'Admin\LiterasiController@show')->name('admin.literasi.show');
+Route::post('/literasi/tambah', 'Admin\LiterasiController@store')->name('admin.literasi.store');
+Route::get('/literasi/edit/{id}', 'Admin\LiterasiController@edit')->name('admin.literasi.edit');
+Route::put('/literasi/update', 'Admin\LiterasiController@update')->name('admin.literasi.update');
+Route::delete('/literasi/delete/{id}', 'Admin\LiterasiController@delete')->name('admin.literasi.delete');
+
 Route::get('/reporter', 'Admin\ReporterController@index')->name('admin.reporter');
 Route::get('/reporter/status', 'Admin\ReporterController@status')->name('admin.reporter.status');
 Route::get('/reporter/tambah', 'Admin\ReporterController@create')->name('admin.reporter.create');

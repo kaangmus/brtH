@@ -32,7 +32,7 @@
                             <div class="form-group row">
                                 <label for="kategori" class="col-sm-2 col-form-label">Kategori</label>
                                 <div class="col-sm-10">
-                                   <input type="text" class="form-control" name="kategori" id="kategori" placeholder="Judul Berita" value="{{$berita->judul}}">
+                                   <input type="text" class="form-control" name="kategori" id="kategori" placeholder="Judul Berita" value="{{$berita->kategori}}">
                                     @if ($errors->has('kategori'))
                                         <small class="form-text text-muted">{{ $errors->first('kategori') }}</small>
                                     @endif

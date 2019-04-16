@@ -7,7 +7,7 @@
     <div class="app-title">
         <div>
             <h1>{{env("APP_NAME")}}</h1>
-            <p>Manajemen Berita</p>
+            <p>Tambah Berita</p>
         </div>
     </div>
 
@@ -32,7 +32,7 @@
                             <div class="form-group row">
                                 <label for="kategori" class="col-sm-2 col-form-label">Kategori Berita</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="kategori" id="kategori" placeholder="kategori Berita" value="{{old('kategori')}}">
+                                    <input type="text" class="form-control" name="kategori" id="kategori" placeholder="Kategori Berita" value="{{old('kategori')}}">
                                     @if ($errors->has('kategori'))
                                         <small class="form-text text-muted">{{ $errors->first('kategori') }}</small>
                                     @endif

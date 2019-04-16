@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Reporter;
+namespace App\Http\Controllers\reporter;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Berita;
+use App\Models\Literasi;
+use File;
 
-class BeritaController extends Controller
+class LiterasiController extends Controller
 {
     public function __construct()
     {
@@ -15,39 +16,39 @@ class BeritaController extends Controller
     }
     public function index()
     {
-        $beritas = Berita::where('reporter_id', Auth::user()->id)->get();
-    	return view('reporter.berita', compact('beritas'));
+        $literasis = Literasi::where('reporter_id', Auth::user()->id)->get();
+    	return view('reporter.literasi', compact('literasis'));
     }
 
     public function create()
     {
-        return view('reporter.berita-tambah');
+        return view('reporter.literasi-tambah');
     }
     public function show($id)
     {
-        $berita = Berita::find($id);
-        return view('reporter.berita-show', compact('berita'));
+        $literasi = Literasi::find($id);
+        return view('reporter.literasi-show', compact('literasi'));
     }
     public function store(Request $request)
     {
         $this->validate($request, [
             'judul' => 'required|string|max:255',
-            'berita' => 'required|string',
+            'artikel' => 'required|string',
             'gambar' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         ]);
 
-        $berita = new Berita();
-        $berita->fill($request->all());
-        $berita['dilihat'] = '0';
-        $berita['reporter_id'] = Auth::user()->id;
+        $literasi = new Literasi();
+        $literasi->fill($request->all());
+        $literasi['dilihat'] = '0';
+        $literasi['reporter_id'] = Auth::user()->id;
         if($request->hasFile('gambar')){
-            $upload = app('App\Helper\Images')->upload($request->file('gambar'), 'berita');
-            $berita['gambar'] = $upload['url'];
+            $upload = app('App\Helper\Images')->upload($request->file('gambar'), 'literasi');
+            $literasi['gambar'] = $upload['url'];
         }
-        $berita->save();
+        $literasi->save();
 
-        if($berita){
-            return redirect(route('reporter.berita.show',['id'=> $berita->id]))
+        if($literasi){
+            return redirect(route('reporter.literasi.show',['id'=> $literasi->id]))
             ->with(['alert'=> "'title':'Berhasil','text':'Data Berhasil Disimpan', 'icon':'success','buttons': false, 'timer': 1200"]);
         }else{
             return back()
@@ -57,40 +58,40 @@ class BeritaController extends Controller
     }
     public function edit($id)
     {
-        $berita = Berita::findOrFail($id);
-        return view('reporter.berita-edit', compact('berita'));
+        $literasi = Literasi::findOrFail($id);
+        return view('reporter.literasi-edit', compact('literasi'));
     }
     public function publish()
     {
-        $berita = Berita::find($_GET['id']);
-        if ($berita->publish == 'Public') {
-            $berita['publish'] = 'Private';
+        $literasi = Literasi::find($_GET['id']);
+        if ($literasi->publish == 'Public') {
+            $literasi['publish'] = 'Private';
         }else{
-            $berita['publish'] = 'Public';
+            $literasi['publish'] = 'Public';
         }
-        $berita->save();
-        return response(['kode'=> '00', 'publish' => $berita->publish]);
+        $literasi->save();
+        return response(['kode'=> '00', 'publish' => $literasi->publish]);
     }
     public function update(Request $request)
     {
         $this->validate($request, [
             'judul' => 'required|string|max:255',
-            'berita' => 'required|string',
+            'artikel' => 'required|string',
             'gambar' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         ]);
 
-        $berita =Berita::findOrFail($request->id);
-        $berita->fill($request->all());
+        $literasi =Literasi::findOrFail($request->id);
+        $literasi->fill($request->all());
         if($request->hasFile('gambar')){
-            $beritad =Berita::findOrFail($request->id);
-            File::delete($beritad->gambar);
+            $literasid =Literasi::findOrFail($request->id);
+            File::delete($literasid->gambar);
 
-            $upload = app('App\Helper\Images')->upload($request->file('gambar'), 'berita');
-            $berita['gambar'] = $upload['url'];
+            $upload = app('App\Helper\Images')->upload($request->file('gambar'), 'literasi');
+            $literasi['gambar'] = $upload['url'];
         }
-        $berita->save();
+        $literasi->save();
 
-        if($berita){
+        if($literasi){
             return redirect($request->redirect)
             ->with(['alert'=> "'title':'Berhasil','text':'Data Berhasil Disimpan', 'icon':'success','buttons': false, 'timer': 1200"]);
         }else{
@@ -101,10 +102,10 @@ class BeritaController extends Controller
     }
     public function delete($id)
     {
-        $berita = Berita::findOrFail($id);
-        if (!empty($berita)) {
-            File::delete($berita->gambar);
-            $berita->delete();
+        $literasi = Literasi::findOrFail($id);
+        if (!empty($literasi)) {
+            File::delete($literasi->gambar);
+            $literasi->delete();
             return response()->json(['kode'=>'00'], 200);
         }else{
             return response()->json(['kode'=>'01'], 200);

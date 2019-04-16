@@ -7,7 +7,7 @@
     <div class="app-title">
         <div>
             <h1>{{env("APP_NAME")}}</h1>
-            <p>Tambah Berita</p>
+            <p>Tambah Literasi</p>
         </div>
     </div>
 
@@ -15,24 +15,24 @@
         <div class="col-md-12">
 			<div class="tile">
 			  <div class="tile-body">
-				<form class="form-horizontal" id="submit-form" enctype="multipart/form-data" method="post" action="{{route('reporter.berita.store')}}">
+				<form class="form-horizontal" id="submit-form" enctype="multipart/form-data" method="post" action="{{route('admin.literasi.store')}}">
                 {{ csrf_field() }}
 
                     <div class="row">
                         <div class="col-md-9 col-sm-12">
                            <div class="form-group row">
-                                <label for="judul" class="col-sm-2 col-form-label">Judul Berita</label>
+                                <label for="judul" class="col-sm-2 col-form-label">Judul Literasi</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="judul" id="judul" placeholder="Judul Berita" value="{{old('judul')}}">
+                                    <input type="text" class="form-control" name="judul" id="judul" placeholder="Judul Literasi" value="{{old('judul')}}">
                                     @if ($errors->has('judul'))
                                         <small class="form-text text-muted">{{ $errors->first('judul') }}</small>
                                     @endif
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="kategori" class="col-sm-2 col-form-label">Kategori Berita</label>
+                                <label for="kategori" class="col-sm-2 col-form-label">Kategori Literasi</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="kategori" id="kategori" placeholder="kategori Berita" value="{{old('kategori')}}">
+                                    <input type="text" class="form-control" name="kategori" id="kategori" placeholder="Kategori literasi" value="{{old('kategori')}}">
                                     @if ($errors->has('kategori'))
                                         <small class="form-text text-muted">{{ $errors->first('kategori') }}</small>
                                     @endif
@@ -46,7 +46,6 @@
                                         <small class="form-text text-muted">{{ $errors->first('gambar') }}</small>
                                     @endif
                                 </div>
-
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-3">
@@ -56,7 +55,7 @@
                     <hr>
                     <div class="row">
                         <div class="col-sm-12">
-                        <textarea id="summernote" name="berita">{{old('berita')}}</textarea>
+                        <textarea id="summernote" name="artikel">{{old('artikel')}}</textarea>
                     </div>
                     </div>
 
@@ -89,7 +88,7 @@
 <script>
 $(document).ready(function() {
 $("#summernote").summernote({
-    placeholder: 'Isi Berita',
+    placeholder: 'Isi Artikel',
         height: 300,
             callbacks: {
         onImageUpload : function(files, editor, welEditable) {
