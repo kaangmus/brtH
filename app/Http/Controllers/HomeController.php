@@ -10,7 +10,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-        dd("loading");
         // app('App\Models\Video')->ThumbnailYoutube('https://www.youtube.com/embed/_RKpOywgr_I&feature=push-u-sub&attr_tag=JEJtVfz06BmE5NbX%3A6');
         $videos = Video::where('publish', 'Public')->orderBy('created_at', 'DESC')->limit(10)->get();
         $beritas = Berita::where('publish', 'Public')->orderBy('created_at', 'DESC')->limit(10)->get();

@@ -178,7 +178,7 @@
                                                                 <!-- Post Content -->
                                                                 <div class="post-content">
                                                                     <a href="#" class="headline">
-                                                                        <h5>{{$videos[1]->judul}}</h5>
+                                                                        <h5>Vidio</h5>
                                                                     </a>
                                                                     <!-- Post Meta -->
                                                                     <div class="post-meta">
