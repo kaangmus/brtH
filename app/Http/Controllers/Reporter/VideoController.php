@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Reporter;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Berita;
 use App\Models\Video;
 
 class VideoController extends Controller
