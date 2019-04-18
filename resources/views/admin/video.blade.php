@@ -33,10 +33,18 @@
                         <tbody>
                             @foreach ($videos as $video)
                             <tr>
-                                <td>{{$video->judul}}</td>
+                                <td>
+                                    <div class="media">
+                                        <img src="{{app('App\Models\Video')->gambarkecil($video->url)}}" class="leading mr-3" alt="..." style="width: 64px">
+                                        <div class="media-body">
+                                            <b>{{$video->judul}}</b><br>
+                                            <small>{{hari_tanggal_waktu($video->created_at, true)}}</small>
+                                        </div>
+                                    </div>
+                                </td>
                                 <td class="text-center">{{$video->publish}}</td>
                                 <td class="text-center">
-                                <a href="{{route('admin.video.show',['id'=>$video->id])}}" class="btn btn-sm btn-default">Detail</a>
+                                <a href="{{route('admin.video.show',['id'=>$video->id])}}" class="btn btn-sm btn-primary">Detail</a>
                                 <a class="btn btn-light btn-sm" href="{{route('admin.video.edit', ['id'=> $video->id])}}">
                                         <i class="fa fa-edit"></i>Edit</a>
 

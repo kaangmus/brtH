@@ -17,11 +17,61 @@ class Video extends Model
         return $this->belongsTo(Reporter::class, 'reporter_id', 'id');
     }
 
-    public function ThumbnailYoutube($url)
+    public function idyoutube($url)
     {
-        dd(\explode("/", $url)[4]);
-        // $thumnail = "https://i.ytimg.com/vi/url/mqdefault.jpg";
-        // $thumnail = str_replace('url', ,$thumnail);
-        # code...
+        if (strpos($url, 'embed')){
+            $url = explode("/", $url)[4];
+        }elseif (strpos($url, 'watch?v=')) {
+            $url = explode("watch?v=", $url)[1];
+        }else{
+            $url = $url;
+        }
+
+        return $url;
     }
+    public function watch($idyoutube)
+    {
+        $url = "https://www.youtube.com/watch?v=".$idyoutube;
+        return $url;
+    }
+
+    public function embed($idyoutube)
+    {
+        $url = "https://www.youtube.com/embed/".$idyoutube;
+        return $url;
+    }
+
+    public function gambarkecil($url)
+    {
+        $get = "https://i1.ytimg.com/vi/idyoutube/sddefault.jpg ";
+        $thumbnail = str_replace("idyoutube",$url,$get);
+        return $thumbnail;
+    }
+    public function gambarbesar($url)
+    {
+        $get = "https://i1.ytimg.com/vi/idyoutube/maxresdefault.jpg ";
+        $thumbnail = str_replace("idyoutube",$url,$get);
+        return $thumbnail;
+    }
+    public function gambarmedium($url)
+    {
+        $get = "https://i1.ytimg.com/vi/idyoutube/mqdefault.jpg ";
+        $thumbnail = str_replace("idyoutube",$url,$get);
+        return $thumbnail;
+    }
+
+    // | Thumbnail Name      | Size (px) | URL                                              |
+    // |---------------------|-----------|--------------------------------------------------|
+    // | Player Background   | 480x360   | https://i1.ytimg.com/vi/<VIDEO ID>/0.jpg         |
+    // | Start               | 120x90    | https://i1.ytimg.com/vi/<VIDEO ID>/1.jpg         |
+    // | Middle              | 120x90    | https://i1.ytimg.com/vi/<VIDEO ID>/2.jpg         |
+    // | End                 | 120x90    | https://i1.ytimg.com/vi/<VIDEO ID>/3.jpg         |
+    // | High Quality        | 480x360   | https://i1.ytimg.com/vi/<VIDEO ID>/hqdefault.jpg |
+    // | Medium Quality      | 320x180   | https://i1.ytimg.com/vi/<VIDEO ID>/mqdefault.jpg |
+    // | Normal Quality      | 120x90    | https://i1.ytimg.com/vi/<VIDEO ID>/default.jpg   |
+
+    // | Thumbnail Name      | Size (px) | URL                                                  |
+    // |---------------------|-----------|------------------------------------------------------|
+    // | Standard Definition | 640x480   | https://i1.ytimg.com/vi/<VIDEO ID>/sddefault.jpg     |
+    // | Maximum Resolution  | 1920x1080 | https://i1.ytimg.com/vi/<VIDEO ID>/maxresdefault.jpg |
 }

@@ -66,7 +66,7 @@
 
         <li><a class="app-menu__item {{(Request::is('admin/reporter') OR \Request::is('admin/reporter/*'))? 'active': ''}}" href="{{route('admin.reporter')}}"><i class="app-menu__icon fa fa-tasks"></i><span class="app-menu__label">Reporter</span></a></li>
 
-        <li><a class="app-menu__item {{(Request::is('admin/video') OR \Request::is('admin/video/*'))? 'active': ''}}" href="{{route('admin.video')}}"><i class="app-menu__icon fa fa-tasks"></i><span class="app-menu__label">URL Video</span></a></li>
+        <li><a class="app-menu__item {{(Request::is('admin/video') OR \Request::is('admin/video/*'))? 'active': ''}}" href="{{route('admin.video')}}"><i class="app-menu__icon fa fa-tasks"></i><span class="app-menu__label">URL YouTube</span></a></li>
         <li><a class="app-menu__item {{(Request::is('admin/foto') OR \Request::is('admin/foto/*'))? 'active': ''}}" href="{{route('admin.foto')}}"><i class="app-menu__icon fa fa-tasks"></i><span class="app-menu__label">Galeri</span></a></li>
 
         <li><a class="app-menu__item {{(Request::is('admin/literasi') OR \Request::is('admin/literasi/*'))? 'active': ''}}" href="{{route('admin.literasi')}}"><i class="app-menu__icon fa fa-tasks"></i><span class="app-menu__label">Literasi</span></a></li>

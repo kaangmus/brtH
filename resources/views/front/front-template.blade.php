@@ -92,9 +92,9 @@
         <!-- Hero Slides Area -->
         <div class="hero-slides owl-carousel">
             <!-- Single Slide -->
-            <div class="single-hero-slide bg-img background-overlay" style="background-image: url({{asset('front/img/blog-img/bg2.jpg')}});"></div>
-            <!-- Single Slide -->
-            <div class="single-hero-slide bg-img background-overlay" style="background-image: url({{asset('front/img/blog-img/bg1.jpg')}});"></div>
+            @foreach ($videos as $i => $video)
+            <div class="single-hero-slide bg-img background-overlay" style="background-image: url({{app('App\Models\Video')->gambarbesar($video->url)}});"></div>
+            @endforeach
         </div>
 
         <!-- Hero Post Slide -->
@@ -104,41 +104,17 @@
                     <div class="col-12">
                         <div class="hero-post-slide">
                             <!-- Single Slide -->
+                            @foreach ($videos as $i => $video)
                             <div class="single-slide d-flex align-items-center">
                                 <div class="post-number">
-                                    <p>1</p>
+                                    <p>{{$i+1}}</p>
                                 </div>
                                 <div class="post-title">
-                                    <a href="#">How Did van Gogh’s Turbulent Mind Depict One of the Most Complex</a>
+                                    <a href="#">{{$video->judul}}</a>
                                 </div>
                             </div>
-                            <!-- Single Slide -->
-                            <div class="single-slide d-flex align-items-center">
-                                <div class="post-number">
-                                    <p>2</p>
-                                </div>
-                                <div class="post-title">
-                                    <a href="#">How Did van Gogh’s Turbulent Mind Depict One of the Most Complex</a>
-                                </div>
-                            </div>
-                            <!-- Single Slide -->
-                            <div class="single-slide d-flex align-items-center">
-                                <div class="post-number">
-                                    <p>3</p>
-                                </div>
-                                <div class="post-title">
-                                    <a href="#">How Did van Gogh’s Turbulent Mind Depict One of the Most Complex</a>
-                                </div>
-                            </div>
-                            <!-- Single Slide -->
-                            <div class="single-slide d-flex align-items-center">
-                                <div class="post-number">
-                                    <p>4</p>
-                                </div>
-                                <div class="post-title">
-                                    <a href="#">How Did van Gogh’s Turbulent Mind Depict One of the Most Complex</a>
-                                </div>
-                            </div>
+                            @endforeach
+
                         </div>
                     </div>
                 </div>
@@ -158,9 +134,9 @@
                         <a href="#"><img src="{{asset('front/img/core-img/logo.png')}}" alt=""></a>
                         <div class="copywrite-text mt-30">
                             <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com/" target="_blank">Colorlib</a>
-<p>Proudly distributed by <a href="https://themewagon.com/" target="_blank">ThemeWagon</a></p>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com/" target="_blank">Colorlib</a>
+                            <p>Proudly distributed by <a href="https://themewagon.com/" target="_blank">ThemeWagon</a></p>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                         </div>
                     </div>
                 </div>

@@ -36,9 +36,7 @@ class VideoController extends Controller
 
         $video = new Video();
         $video->fill($request->all());
-        if (strpos($request->url, 'watch?v=') !== false) {
-            $video['url'] = str_replace("watch?v=","embed/",$request->url);
-        }
+        $video['url'] = app('App\Models\Video')->idyoutube($request->url);
         $video['dilihat'] = '0';
         $video->save();
 
@@ -76,9 +74,7 @@ class VideoController extends Controller
 
         $video =Video::findOrFail($request->id);
         $video->fill($request->all());
-        if (strpos($request->url, 'watch?v=') !== false) {
-            $video['url'] = str_replace("watch?v=","embed/",$request->url);
-        }
+        $video['url'] = app('App\Models\Video')->idyoutube($request->url);
         $video->save();
 
         if($video){

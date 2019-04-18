@@ -4,6 +4,79 @@
 @endsection
 @section('content')
 
+<div class="main-content-wrapper section-padding-100" style="padding-bottom: 0px">
+    <div class="container">
+        <div class="row justify-content-center">
+                <div class="world-catagory-slider2 owl-carousel wow fadeInUpBig" data-wow-delay="0.4s">
+                        <!-- ========= Single Catagory Slide ========= -->
+                        <div class="single-cata-slide">
+                            <div class="row">
+                                @foreach ($videos as $i => $video)
+                                @if ($i<4)
+                                <div class="col-12 col-md-4 col-lg-3">
+                                        <div class="single-blog-post wow fadeInUpBig" data-wow-delay="0.2s">
+                                                <!-- Post Thumbnail -->
+                                            <div class="post-thumbnail">
+                                                <img src="{{app('App\Models\Video')->gambarmedium($video->url)}}" alt="">
+                                                <!-- Catagory -->
+                                                {{-- <div class="post-cta"><a href="#">travel</a></div> --}}
+                                                <!-- Video Button -->
+                                                <a href="{{app('App\Models\Video')->watch($video->url)}}" class="video-btn"><i class="fa fa-play"></i></a>
+                                            </div>
+                                            <!-- Post Content -->
+                                            <div class="post-content">
+                                                <a href="#" class="headline">
+                                                    <h5>{{$video->judul}}</h5>
+                                                </a>
+                                                {{-- <p>How Did van Gogh’s Turbulent Mind Depict One of the Most Complex Concepts in...</p> --}}
+                                                <!-- Post Meta -->
+                                                <div class="post-meta">
+                                                    <p><a href="#" class="post-author">{{$video->reporter_id != 0 ? $video->reporter->nama : 'Admin'}}</a> on <a href="#" class="post-date">{{hari_tanggal_waktu($video->created_at, true)}}</a></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                                @endif
+                                @endforeach
+                            </div>
+                        </div>
+                        <!-- ========= Single Catagory Slide ========= -->
+                        <div class="single-cata-slide">
+                            <div class="row">
+                                    @foreach ($videos as $i => $video)
+                                    @if ($i>3 && $i<8)
+                                    <div class="col-12 col-md-4 col-lg-3">
+                                            <div class="single-blog-post wow fadeInUpBig" data-wow-delay="0.2s">
+                                                    <!-- Post Thumbnail -->
+                                                <div class="post-thumbnail">
+                                                    <img src="{{app('App\Models\Video')->gambarmedium($video->url)}}" alt="">
+                                                    <!-- Catagory -->
+                                                    {{-- <div class="post-cta"><a href="#">travel</a></div> --}}
+                                                    <!-- Video Button -->
+                                                    <a href="{{app('App\Models\Video')->watch($video->url)}}" class="video-btn"><i class="fa fa-play"></i></a>
+                                                </div>
+                                                <!-- Post Content -->
+                                                <div class="post-content">
+                                                    <a href="#" class="headline">
+                                                        <h5>{{$video->judul}}</h5>
+                                                    </a>
+                                                    {{-- <p>How Did van Gogh’s Turbulent Mind Depict One of the Most Complex Concepts in...</p> --}}
+                                                    <!-- Post Meta -->
+                                                    <div class="post-meta">
+                                                        <p><a href="#" class="post-author">{{$video->reporter_id != 0 ? $video->reporter->nama : 'Admin'}}</a> on <a href="#" class="post-date">{{hari_tanggal_waktu($video->created_at, true)}}</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </div>
+                                    @endif
+                                    @endforeach
+                            </div>
+                        </div>
+                </div>
+        </div>
+    </div>
+</div>
+
 <div class="main-content-wrapper section-padding-100">
         <div class="container">
             <div class="row justify-content-center">

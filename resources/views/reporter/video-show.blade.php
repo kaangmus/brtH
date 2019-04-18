@@ -21,9 +21,7 @@
                     <div class="text-center">
                         <h3>{{$video->judul}}</h3>
                     </div>
-                    @if (strpos($video->url, 'www.youtube.com'))
-                        <div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" src="{{$video->url}}" allowfullscreen></iframe></div>
-                    @endif
+                    <div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" src="{{app('App\Models\Video')->embed($video->url)}}" allowfullscreen></iframe></div>
             <div class="tile-footer">
                 Terakhir diupdate {{hari_tanggal_waktu($video->updated_at, true)}}
 
