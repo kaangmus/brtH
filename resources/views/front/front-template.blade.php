@@ -47,28 +47,6 @@
                                 <li class="nav-item active">
                                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                                 </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="#">Home</a>
-                                        <a class="dropdown-item" href="#">Catagory</a>
-                                        <a class="dropdown-item" href="#">Single Blog</a>
-                                        <a class="dropdown-item" href="#">Regular Page</a>
-                                        <a class="dropdown-item" href="#">Contact</a>
-                                    </div>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Gadgets</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Lifestyle</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Video</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Contact</a>
-                                </li>
                             </ul>
                             <!-- Search Form  -->
                             <div id="search-wrapper">
@@ -85,43 +63,6 @@
         </div>
     </header>
     <!-- ***** Header Area End ***** -->
-
-    <!-- ********** Hero Area Start ********** -->
-    <div class="hero-area">
-
-        <!-- Hero Slides Area -->
-        <div class="hero-slides owl-carousel">
-            <!-- Single Slide -->
-            @foreach ($videos as $i => $video)
-            <div class="single-hero-slide bg-img background-overlay" style="background-image: url({{app('App\Models\Video')->gambarbesar($video->url)}});"></div>
-            @endforeach
-        </div>
-
-        <!-- Hero Post Slide -->
-        <div class="hero-post-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="hero-post-slide">
-                            <!-- Single Slide -->
-                            @foreach ($videos as $i => $video)
-                            <div class="single-slide d-flex align-items-center">
-                                <div class="post-number">
-                                    <p>{{$i+1}}</p>
-                                </div>
-                                <div class="post-title">
-                                    <a href="#">{{$video->judul}}</a>
-                                </div>
-                            </div>
-                            @endforeach
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ********** Hero Area End ********** -->
 
     @yield('content')
 

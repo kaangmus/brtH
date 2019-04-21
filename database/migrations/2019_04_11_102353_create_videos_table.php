@@ -21,6 +21,7 @@ class CreateVideosTable extends Migration
             $table->string('kategori')->nullable();
             $table->enum('publish', ['Public', 'Hidden'])->default('Hidden');
             $table->integer('dilihat');
+            $table->string('thumbnail');
             $table->longText('data')->nullable();
             $table->timestamps();
         });

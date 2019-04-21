@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Video extends Model
 {
     protected $fillable = [
-        'reporter_id','judul','url','kategori','publish','dilihat','data'
+        'reporter_id','judul','url','kategori','publish','dilihat','data', 'thumbnail'
     ];
     protected $casts = [
         'data' => 'array'
@@ -43,7 +43,7 @@ class Video extends Model
 
     public function gambarkecil($url)
     {
-        $get = "https://i1.ytimg.com/vi/idyoutube/sddefault.jpg ";
+        $get = "https://i1.ytimg.com/vi/idyoutube/1.jpg ";
         $thumbnail = str_replace("idyoutube",$url,$get);
         return $thumbnail;
     }

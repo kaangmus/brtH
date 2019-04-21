@@ -15,11 +15,11 @@
         <div class="col-md-12">
 			<div class="tile">
 			  <div class="tile-body">
-				<form class="form-horizontal" id="submit-form" method="post" action="{{route('admin.video.store')}}">
+				<form class="form-horizontal"  enctype="multipart/form-data"  id="submit-form" method="post" action="{{route('admin.video.store')}}">
                 {{ csrf_field() }}
 
                     <div class="row">
-                        <div class="col-sm-12">
+                        <div class="col-sm-12 col-md-9">
                            <div class="form-group row">
                                 <label for="judul" class="col-sm-2 col-form-label">Judul Video</label>
                                 <div class="col-sm-10">
@@ -38,6 +38,19 @@
                                     @endif
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <label for="thumbnail" class="col-sm-2 col-form-label">Thumbnail</label>
+                                <div class="col-sm-10">
+                                    <input type="file" class="form-control" onchange="fotoURl(this)" name="thumbnail" id="thumbnail" >
+                                    @if ($errors->has('thumbnail'))
+                                        <small class="form-text text-muted">{{ $errors->first('thumbnail') }}</small>
+                                    @endif
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-3">
+                            <img src="{{asset('images/thumbnail.svg')}}" style="max-height: 130px" class="rounded" alt="thumbnail" id="gambar">
                         </div>
                     </div>
 				</form>
@@ -61,4 +74,16 @@
 @endsection
 
 @section('script')
+<script>
+
+function fotoURl(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#gambar').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+</script>
 @endsection

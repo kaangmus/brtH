@@ -38,6 +38,10 @@ class VideoController extends Controller
         $video->fill($request->all());
         $video['url'] = app('App\Models\Video')->idyoutube($request->url);
         $video['dilihat'] = '0';
+        if($request->hasFile('thumbnail')){
+            $upload = app('App\Helper\Images')->upload($request->file('thumbnail'), 'video');
+            $video['thumbnail'] = $upload['url'];
+        }
         $video->save();
 
         if($video){
@@ -75,6 +79,10 @@ class VideoController extends Controller
         $video =Video::findOrFail($request->id);
         $video->fill($request->all());
         $video['url'] = app('App\Models\Video')->idyoutube($request->url);
+        if($request->hasFile('thumbnail')){
+            $upload = app('App\Helper\Images')->upload($request->file('thumbnail'), 'video');
+            $video['thumbnail'] = $upload['url'];
+        }
         $video->save();
 
         if($video){
