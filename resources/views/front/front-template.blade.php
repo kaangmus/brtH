@@ -38,7 +38,7 @@
                 <div class="col-12">
                     <nav class="navbar navbar-expand-lg">
                         <!-- Logo -->
-                        <a class="navbar-brand" href="#"><img src="{{asset(env('APP_LOGO'))}}" style="max-width:150px" alt="Logo"></a>
+                        <a class="navbar-brand" href="{{url('')}}"><img src="{{asset(env('APP_LOGO'))}}" style="max-width:150px" alt="Logo"></a>
                         <!-- Navbar Toggler -->
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#worldNav" aria-controls="worldNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                         <!-- Navbar -->

@@ -12,6 +12,12 @@
 */
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/berita/{id}', 'HomeController@beritasingle')->name('berita.single');
+Route::get('/literasi/{id}', 'HomeController@literasisingle')->name('literasi.single');
+Route::get('/video/{id}', 'HomeController@videosingle')->name('video.single');
+
+Route::get('/berita-all', 'HomeController@beritalist')->name('berita.list');
+Route::get('/literasi-all', 'HomeController@literasilist')->name('literasi.list');
+Route::get('/video-all', 'HomeController@videolist')->name('literasi.list');
 
 Route::post('/upload/gambar', 'ImagesController@upload')->name('upload.gambar');
 Route::post('/galeri/store', 'ImagesController@store')->name('galeri.store');

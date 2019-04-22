@@ -60,6 +60,14 @@ class Video extends Model
         return $thumbnail;
     }
 
+    public function viewyoutube($url)
+    {
+        $JSON = file_get_contents("https://gdata.youtube.com/feeds/api/videos/{$url}?v=2&alt=json");
+        $JSON_Data = json_decode($JSON);
+        $views = $JSON_Data->{'entry'}->{'yt$statistics'}->{'viewCount'};
+        return $views;
+    }
+
     // | Thumbnail Name      | Size (px) | URL                                              |
     // |---------------------|-----------|--------------------------------------------------|
     // | Player Background   | 480x360   | https://i1.ytimg.com/vi/<VIDEO ID>/0.jpg         |

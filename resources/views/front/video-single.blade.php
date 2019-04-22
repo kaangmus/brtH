@@ -5,14 +5,13 @@
 @section('content')
 
     <!-- ********** Hero Area Start ********** -->
-    <div class="hero-area height-600 bg-img background-overlay" style="background-image: url({{asset($berita->gambar)}});">
+    <div class="hero-area height-600 bg-img background-overlay" style="background-image: url({{asset($video->thumbnail)}});">
         <div class="container h-100">
             <div class="row h-100 align-items-center justify-content-center">
                 <div class="col-12 col-md-8 col-lg-6">
                     <div class="single-blog-title text-center">
                         <!-- Catagory -->
-                        <div class="post-cta"><a href="#">{{$berita->kategori}}</a></div>
-                        <h3>{{$berita->judul}}</h3>
+                        <h3>{{$video->judul}}</h3>
                     </div>
                 </div>
             </div>
@@ -28,12 +27,10 @@
                     <div class="single-blog-content mb-100">
                         <!-- Post Meta -->
                         <div class="post-meta">
-                            <p><a href="#" class="post-author">{{$berita->reporter_id != 0 ? $berita->reporter->nama : 'Admin'}}</a> on <a href="#" class="post-date">{{hari_tanggal_waktu($berita->created_at, true)}}</a></p>
+                            <p><a href="#" class="post-author">{{$video->reporter_id != 0 ? $video->reporter->nama : 'Admin'}}</a> on <a href="#" class="post-date">{{hari_tanggal_waktu($video->created_at, true)}}</a></p>
                         </div>
                         <!-- Post Content -->
-                        <div class="post-content">
-                            {!!$berita->berita!!}
-                        </div>
+                        <div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" src="{{app('App\Models\Video')->embed($video->url)}}" allowfullscreen></iframe></div>
                         
                     </div>
                 </div>
@@ -44,22 +41,22 @@
                         
                         <!-- Widget Area -->
                         <div class="sidebar-widget-area">
-                            <h5 class="title">Top Berita</h5>
+                            <h5 class="title">Top Video</h5>
                             <div class="widget-content">
                                 <!-- Single Blog Post -->
                                 <div class="sidebar-widget-area">
-                                    <h5 class="title">Berita Terpopuler</h5>
+                                    <h5 class="title">Video Terpopuler</h5>
                                     <div class="widget-content">
-                                        @foreach ($beritavs as $beritav)
+                                        @foreach ($videovs as $videov)
                                         <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
                                             <!-- Post Thumbnail -->
                                             <div class="post-thumbnail">
-                                                <img src="{{asset($beritav->gambar)}}" alt="">
+                                                <img src="{{asset($videov->thumbnail)}}" alt="">
                                             </div>
                                             <!-- Post Content -->
                                             <div class="post-content">
-                                                <a href="{{url('berita/'.$beritav->id)}}" class="headline">
-                                                    <h5 class="mb-0">{{$beritav->judul}}</h5>
+                                                <a href="{{url('video/'.$videov->id)}}" class="headline">
+                                                    <h5 class="mb-0">{{$videov->judul}}</h5>
                                                 </a>
                                             </div>
                                         </div>
@@ -71,7 +68,7 @@
                         </div>
                         <!-- Widget Area -->
                         <div class="sidebar-widget-area">
-                            <h5 class="title">Bagikan Artikel Ini</h5>
+                            <h5 class="title">Bagikan Video Ini</h5>
                             <div class="widget-content">
                                 <div class="social-area d-flex justify-content-between">
                                     <a href="#"><i class="fa fa-facebook"></i></a>
@@ -86,39 +83,6 @@
                         
                     </div>
                 </div>
-            </div>
-
-            <!-- ============== Related Post ============== -->
-            <div class="row">
-
-                @foreach ($videos as $video)
-                <div class="col-12 col-md-6 col-lg-4">
-                    <!-- Single Blog Post -->
-                    <div class="single-blog-post">
-                        <!-- Post Thumbnail -->
-                        <div class="post-thumbnail">
-                            <a href="{{url('video/'.$video->id)}}">
-                            <img src="{{app('App\Models\Video')->gambarmedium($video->url)}}" alt="">
-                            </a>
-                            <!-- Catagory -->
-                            {{-- <a href="{{app('App\Models\Video')->watch($video->url)}}" class="video-btn"><i class="fa fa-play"></i></a> --}}
-                        </div>
-                        <!-- Post Content -->
-                        <div class="post-content">
-                            <a href="{{url('video/'.$video->id)}}" class="headline">
-                                <h5>{{$video->judul}}</h5>
-                            </a>
-                            {{-- <p>How Did van Gogh’s Turbulent Mind Depict One of the Most Complex Concepts in...</p> --}}
-                            <!-- Post Meta -->
-                            <div class="post-meta">
-                                <p><a href="#" class="post-author">{{$video->reporter_id != 0 ? $video->reporter->nama : 'Admin'}}</a> on <a href="#" class="post-date">{{hari_tanggal_waktu($video->created_at, true)}}</a></p>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
-                
             </div>
 
         </div>

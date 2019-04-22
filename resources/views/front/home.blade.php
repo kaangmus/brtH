@@ -28,7 +28,7 @@
                                     <p>{{$i+1}}</p>
                                 </div>
                                 <div class="post-title">
-                                    <a href="#">{{$video->judul}}</a>
+                                    <a href="{{url('video/'.$video->id)}}">{{$video->judul}}</a>
                                 </div>
                             </div>
                             @endforeach
@@ -56,15 +56,17 @@
                                         <div class="single-blog-post wow fadeInUpBig" data-wow-delay="0.2s">
                                                 <!-- Post Thumbnail -->
                                             <div class="post-thumbnail">
-                                                <img src="{{app('App\Models\Video')->gambarmedium($video->url)}}" alt="">
+                                                <a href="{{url('video/'.$video->id)}}">
+                                                    <img src="{{app('App\Models\Video')->gambarmedium($video->url)}}" alt="">
                                                 <!-- Catagory -->
                                                 {{-- <div class="post-cta"><a href="#">travel</a></div> --}}
                                                 <!-- Video Button -->
-                                                <a href="{{app('App\Models\Video')->watch($video->url)}}" class="video-btn"><i class="fa fa-play"></i></a>
+                                                {{-- <a href="{{app('App\Models\Video')->watch($video->url)}}" class="video-btn"><i class="fa fa-play"></i></a> --}}
+                                                </a>
                                             </div>
                                             <!-- Post Content -->
                                             <div class="post-content">
-                                                <a href="#" class="headline">
+                                                <a href="{{url('video/'.$video->id)}}" class="headline">
                                                     <h5>{{$video->judul}}</h5>
                                                 </a>
                                                 {{-- <p>How Did van Gogh’s Turbulent Mind Depict One of the Most Complex Concepts in...</p> --}}
@@ -89,15 +91,17 @@
                                             <div class="single-blog-post wow fadeInUpBig" data-wow-delay="0.2s">
                                                     <!-- Post Thumbnail -->
                                                 <div class="post-thumbnail">
+                                                <a href="{{url('video/'.$video->id)}}">
                                                     <img src="{{app('App\Models\Video')->gambarmedium($video->url)}}" alt="">
                                                     <!-- Catagory -->
                                                     {{-- <div class="post-cta"><a href="#">travel</a></div> --}}
                                                     <!-- Video Button -->
-                                                    <a href="{{app('App\Models\Video')->watch($video->url)}}" class="video-btn"><i class="fa fa-play"></i></a>
+                                                    {{-- <a href="{{app('App\Models\Video')->watch($video->url)}}" class="video-btn"><i class="fa fa-play"></i></a> --}}
+                                                </a>
                                                 </div>
                                                 <!-- Post Content -->
                                                 <div class="post-content">
-                                                    <a href="#" class="headline">
+                                                    <a href="{{url('video/'.$video->id)}}" class="headline">
                                                         <h5>{{$video->judul}}</h5>
                                                     </a>
                                                     {{-- <p>How Did van Gogh’s Turbulent Mind Depict One of the Most Complex Concepts in...</p> --}}
@@ -119,96 +123,189 @@
 </div>
 
 <div class="main-content-wrapper" style="padding: 20px 0px">
-        <div class="container">
+    <div class="container">
 
-            <div class="world-latest-articles">
-                <div class="row">
-                    <div class="col-12 col-lg-8">
-                        <div class="title">
-                            <h5>Berita Terbaru</h5>
-                        </div>
-
-                        <!-- Single Blog Post -->
-
-                        @foreach ($beritas as $berita)
-                        <div class="single-blog-post post-style-4 d-flex align-items-center wow fadeInUpBig" data-wow-delay="0.2s">
-                            <!-- Post Thumbnail -->
-                            <div class="post-thumbnail">
-                                <img src="{{asset($berita->gambar)}}" alt="">
-                            </div>
-                            <!-- Post Content -->
-                            <div class="post-content">
-                                <a href="{{url('berita/'.$berita->id)}}" class="headline">
-                                    <h5>{{$berita->judul}}</h5>
-                                </a>
-                                <!-- Post Meta -->
-                                <div class="post-meta">
-                                    <p><a href="#" class="post-author">{{$video->reporter_id != 0 ? $video->reporter->nama : 'Admin'}}</a> on <a href="#" class="post-date">{{hari_tanggal_waktu($video->created_at, true)}}</a></p>
-
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
-
-                        
-
-
-                    </div>
-
-                    <div class="col-12 col-md-8 col-lg-4">
-                        <div class="post-sidebar-area wow fadeInUpBig" data-wow-delay="0.2s">
-                            <!-- Widget Area -->
-    
-                            <div class="sidebar-widget-area">
-                                <h5 class="title">Berita Terpopuler</h5>
-                                <div class="widget-content">
-                                    @foreach ($beritavs as $beritav)
-                                    <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
-                                        <!-- Post Thumbnail -->
-                                        <div class="post-thumbnail">
-                                            <img src="{{asset($beritav->gambar)}}" alt="">
-                                        </div>
-                                        <!-- Post Content -->
-                                        <div class="post-content">
-                                            <a href="{{url('berita/'.$beritav->id)}}" class="headline">
-                                                <h5 class="mb-0">{{$beritav->judul}}</h5>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    @endforeach
-    
-                                </div>
-                            </div>
-                            <!-- Widget Area -->
-                            <div class="sidebar-widget-area">
-                                <h5 class="title">Stay Connected</h5>
-                                <div class="widget-content">
-                                    <div class="social-area d-flex justify-content-between">
-                                        <a href="#"><i class="fa fa-facebook"></i></a>
-                                        <a href="#"><i class="fa fa-twitter"></i></a>
-                                        <a href="#"><i class="fa fa-pinterest"></i></a>
-                                        <a href="#"><i class="fa fa-vimeo"></i></a>
-                                        <a href="#"><i class="fa fa-instagram"></i></a>
-                                        <a href="#"><i class="fa fa-google"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Load More btn -->
+        <div class="world-latest-articles">
             <div class="row">
-                <div class="col-12">
-                    <div class="load-more-btn mt-50 text-center">
-                        <a href="#" class="btn world-btn">Load More</a>
+                <div class="col-12 col-lg-8">
+                    <div class="title">
+                        <h5>Berita Terbaru</h5>
+                    </div>
+
+                    <!-- Single Blog Post -->
+
+                    @foreach ($beritas as $berita)
+                    <div class="single-blog-post post-style-4 d-flex align-items-center wow fadeInUpBig" data-wow-delay="0.2s">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="{{asset($berita->gambar)}}" alt="">
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="{{url('berita/'.$berita->id)}}" class="headline">
+                                <h5>{{$berita->judul}}</h5>
+                            </a>
+                            <!-- Post Meta -->
+                            <div class="post-meta">
+                                <p><a href="#" class="post-author">{{$berita->reporter_id != 0 ? $berita->reporter->nama : 'Admin'}}</a> on <a href="#" class="post-date">{{hari_tanggal_waktu($berita->created_at, true)}}</a></p>
+
+                                
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+
+                    
+
+
+                </div>
+
+                <div class="col-12 col-md-8 col-lg-4">
+                    <div class="post-sidebar-area wow fadeInUpBig" data-wow-delay="0.2s">
+                        <!-- Widget Area -->
+
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Berita Terpopuler</h5>
+                            <div class="widget-content">
+                                @foreach ($beritavs as $beritav)
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="{{asset($beritav->gambar)}}" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="{{url('berita/'.$beritav->id)}}" class="headline">
+                                            <h5 class="mb-0">{{$beritav->judul}}</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                @endforeach
+
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Stay Connected</h5>
+                            <div class="widget-content">
+                                <div class="social-area d-flex justify-content-between">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                                    <a href="#"><i class="fa fa-vimeo"></i></a>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                    <a href="#"><i class="fa fa-google"></i></a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Load More btn -->
+        <div class="row">
+            <div class="col-12">
+                <div class="load-more-btn mt-50 text-center">
+                    <a href="{{url('berita-all')}}" class="btn world-btn">Load More</a>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
+
+
+<div class="main-content-wrapper" style="padding: 20px 0px">
+    <div class="container">
+
+        <div class="world-latest-articles">
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <div class="title">
+                        <h5>Literasi Terbaru</h5>
+                    </div>
+
+                    <!-- Single Blog Post -->
+
+                    @foreach ($literasis as $literasi)
+                    <div class="single-blog-post post-style-4 d-flex align-items-center wow fadeInUpBig" data-wow-delay="0.2s">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="{{asset($literasi->gambar)}}" alt="">
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="{{url('literasi/'.$literasi->id)}}" class="headline">
+                                <h5>{{$literasi->judul}}</h5>
+                            </a>
+                            <!-- Post Meta -->
+                            <div class="post-meta">
+                                <p><a href="#" class="post-author">{{$literasi->reporter_id != 0 ? $literasi->reporter->nama : 'Admin'}}</a> on <a href="#" class="post-date">{{hari_tanggal_waktu($literasi->created_at, true)}}</a></p>
+
+                                
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+
+                    
+
+
+                </div>
+
+                <div class="col-12 col-md-8 col-lg-4">
+                    <div class="post-sidebar-area wow fadeInUpBig" data-wow-delay="0.2s">
+                        <!-- Widget Area -->
+
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Literasivs Terpopuler</h5>
+                            <div class="widget-content">
+                                @foreach ($literasivs as $literasiv)
+                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                    <!-- Post Thumbnail -->
+                                    <div class="post-thumbnail">
+                                        <img src="{{asset($literasiv->gambar)}}" alt="">
+                                    </div>
+                                    <!-- Post Content -->
+                                    <div class="post-content">
+                                        <a href="{{url('literasi/'.$literasiv->id)}}" class="headline">
+                                            <h5 class="mb-0">{{$literasiv->judul}}</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                @endforeach
+
+                            </div>
+                        </div>
+                        <!-- Widget Area -->
+                        <div class="sidebar-widget-area">
+                            <h5 class="title">Stay Connected</h5>
+                            <div class="widget-content">
+                                <div class="social-area d-flex justify-content-between">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                                    <a href="#"><i class="fa fa-vimeo"></i></a>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                    <a href="#"><i class="fa fa-google"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Load More btn -->
+        <div class="row">
+            <div class="col-12">
+                <div class="load-more-btn mt-50 text-center">
+                    <a href="#" class="btn world-btn">Load More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 @endsection
 
