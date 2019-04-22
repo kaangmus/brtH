@@ -40,6 +40,23 @@
                                     @endif
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <label for="thumbnail" class="col-sm-2 col-form-label">Thumbnail</label>
+                                <div class="col-sm-10">
+                                    <input type="file" class="form-control" onchange="fotoURl(this)" name="thumbnail" id="thumbnail" >
+                                    @if ($errors->has('thumbnail'))
+                                        <small class="form-text text-muted">{{ $errors->first('thumbnail') }}</small>
+                                    @endif
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-3">
+                            @if (!empty($video->thumbnail))
+                                <img src="{{asset($video->thumbnail)}}" style="max-height: 130px" class="rounded" alt="thumbnail" id="gambar">
+                            @else
+                                <img src="{{asset('images/thumbnail.svg')}}" style="max-height: 130px" class="rounded" alt="thumbnail" id="gambar">
+                            @endif
                         </div>
                     </div>
                     <input type="hidden" name="redirect" value="{{url()->previous()}}">
@@ -64,4 +81,17 @@
 @endsection
 
 @section('script')
+
+<script>
+
+    function fotoURl(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#gambar').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    </script>
 @endsection

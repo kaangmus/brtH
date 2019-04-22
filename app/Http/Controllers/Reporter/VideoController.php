@@ -33,6 +33,7 @@ class VideoController extends Controller
         $this->validate($request, [
             'judul' => 'required|string|max:255',
             'url' => 'required|string',
+            'gambar' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         ]);
 
         $video = new Video();
@@ -40,6 +41,10 @@ class VideoController extends Controller
         $video['reporter_id'] = Auth::user()->id;
         $video['url'] = app('App\Models\Video')->idyoutube($request->url);
         $video['dilihat'] = '0';
+        if($request->hasFile('thumbnail')){
+            $upload = app('App\Helper\Images')->upload($request->file('thumbnail'), 'video');
+            $video['thumbnail'] = $upload['url'];
+        }
         $video->save();
 
         if($video){
@@ -72,11 +77,16 @@ class VideoController extends Controller
         $this->validate($request, [
             'judul' => 'required|string|max:255',
             'url' => 'required|string',
+            'gambar' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         ]);
 
         $video =Video::findOrFail($request->id);
         $video->fill($request->all());
         $video['url'] = app('App\Models\Video')->idyoutube($request->url);
+        if($request->hasFile('thumbnail')){
+            $upload = app('App\Helper\Images')->upload($request->file('thumbnail'), 'video');
+            $video['thumbnail'] = $upload['url'];
+        }
         $video->save();
 
         if($video){
