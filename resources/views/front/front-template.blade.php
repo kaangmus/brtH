@@ -117,18 +117,15 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-12 col-md-4">
+                <div class="col-12 col-md-3">
                     <div class="footer-single-widget">
                             <div class="sidebar-widget-area">
                                     <h5 class="title">Sosial Media</h5>
-                                    <div class="widget-content" style="padding: 20px;">
+                                    <div class="widget-content" style="padding: 5px;">
                                         <div class="social-area d-flex justify-content-between">
                                             <a href="#"><i class="fa fa-facebook"></i></a>
-                                            <a href="#"><i class="fa fa-twitter"></i></a>
-                                            <a href="#"><i class="fa fa-pinterest"></i></a>
-                                            <a href="#"><i class="fa fa-vimeo"></i></a>
                                             <a href="#"><i class="fa fa-instagram"></i></a>
-                                            <a href="#"><i class="fa fa-google"></i></a>
+                                            <a href="#"><i class="fa fa-youtube"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -151,7 +148,4 @@
     <script src="{{asset('front/js/active.js')}}"></script>
     @yield('script')
 </body>
-
-
-<!-- Mirrored from technext.github.io/world/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 08 Apr 2019 05:14:29 GMT -->
 </html>
