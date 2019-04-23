@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Berita;
 use App\Models\Video;
 use App\Models\Literasi;
+use App\Models\Foto;
 
 class HomeController extends Controller
 {
@@ -16,7 +17,8 @@ class HomeController extends Controller
 
         $literasis = Literasi::where('publish', 'Public')->orderBy('created_at', 'DESC')->limit(10)->get();
         $literasivs = Literasi::where('publish', 'Public')->orderBy('dilihat', 'DESC')->limit(10)->get();
-        return view('front.home', compact('beritavs', 'beritas', 'videos', 'literasis', 'literasivs'));
+        $fotos = Foto::where('publish', 'Public')->orderBy('created_at', 'DESC')->limit(10)->get();
+        return view('front.home', compact('beritavs', 'beritas', 'videos', 'literasis','literasivs', 'fotos'));
     }
     public function beritasingle($id)
     {
@@ -72,5 +74,12 @@ class HomeController extends Controller
         $populers = Literasi::where('publish', 'Public')->orderBy('dilihat', 'DESC')->limit(10)->get();
         return view('front.contents', compact('menu', 'title','contents', 'populers'));
     }
-    
+
+    public function fotolist()
+    {
+        $fotos = Foto::where('publish', 'Public')->orderBy('created_at', 'DESC')->paginate(10);
+        // $populers = Foto::where('publish', 'Public')->orderBy('dilihat', 'DESC')->limit(10)->get();
+        return view('front.galeri-list', compact('fotos'));
+    }
+     
 }

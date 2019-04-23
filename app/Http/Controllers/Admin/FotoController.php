@@ -24,6 +24,7 @@ class FotoController extends Controller
         ]);
 
         $foto = new Foto();
+        $foto['reporter_id'] = '0';
         if($request->hasFile('file')){
             $upload = app('App\Helper\Images')->upload($request->file('file'), 'galeri');
             $foto['foto'] = $upload['url'];

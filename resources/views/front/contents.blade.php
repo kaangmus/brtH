@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 
-<div class="main-content-wrapper" style="padding: 20px 0px">
+<div class="main-content-wrapper" style="padding: 100px 0px">
     <div class="container">
 
         <div class="world-latest-articles">

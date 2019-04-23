@@ -44,8 +44,20 @@
                         <!-- Navbar -->
                         <div class="collapse navbar-collapse" id="worldNav">
                             <ul class="navbar-nav ml-auto">
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                                <li class="nav-item {{(Request::is('/'))? 'active': ''}}">
+                                    <a class="nav-link" href="{{url('')}}">Home <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item {{(Request::is('video-all') OR \Request::is('video-all/*') OR \Request::is('video-all'))? 'active': ''}}">
+                                    <a class="nav-link" href="{{url('video-all')}}">Video <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item {{(Request::is('berita') OR \Request::is('berita/*') OR \Request::is('berita-all'))? 'active': ''}}">
+                                    <a class="nav-link" href="{{url('berita-all')}}">Berita <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item {{(Request::is('galeri') OR \Request::is('galeri/*') OR \Request::is('galeri-all'))? 'active': ''}}">
+                                    <a class="nav-link" href="{{url('galeri-all')}}">Galeri <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item {{(Request::is('literasi') OR \Request::is('literasi/*') OR \Request::is('literasi-all'))? 'active': ''}}">
+                                    <a class="nav-link" href="{{url('literasi-all')}}">Literasi <span class="sr-only">(current)</span></a>
                                 </li>
                             </ul>
                             <!-- Search Form  -->
@@ -72,11 +84,14 @@
             <div class="row">
                 <div class="col-12 col-md-4">
                     <div class="footer-single-widget">
-                        <a href="#"><img src="{{asset('front/img/core-img/logo.png')}}" alt=""></a>
+                        <a href="#"><img src="{{asset(env('APP_LOGO'))}}" style="max-width: 120px" alt=""></a>
                         <div class="copywrite-text mt-30">
-                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            <p>Papua 60 Detik</p>
+                            <p>Alamat Jalan Budi Utomo, Timika Papua 99910</p>
+
+                            {{-- <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                             Copyright &copy;<script>document.write(new Date().getFullYear());</script> | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com/" target="_blank">Colorlib</a>
-                            <p>Proudly distributed by <a href="https://themewagon.com/" target="_blank">ThemeWagon</a></p>
+                            <p>Proudly distributed by <a href="https://themewagon.com/" target="_blank">ThemeWagon</a></p> --}}
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                         </div>
                     </div>
@@ -84,22 +99,39 @@
                 <div class="col-12 col-md-4">
                     <div class="footer-single-widget">
                         <ul class="footer-menu d-flex justify-content-between">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Fashion</a></li>
-                            <li><a href="#">Lifestyle</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Gadgets</a></li>
-                            <li><a href="#">Video</a></li>
+                            <li class="{{(Request::is('/'))? 'active': ''}}">
+                                <a  href="{{url('')}}">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="{{(Request::is('video-all') OR \Request::is('video-all/*') OR \Request::is('video-all'))? 'active': ''}}">
+                                <a href="{{url('video-all')}}">Video <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="{{(Request::is('berita') OR \Request::is('berita/*') OR \Request::is('berita-all'))? 'active': ''}}">
+                                <a  href="{{url('berita-all')}}">Berita <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="{{(Request::is('galeri') OR \Request::is('galeri/*') OR \Request::is('galeri-all'))? 'active': ''}}">
+                                <a  href="{{url('galeri-all')}}">Galeri <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="{{(Request::is('literasi') OR \Request::is('literasi/*') OR \Request::is('literasi-all'))? 'active': ''}}">
+                                <a  href="{{url('literasi-all')}}">Literasi <span class="sr-only">(current)</span></a>
+                            </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-12 col-md-4">
                     <div class="footer-single-widget">
-                        <h5>Subscribe</h5>
-                        <form action="#" method="post">
-                            <input type="email" name="email" id="email" placeholder="Enter your mail">
-                            <button type="button"><i class="fa fa-arrow-right"></i></button>
-                        </form>
+                            <div class="sidebar-widget-area">
+                                    <h5 class="title">Sosial Media</h5>
+                                    <div class="widget-content" style="padding: 20px;">
+                                        <div class="social-area d-flex justify-content-between">
+                                            <a href="#"><i class="fa fa-facebook"></i></a>
+                                            <a href="#"><i class="fa fa-twitter"></i></a>
+                                            <a href="#"><i class="fa fa-pinterest"></i></a>
+                                            <a href="#"><i class="fa fa-vimeo"></i></a>
+                                            <a href="#"><i class="fa fa-instagram"></i></a>
+                                            <a href="#"><i class="fa fa-google"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
                     </div>
                 </div>
             </div>

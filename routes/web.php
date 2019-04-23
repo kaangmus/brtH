@@ -18,6 +18,7 @@ Route::get('/video/{id}', 'HomeController@videosingle')->name('video.single');
 Route::get('/berita-all', 'HomeController@beritalist')->name('berita.list');
 Route::get('/literasi-all', 'HomeController@literasilist')->name('literasi.list');
 Route::get('/video-all', 'HomeController@videolist')->name('literasi.list');
+Route::get('/galeri-all', 'HomeController@fotolist')->name('galeri.list');
 
 Route::post('/upload/gambar', 'ImagesController@upload')->name('upload.gambar');
 Route::post('/galeri/store', 'ImagesController@store')->name('galeri.store');
