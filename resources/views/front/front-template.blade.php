@@ -13,7 +13,7 @@
 
     <!-- Title  -->
     <title>Papua &amp; 60 Detik</title>
-    <link rel="icon" href="{{asset(env('APP_LOGO'))}}">
+    <link rel="icon" href="{{asset(env('APP_LOGO', 'images/logo.png'))}}">
 
     <!-- Style CSS -->
     <link rel="stylesheet" href="{{asset('front/style.css')}}">

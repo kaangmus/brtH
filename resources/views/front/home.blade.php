@@ -6,14 +6,28 @@
 
     <!-- ********** Hero Area Start ********** -->
     <div class="hero-area">
-
-        <!-- Hero Slides Area -->
-        <div class="hero-slides owl-carousel">
-            <!-- Single Slide -->
-            @foreach ($videos as $i => $video)
-            <div class="single-hero-slide bg-img background-overlay" style="background-image: url({{asset($video->thumbnail)}});"></div>
-            @endforeach
-        </div>
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner" style="max-height: 600px">
+                        @foreach ($videos as $i => $video)
+                            
+                                <div class="carousel-item {{$i == 0 ? 'active': ''}}">
+                                        <img src="{{$video->thumbnail}}" class="d-block w-100" alt="...">
+                                        <div class="carousel-caption d-none d-md-block">
+                                        <h5><a href="#" onMouseOver="this.style.color='black'" onMouseOut="this.style.color='grey'"><i class="fa fa-play-circle-o fa-5x"></i></a></h5>
+                                        <p>{{$video->judul}}</p>
+                                        </div>
+                                </div>
+                        @endforeach
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
 
         <!-- Hero Post Slide -->
         <div class="hero-post-area">
