@@ -12,7 +12,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title  -->
-    <title>Papua &amp; 60 Detik</title>
+    <title>Papua 60 Detik</title>
     <link rel="icon" href="{{asset(env('APP_LOGO', 'images/logo.png'))}}">
 
     <!-- Style CSS -->

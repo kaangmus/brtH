@@ -12,7 +12,7 @@
                     <div class="single-blog-content mb-100">
                         <!-- Post Meta -->
                         <div class="post-meta">
-                            <p><a href="#" class="post-author">{{$berita->reporter_id != 0 ? $berita->reporter->nama : 'Admin'}}</a> on <a href="#" class="post-date">{{hari_tanggal_waktu($berita->created_at, true)}}</a></p>
+                            <p><a href="#" class="post-date">{{hari_tanggal_waktu($berita->created_at, true)}}</a> <a href="#" class="post-author">{{$berita->reporter_id != 0 ? $berita->reporter->nama : 'Admin'}}</a> - Papua 60 Detik</p>
                         </div>
 
                         <!-- Post Content -->
