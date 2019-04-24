@@ -49,7 +49,8 @@
 <script>
     function publish(no) {
         $.get('{{ route('admin.berita.publish')}}?id='+no, function(response){
-            console.log(response);
+            console.log(response.publish);
+            $(this).value = response.publish;
         });
     }
 </script>
