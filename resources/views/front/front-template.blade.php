@@ -96,7 +96,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-4">
+                <div class="col-12 col-md-5">
                     <div class="footer-single-widget">
                         <ul class="footer-menu d-flex justify-content-between">
                             <li class="{{(Request::is('/'))? 'active': ''}}">
@@ -117,7 +117,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-12 col-md-3">
+                <div class="col-12 col-md-2">
                     <div class="footer-single-widget">
                             <div class="sidebar-widget-area">
                                     <h5 class="title">Sosial Media</h5>

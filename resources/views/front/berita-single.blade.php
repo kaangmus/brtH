@@ -4,22 +4,6 @@
 @endsection
 @section('content')
 
-    <!-- ********** Hero Area Start ********** -->
-    <div class="hero-area height-600 bg-img background-overlay" style="background-image: url({{asset($berita->gambar)}});">
-        <div class="container h-100">
-            <div class="row h-100 align-items-center justify-content-center">
-                <div class="col-12 col-md-8 col-lg-6">
-                    <div class="single-blog-title text-center">
-                        <!-- Catagory -->
-                        <div class="post-cta"><a href="#">{{$berita->kategori}}</a></div>
-                        <h3>{{$berita->judul}}</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ********** Hero Area End ********** -->
-
     <div class="main-content-wrapper section-padding-100">
         <div class="container">
             <div class="row justify-content-center">
@@ -30,8 +14,16 @@
                         <div class="post-meta">
                             <p><a href="#" class="post-author">{{$berita->reporter_id != 0 ? $berita->reporter->nama : 'Admin'}}</a> on <a href="#" class="post-date">{{hari_tanggal_waktu($berita->created_at, true)}}</a></p>
                         </div>
+
                         <!-- Post Content -->
                         <div class="post-content">
+
+                                <div class="text-center">
+                                        <h3>{{$berita->judul}}</h3>
+            
+                                <img src="{{asset($berita->gambar)}}" style="max-width: 70%" alt="Gambar Timline Berita">
+                                <br><br>
+                                    </div>
                             {!!$berita->berita!!}
                         </div>
                         
@@ -73,13 +65,10 @@
                         <div class="sidebar-widget-area">
                             <h5 class="title">Bagikan Artikel Ini</h5>
                             <div class="widget-content">
-                                <div class="social-area d-flex justify-content-between">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-pinterest"></i></a>
-                                    <a href="#"><i class="fa fa-vimeo"></i></a>
-                                    <a href="#"><i class="fa fa-instagram"></i></a>
-                                    <a href="#"><i class="fa fa-google"></i></a>
+                                <div class="social-area d-flex ">
+                                    <a href="#" style="margin: 0px 20px"><i class="fa fa-facebook"></i></a>
+                                    <a href="#" style="margin: 0px 20px"><i class="fa fa-instagram"></i></a>
+                                    <a href="#" style="margin: 0px 20px"><i class="fa fa-youtube"></i></a>
                                 </div>
                             </div>
                         </div>
