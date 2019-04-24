@@ -1,6 +1,7 @@
 @extends('front.front-template')
 @section('css')
-
+<link rel="stylesheet" href="{{asset('display/css/lightgallery.css')}}">
+<script src="{{asset('display/js/lightgallery.min.js')}}"></script>
 @endsection
 @section('content')
 
@@ -221,13 +222,15 @@
                                 <div class="col-md-12">
                                     <div class="tile">
                                             <div class="card-columns">
+                                            <div id="aniimated-thumbnials">
                                                 @forelse ($fotos as $foto)
-                                                    <div class="card">
-                                                        <a href="{{asset($foto->foto)}}" target="_blank"><img src="{{asset($foto->foto)}}" class=" card-img-top"></a>
-                                                    </div>
+                                                    <a href="{{asset($foto->foto)}}" >
+                                                        <img src="{{asset($foto->foto)}}" />
+                                                    </a>
                                                 @empty
                                                 Belum ada content Foto
                                                 @endforelse
+                                                </div>
                                             </div>
 
                                             @if (count($fotos) == 10)
@@ -310,4 +313,9 @@
 @endsection
 
 @section('script')
+<script>
+        lightGallery(document.getElementById('aniimated-thumbnials'), {
+            thumbnail:true
+        }); 
+    </script>
 @endsection
