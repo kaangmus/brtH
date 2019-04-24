@@ -48,6 +48,7 @@
                 <div class="col-12 col-md-8 col-lg-4">
                     <div class="post-sidebar-area wow fadeInUpBig" data-wow-delay="0.2s">
                         <!-- Widget Area -->
+                        
 
                         <div class="sidebar-widget-area">
                             <h5 class="title">Video Terpopuler</h5>
@@ -89,4 +90,5 @@
 @endsection
 
 @section('script')
+
 @endsection

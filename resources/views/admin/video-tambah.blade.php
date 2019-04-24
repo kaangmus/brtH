@@ -45,6 +45,7 @@
                                     @if ($errors->has('thumbnail'))
                                         <small class="form-text text-muted">{{ $errors->first('thumbnail') }}</small>
                                     @endif
+                                    <small>Ukuran default 1200 x 600</small>
                                 </div>
 
                             </div>
