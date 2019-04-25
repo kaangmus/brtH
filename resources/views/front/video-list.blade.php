@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-12 col-lg-8">
                     <div class="title">
-                        <h5>Vidio Terbaru</h5>
+                        <h5>Video Terbaru</h5>
                     </div>
 
                     <div class="row">
@@ -29,9 +29,9 @@
                                         </a>
                                     </div>
                                     <!-- Post Content -->
-                                    <div class="post-content">
+                                    <div class="post-content" style="padding: 10px 15px">
                                         <a href="{{url('video/'.$video->id)}}" class="headline">
-                                            <h5>{{$video->judul}}</h5>
+                                            <h6>{{limit_word($video->judul, 30)}}</h6>
                                         </a>
                                         {{-- <p>How Did van Gogh’s Turbulent Mind Depict One of the Most Complex Concepts in...</p> --}}
                                         <!-- Post Meta -->
@@ -57,7 +57,7 @@
                                 <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
                                     <!-- Post Thumbnail -->
                                     <div class="post-thumbnail">
-                                        <img src="{{asset($videov->thumbnail)}}" alt="">
+                                        <img src="{{asset($videov->gambarmedium($videov->url))}}" alt="">
                                     </div>
                                     <!-- Post Content -->
                                     <div class="post-content">

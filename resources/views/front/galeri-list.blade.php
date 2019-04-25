@@ -3,6 +3,14 @@
 
 <link rel="stylesheet" href="{{asset('display/css/lightgallery.css')}}">
 <script src="{{asset('display/js/lightgallery.min.js')}}"></script>
+
+<style>
+.cover {
+  object-fit: cover;
+  width: 100x;
+  height: 100px;
+}
+</style>
 @endsection
 @section('content')
 
@@ -16,34 +24,30 @@
                         <h5>Geleri</h5>
                     </div>
 
-                    <div class="row">
-                        <div class="card-columns">
-                            
-                            <div id="aniimated-thumbnials">
-                                @forelse ($fotos as $foto)
-                                    <a href="{{asset($foto->foto)}}" >
-                                        <img src="{{asset($foto->foto)}}" />
-                                    </a>
-                                @empty
-                                Belum ada content Foto
-                                @endforelse
-                            </div>
-                                
+                    <div class="row text-center ">
+                        <div id="aniimated-thumbnials">
+                            @forelse ($fotos as $foto)
+                                <a href="{{asset($foto->foto)}}" style="text-decoration: none;padding: 0px; margin: 0px;">
+                                    <img src="{{asset($foto->foto)}}" class="col-sm-2" style="padding: 0px; margin: 0px;object-fit: cover; width: 100%; height: 200px"/>
+                                </a>
+                            @empty
+                            Belum ada content Foto
+                            @endforelse
                         </div>
                     </div>
+
+                    <div class="row text-center justify-content-md-center">
+                        <div class="col-sm-4 ">
+
+                                {{$fotos->links()}}
+                            </div>
+                    </div>
+                                
                 </div>
 
             </div>
         </div>
 
-        <!-- Load More btn -->
-        <div class="row">
-            <div class="col-12">
-                <div class="load-more-btn mt-50 text-center">
-                    {{$fotos->links()}}
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 

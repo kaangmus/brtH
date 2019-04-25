@@ -420,10 +420,10 @@ img {
     color: #8d8d8d; }
   .hero-area .hero-post-slide .center .single-slide .post-number p {
     border: 5px solid;
-    border-top-color: #0000ff;
-    border-bottom-color: #0000ff;
+    border-top-color: #ff6600;
+    border-bottom-color: #ff6600;
     border-left-color: #8d8d8d;
-    border-right-color: #0000ff; }
+    border-right-color: #ff6600; }
   .hero-area .hero-post-slide .center .single-slide .post-title a {
     color: #ffffff;
     font-weight: 700; }

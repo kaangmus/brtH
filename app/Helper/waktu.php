@@ -41,3 +41,13 @@ function limit_text($text, $limit) {
     }
     return $text;
 }
+
+function limit_word($text, $limit)
+{
+    if (strlen($text) > $limit) {
+
+        $text = substr($text, 0, $limit) . "...";
+        // $text = strlen($text);
+    }
+    return $text;
+}

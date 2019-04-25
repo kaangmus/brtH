@@ -11,13 +11,13 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $videos = Video::where('publish', 'Public')->orderBy('created_at', 'DESC')->limit(8)->get();
+        $videos = Video::where('publish', 'Public')->orderBy('created_at', 'DESC')->limit(4)->get();
         $beritas = Berita::where('publish', 'Public')->orderBy('created_at', 'DESC')->limit(10)->get();
         $beritavs = Berita::where('publish', 'Public')->orderBy('dilihat', 'DESC')->limit(10)->get();
 
         $literasis = Literasi::where('publish', 'Public')->orderBy('created_at', 'DESC')->limit(10)->get();
         $literasivs = Literasi::where('publish', 'Public')->orderBy('dilihat', 'DESC')->limit(10)->get();
-        $fotos = Foto::where('publish', 'Public')->orderBy('created_at', 'DESC')->limit(10)->get();
+        $fotos = Foto::where('publish', 'Public')->orderBy('created_at', 'DESC')->limit(12)->get();
         return view('front.home', compact('beritavs', 'beritas', 'videos', 'literasis','literasivs', 'fotos'));
     }
     public function beritasingle($id)
@@ -46,7 +46,7 @@ class HomeController extends Controller
         $video['dilihat'] = $video->dilihat+1;
         $video->save();
         $videovs = Video::where('publish', 'Public')->orderBy('dilihat', 'DESC')->limit(10)->get();
-        $videos = Video::where('publish', 'Public')->orderBy('created_at', 'DESC')->limit(8)->get();
+        $videos = Video::where('publish', 'Public')->orderBy('created_at', 'DESC')->paginate(12);
         return view('front.video-single', compact('video', 'videovs', 'videos'));
     }
 
