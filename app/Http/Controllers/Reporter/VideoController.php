@@ -33,7 +33,7 @@ class VideoController extends Controller
         $this->validate($request, [
             'judul' => 'required|string|max:255',
             'url' => 'required|string',
-            'gambar' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'thumbnail' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         ]);
 
         $video = new Video();
@@ -77,7 +77,7 @@ class VideoController extends Controller
         $this->validate($request, [
             'judul' => 'required|string|max:255',
             'url' => 'required|string',
-            'gambar' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'thumbnail' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         ]);
 
         $video =Video::findOrFail($request->id);
