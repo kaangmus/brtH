@@ -37,8 +37,10 @@
                     </div>
                     @endforeach
 
-                    
 
+                    <div class="row justify-content-md-center" style="padding: 20px">
+                        {{$contents->links('pagination.default')}}
+                    </div>
 
                 </div>
 
@@ -66,33 +68,13 @@
 
                             </div>
                         </div>
-                        <!-- Widget Area -->
-                        <div class="sidebar-widget-area">
-                            <h5 class="title">Stay Connected</h5>
-                            <div class="widget-content">
-                                <div class="social-area d-flex justify-content-between">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-pinterest"></i></a>
-                                    <a href="#"><i class="fa fa-vimeo"></i></a>
-                                    <a href="#"><i class="fa fa-instagram"></i></a>
-                                    <a href="#"><i class="fa fa-google"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Load More btn -->
-        <div class="row">
-            <div class="col-12">
-                <div class="load-more-btn mt-50 text-center">
-                    {{$contents->links()}}
-                </div>
-            </div>
-        </div>
+        
     </div>
 </div>
 

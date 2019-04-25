@@ -4,8 +4,12 @@
 @endsection
 @section('content')
 
+    <div class="d-block d-sm-none">
+        <br><br><br><br>
+    </div>
+    
     <!-- ********** Hero Area Start ********** -->
-    <div class="hero-area height-600 bg-img background-overlay">
+    <div class="hero-area bg-img background-overlay">
             <div class="row align-items-center justify-content-center">
                 <div class="col-12">
                     <div class="single-blog-title text-center">
@@ -17,7 +21,7 @@
             </div>
     </div>
     <!-- ********** Hero Area End ********** -->
-
+    
     <div class="main-content-wrapper">
             <div class="container">
         

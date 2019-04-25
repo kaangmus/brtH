@@ -32,7 +32,7 @@
     <!-- Preloader End -->
 
     <!-- ***** Header Area Start ***** -->
-    <header class="header-area">
+    <header class="header-area sticky">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -96,7 +96,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-5">
+                <div class="col-12 col-md-4">
                     <div class="footer-single-widget">
                         <ul class="footer-menu d-flex justify-content-between">
                             <li class="{{(Request::is('/'))? 'active': ''}}">
@@ -117,15 +117,15 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-12 col-md-2">
+                <div class="col-12 col-md-3">
                     <div class="footer-single-widget">
                             <div class="sidebar-widget-area">
                                     <h5 class="title">Sosial Media</h5>
                                     <div class="widget-content" style="padding: 5px;">
-                                        <div class="social-area d-flex justify-content-between">
-                                            <a href="#"><i class="fa fa-facebook"></i></a>
-                                            <a href="#"><i class="fa fa-instagram"></i></a>
-                                            <a href="#"><i class="fa fa-youtube"></i></a>
+                                        <div class="social-area d-flex ">
+                                            <a href="#" style="margin: 0px 20px"><i class="fa fa-facebook"></i></a>
+                                            <a href="#" style="margin: 0px 20px"><i class="fa fa-instagram"></i></a>
+                                            <a href="#" style="margin: 0px 20px"><i class="fa fa-youtube"></i></a>
                                         </div>
                                     </div>
                                 </div>

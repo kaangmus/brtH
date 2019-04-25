@@ -18,7 +18,8 @@ class CreateFotosTable extends Migration
             $table->integer('reporter_id');
             $table->string('foto');
             $table->string('kategori')->nullable();
-            $table->enum('publish', ['Public', 'Hidden'])->default('Hidden');
+            $table->enum('publish', ['Public', 'Private'])->default('Private');
+            $table->enum('status', ['Verifikasi', 'Block', 'Pengajuan'])->default('Pengajuan');
             $table->timestamps();
         });
     }

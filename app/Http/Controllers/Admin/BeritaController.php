@@ -70,6 +70,20 @@ class BeritaController extends Controller
         $berita->save();
         return response(['kode'=> '00', 'publish' => $berita->publish]);
     }
+
+    public function verifikasi()
+    {
+        $berita = Berita::find($_GET['id']);
+        if ($berita->status == 'Verifikasi') {
+            $berita['status'] = 'Block';
+        }else{
+            $berita['status'] = 'Verifikasi';
+        }
+        $berita->save();
+        return response(['kode'=> '00', 'status' => $berita->status]);
+    }
+
+    
     public function update(Request $request)
     {
         $this->validate($request, [

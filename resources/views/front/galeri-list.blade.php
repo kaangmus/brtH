@@ -36,11 +36,8 @@
                         </div>
                     </div>
 
-                    <div class="row text-center justify-content-md-center">
-                        <div class="col-sm-4 ">
-
-                                {{$fotos->links()}}
-                            </div>
+                    <div class="row justify-content-md-center" style="padding: 20px">
+                        {{$fotos->links('pagination.default')}}
                     </div>
                                 
                 </div>

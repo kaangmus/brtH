@@ -43,6 +43,10 @@
                         </div>
                         @endforeach
                         </div>
+
+                        <div class="row justify-content-md-center" style="padding: 20px">
+                            {{$videos->links('pagination.default')}}
+                        </div>
                 </div>
 
                 <div class="col-12 col-md-8 col-lg-4">
@@ -76,14 +80,6 @@
             </div>
         </div>
 
-        <!-- Load More btn -->
-        <div class="row">
-            <div class="col-12">
-                <div class="load-more-btn mt-50 text-center">
-                    {{$videos->links()}}
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 

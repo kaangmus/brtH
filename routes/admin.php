@@ -16,6 +16,7 @@ Route::post('/logout', 'Admin\LoginController@logout')->name('admin.logout');
 
 Route::get('/berita', 'Admin\BeritaController@index')->name('admin.berita');
 Route::get('/berita/publish', 'Admin\BeritaController@publish')->name('admin.berita.publish');
+Route::get('/berita/verifikasi', 'Admin\BeritaController@verifikasi')->name('admin.berita.verifikasi');
 Route::get('/berita/tambah', 'Admin\BeritaController@create')->name('admin.berita.create');
 Route::get('/berita/show/{id}', 'Admin\BeritaController@show')->name('admin.berita.show');
 Route::post('/berita/tambah', 'Admin\BeritaController@store')->name('admin.berita.store');

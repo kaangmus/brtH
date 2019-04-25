@@ -29,6 +29,7 @@
                                 <th>Reporter</th>
                                 <th class="text-center">Dilihat</th>
                                 <th class="text-center">Publish</th>
+                                <th class="text-center">Verifikasi</th>
                                 <th class="text-center">Berita</th>
                                 <th></th>
                             </tr>
@@ -49,6 +50,7 @@
                                 <td>{{$berita->reporter_id != 0 ? $berita->reporter->nama : 'Admin'}}</td>
                                 <td class="text-center">{{$berita->dilihat}}</td>
                                 <td class="text-center">{{$berita->publish}}</td>
+                                <td class="text-center">{{$berita->status}}</td>
                                 <td class="text-center">
                                 <a href="{{route('admin.berita.show',['id'=>$berita->id])}}" class="btn btn-sm btn-default">Detail</a>
                                 <a class="btn btn-light btn-sm" href="{{route('admin.berita.edit', ['id'=> $berita->id])}}">

@@ -12,7 +12,7 @@
                         @foreach ($videos as $i => $video)
                             
                                 <div class="carousel-item {{$i == 0 ? 'active': ''}}">
-                                        <img src="{{$video->thumbnail}}" class="d-block w-100" alt="...">
+                                        <img src="{{$video->thumbnail}}" style="object-fit: cover; width: 100%; height: 600px">
                                         <div class="carousel-caption text-left">
                                         <a class="text-white" href="{{url('video/'.$video->id)}}" onMouseOver="this.style.color='black'" onMouseOut="this.style.color='white'"><i class="fa fa-play-circle-o fa-5x"></i></a>
                                         <h3 class="text-white font-weight-bold" style="width: 50%" >{{$video->judul}}</h3>
@@ -224,8 +224,8 @@
                                             <div class="row">
                                             <div id="aniimated-thumbnials">
                                                 @forelse ($fotos as $foto)
-                                                    <a href="{{asset($foto->foto)}}" style="max-height: 10px; overflow: hidden">
-                                                        <img src="{{asset($foto->foto)}}" class="col-sm-3" style="width: 100%; padding: 0px"/>
+                                                    <a href="{{asset($foto->foto)}}" style="text-decoration: none;padding: 0px; margin: 0px;">
+                                                        <img src="{{asset($foto->foto)}}" class="col-sm-2" style="padding: 0px; margin: 0px;object-fit: cover; width: 100%; height: 60px"/>
                                                     </a>
                                                 @empty
                                                 Belum ada content Foto
@@ -233,7 +233,7 @@
                                                 </div>
                                             </div>
 
-                                            @if (count($fotos) == 12)
+                                            @if (count($fotos) == 15)
                                                 <div class="load-more-btn mt-50 text-center">
                                                     <a href="{{url('galeri-all')}}" class="btn world-btn">Selengkapanya</a>
                                                 </div>

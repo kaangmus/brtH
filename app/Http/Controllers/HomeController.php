@@ -17,7 +17,7 @@ class HomeController extends Controller
 
         $literasis = Literasi::where('publish', 'Public')->orderBy('created_at', 'DESC')->limit(10)->get();
         $literasivs = Literasi::where('publish', 'Public')->orderBy('dilihat', 'DESC')->limit(10)->get();
-        $fotos = Foto::where('publish', 'Public')->orderBy('created_at', 'DESC')->limit(12)->get();
+        $fotos = Foto::where('publish', 'Public')->orderBy('created_at', 'DESC')->limit(15)->get();
         return view('front.home', compact('beritavs', 'beritas', 'videos', 'literasis','literasivs', 'fotos'));
     }
     public function beritasingle($id)
