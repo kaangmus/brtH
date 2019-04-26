@@ -7,7 +7,6 @@ Route::post('/logout', 'Reporter\LoginController@logout')->name('reporter.logout
 
 Route::get('/berita', 'Reporter\BeritaController@index')->name('reporter.berita');
 Route::get('/berita/publish', 'Reporter\BeritaController@publish')->name('reporter.berita.publish');
-Route::get('/berita/verifikasi', 'Reporter\BeritaController@verifikasi')->name('reporter.berita.verifikasi');
 Route::get('/berita/tambah', 'Reporter\BeritaController@create')->name('reporter.berita.create');
 Route::get('/berita/show/{id}', 'Reporter\BeritaController@show')->name('reporter.berita.show');
 Route::post('/berita/tambah', 'Reporter\BeritaController@store')->name('reporter.berita.store');
@@ -17,7 +16,6 @@ Route::delete('/berita/delete/{id}', 'Reporter\BeritaController@delete')->name('
 
 Route::get('/literasi', 'Reporter\LiterasiController@index')->name('reporter.literasi');
 Route::get('/literasi/publish', 'Reporter\LiterasiController@publish')->name('reporter.literasi.publish');
-Route::get('/literasi/verifikasi', 'Reporter\LiterasiController@verifikasi')->name('reporter.literasi.verifikasi');
 Route::get('/literasi/tambah', 'Reporter\LiterasiController@create')->name('reporter.literasi.create');
 Route::get('/literasi/show/{id}', 'Reporter\LiterasiController@show')->name('reporter.literasi.show');
 Route::post('/literasi/tambah', 'Reporter\LiterasiController@store')->name('reporter.literasi.store');
@@ -27,7 +25,6 @@ Route::delete('/literasi/delete/{id}', 'Reporter\LiterasiController@delete')->na
 
 Route::get('/video', 'Reporter\VideoController@index')->name('reporter.video');
 Route::get('/video/publish', 'Reporter\VideoController@publish')->name('reporter.video.publish');
-Route::get('/video/verifikasi', 'Reporter\VideoController@verifikasi')->name('reporter.video.verifikasi');
 Route::get('/video/tambah', 'Reporter\VideoController@create')->name('reporter.video.create');
 Route::get('/video/show/{id}', 'Reporter\VideoController@show')->name('reporter.video.show');
 Route::post('/video/tambah', 'Reporter\VideoController@store')->name('reporter.video.store');
@@ -37,7 +34,6 @@ Route::delete('/video/delete/{id}', 'Reporter\VideoController@delete')->name('re
 
 Route::get('/foto', 'Reporter\FotoController@index')->name('reporter.foto');
 Route::get('/foto/publish', 'Reporter\FotoController@publish')->name('reporter.foto.publish');
-Route::get('/foto/verifikasi', 'Reporter\FotoController@verifikasi')->name('reporter.foto.verifikasi');
 Route::post('/foto/tambah', 'Reporter\FotoController@store')->name('reporter.foto.store');
 Route::put('/foto/update', 'Reporter\FotoController@update')->name('reporter.foto.update');
 Route::delete('/foto/delete/{id}', 'Reporter\FotoController@delete')->name('reporter.foto.delete');

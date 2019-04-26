@@ -7,15 +7,15 @@
 
     <!-- ********** Hero Area Start ********** -->
     <div class="hero-area">
-            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div id="carouselExampleControls" class="background-overlay carousel slide" data-ride="carousel">
                     <div class="carousel-inner" style="max-height: 600px">
                         @foreach ($videos as $i => $video)
                             
-                                <div class="carousel-item {{$i == 0 ? 'active': ''}}">
+                                <div class="carousel-item background-overlay {{$i == 0 ? 'active': ''}}">
                                         <img src="{{$video->thumbnail}}" style="object-fit: cover; width: 100%; height: 600px">
-                                        <div class="carousel-caption text-left">
+                                        <div class="carousel-caption text-left" style="text-shadow: 2px 2px #000000">
                                         <a class="text-white" href="{{url('video/'.$video->id)}}" onMouseOver="this.style.color='black'" onMouseOut="this.style.color='white'"><i class="fa fa-play-circle-o fa-5x"></i></a>
-                                        <h3 class="text-white font-weight-bold" style="width: 50%" >{{$video->judul}}</h3>
+                                        <h3 class="text-white font-weight-bold" style="width: 50%;" >{{$video->judul}}</h3>
                                         </div>
                                 </div>
                         @endforeach

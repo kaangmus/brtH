@@ -10,9 +10,6 @@
 
             <div class="toggle-flip">
             <label>
-                <input type="checkbox"  onchange="status('{{$literasi->id}}')" {{($literasi->status == 'Verifikasi')? 'checked' : '' }}  ><span id="ketstatus" class="flip-indecator" data-toggle-on="Verifikasi" data-toggle-off="{{$literasi->status == 'Verifikasi' ? 'Block': $literasi->status}}" style="width: 100px"></span>
-            </label>
-            <label>
                 <input type="checkbox"  onchange="publish('{{$literasi->id}}')" {{($literasi->publish == 'Public')? 'checked' : '' }}  ><span class="flip-indecator" data-toggle-on="Public" data-toggle-off="Private"></span>
             </label>
             </div>
@@ -53,11 +50,6 @@
     function publish(no) {
         $.get('{{ route('reporter.literasi.publish')}}?id='+no, function(response){
             console.log(response);
-        });
-    }
-    function status(no) {
-        $.get('{{ route('reporter.literasi.verifikasi')}}?id='+no, function(response){
-            // console.log(response.status);
         });
     }
 </script>

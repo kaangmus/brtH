@@ -10,9 +10,6 @@
 
             <div class="toggle-flip">
             <label>
-                <input type="checkbox"  onchange="status('{{$video->id}}')" {{($video->status == 'Verifikasi')? 'checked' : '' }}  ><span id="ketstatus" class="flip-indecator" data-toggle-on="Verifikasi" data-toggle-off="{{$video->status == 'Verifikasi' ? 'Block': $video->status}}" style="width: 100px"></span>
-            </label>
-            <label>
                 <input type="checkbox"  onchange="publish('{{$video->id}}')" {{($video->publish == 'Public')? 'checked' : '' }}  ><span class="flip-indecator" data-toggle-on="Public" data-toggle-off="Private"></span>
             </label>
             </div>
@@ -52,11 +49,6 @@
     function publish(no) {
         $.get('{{ route('admin.video.publish')}}?id='+no, function(response){
             console.log(response);
-        });
-    }
-    function status(no) {
-        $.get('{{ route('admin.video.verifikasi')}}?id='+no, function(response){
-            // console.log(response.status);
         });
     }
 </script>
