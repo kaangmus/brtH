@@ -14,7 +14,7 @@ class FotoController extends Controller
     }
     public function index()
     {
-        $fotos = Foto::paginate(20);
+        $fotos = Foto::orderBy('id', 'DESC')->paginate(20);
     	return view('admin.foto', compact('fotos'));
     }
     public function store(Request $request)
@@ -42,6 +42,17 @@ class FotoController extends Controller
         }
         $foto->save();
         return response(['kode'=> '00', 'publish' => $foto->publish]);
+    }
+    public function verifikasi()
+    {
+        $foto = Foto::find($_GET['id']);
+        if ($foto->status == 'Verifikasi') {
+            $foto['status'] = 'Block';
+        }else{
+            $foto['status'] = 'Verifikasi';
+        }
+        $foto->save();
+        return response(['kode'=> '00', 'status' => $foto->status]);
     }
     public function delete($id)
     {

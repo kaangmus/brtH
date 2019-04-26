@@ -10,6 +10,9 @@
 
             <div class="toggle-flip">
             <label>
+                <input type="checkbox"  onchange="status('{{$video->id}}')" {{($video->status == 'Verifikasi')? 'checked' : '' }}  ><span id="ketstatus" class="flip-indecator" data-toggle-on="Verifikasi" data-toggle-off="{{$video->status == 'Verifikasi' ? 'Block': $video->status}}" style="width: 100px"></span>
+            </label>
+            <label>
                 <input type="checkbox"  onchange="publish('{{$video->id}}')" {{($video->publish == 'Public')? 'checked' : '' }}  ><span class="flip-indecator" data-toggle-on="Public" data-toggle-off="Private"></span>
             </label>
             </div>
@@ -22,6 +25,8 @@
                         <h3>{{$video->judul}}</h3>
                     </div>
                     <div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" src="{{app('App\Models\Video')->embed($video->url)}}" allowfullscreen></iframe></div>
+                    <hr>
+                    {{$video->deskripsi}}
             <div class="tile-footer">
                 Terakhir diupdate {{hari_tanggal_waktu($video->updated_at, true)}}
 
@@ -47,6 +52,11 @@
     function publish(no) {
         $.get('{{ route('admin.video.publish')}}?id='+no, function(response){
             console.log(response);
+        });
+    }
+    function status(no) {
+        $.get('{{ route('admin.video.verifikasi')}}?id='+no, function(response){
+            // console.log(response.status);
         });
     }
 </script>

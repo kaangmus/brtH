@@ -26,6 +26,7 @@ Route::delete('/berita/delete/{id}', 'Admin\BeritaController@delete')->name('adm
 
 Route::get('/literasi', 'Admin\LiterasiController@index')->name('admin.literasi');
 Route::get('/literasi/publish', 'Admin\LiterasiController@publish')->name('admin.literasi.publish');
+Route::get('/literasi/verifikasi', 'Admin\LiterasiController@verifikasi')->name('admin.literasi.verifikasi');
 Route::get('/literasi/tambah', 'Admin\LiterasiController@create')->name('admin.literasi.create');
 Route::get('/literasi/show/{id}', 'Admin\LiterasiController@show')->name('admin.literasi.show');
 Route::post('/literasi/tambah', 'Admin\LiterasiController@store')->name('admin.literasi.store');
@@ -44,6 +45,7 @@ Route::delete('/reporter/delete/{id}', 'Admin\ReporterController@delete')->name(
 
 Route::get('/video', 'Admin\VideoController@index')->name('admin.video');
 Route::get('/video/publish', 'Admin\VideoController@publish')->name('admin.video.publish');
+Route::get('/video/verifikasi', 'Admin\VideoController@verifikasi')->name('admin.video.verifikasi');
 Route::get('/video/tambah', 'Admin\VideoController@create')->name('admin.video.create');
 Route::get('/video/show/{id}', 'Admin\VideoController@show')->name('admin.video.show');
 Route::post('/video/tambah', 'Admin\VideoController@store')->name('admin.video.store');
@@ -53,6 +55,7 @@ Route::delete('/video/delete/{id}', 'Admin\VideoController@delete')->name('admin
 
 Route::get('/foto', 'Admin\FotoController@index')->name('admin.foto');
 Route::get('/foto/publish', 'Admin\FotoController@publish')->name('admin.foto.publish');
+Route::get('/foto/verifikasi', 'Admin\FotoController@verifikasi')->name('admin.foto.verifikasi');
 Route::post('/foto/tambah', 'Admin\FotoController@store')->name('admin.foto.store');
 Route::put('/foto/update', 'Admin\FotoController@update')->name('admin.foto.update');
 Route::delete('/foto/delete/{id}', 'Admin\FotoController@delete')->name('admin.foto.delete');

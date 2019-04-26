@@ -27,6 +27,7 @@
                             <tr>
                                 <th>Judul Video</th>
                                 <th class="text-center">Publish</th>
+                                <th class="text-center">Verifikasi</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -42,6 +43,7 @@
                                         </div>
                                     </div>
                                 </td>
+                                <td class="text-center">{{$video->status}}</td>
                                 <td class="text-center">{{$video->publish}}</td>
                                 <td class="text-center">
                                 <a href="{{route('admin.video.show',['id'=>$video->id])}}" class="btn btn-sm btn-primary">Detail</a>

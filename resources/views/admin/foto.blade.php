@@ -34,6 +34,9 @@
                                     <button onClick="hapus('{{route('admin.foto.delete', ['id'=> $foto->id])}}', 'Foto yakin ingin dihapus')" class="btn btn-danger btn-sm float-right">Hapus</button>
                                     <div class="toggle-flip float-right">
                                         <label>
+                                            <input type="checkbox"  onchange="status('{{$foto->id}}')" {{($foto->status == 'Verifikasi')? 'checked' : '' }}  ><span id="ketstatus" class="flip-indecator" data-toggle-on="Verifikasi" data-toggle-off="{{$foto->status == 'Verifikasi' ? 'Block': $foto->status}}" style="width: 100px"></span>
+                                        </label>
+                                        <label>
                                             <input type="checkbox"  onchange="publish('{{$foto->id}}')" {{($foto->publish == 'Public')? 'checked' : '' }}  ><span class="flip-indecator" data-toggle-on="Public" data-toggle-off="Hidden"></span>
                                         </label>
                                         </div>
@@ -58,6 +61,11 @@
     function publish(no) {
         $.get('{{ route('admin.foto.publish')}}?id='+no, function(response){
             console.log(response);
+        });
+    }
+    function status(no) {
+        $.get('{{ route('admin.foto.verifikasi')}}?id='+no, function(response){
+            // console.log(response.status);
         });
     }
 </script>

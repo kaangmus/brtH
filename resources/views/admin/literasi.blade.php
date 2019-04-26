@@ -28,6 +28,7 @@
                                 <th>literasi</th>
                                 <th>Reporter</th>
                                 <th class="text-center">Dilihat</th>
+                                <th class="text-center">Verifikasi</th>
                                 <th class="text-center">Publish</th>
                                 <th class="text-center">literasi</th>
                                 <th></th>
@@ -48,6 +49,7 @@
                                 </td>
                                 <td>{{$literasi->reporter_id != 0 ? $literasi->reporter->nama : 'Admin'}}</td>
                                 <td class="text-center">{{$literasi->dilihat}}</td>
+                                <td class="text-center">{{$literasi->status}}</td>
                                 <td class="text-center">{{$literasi->publish}}</td>
                                 <td class="text-center">
                                 <a href="{{route('admin.literasi.show',['id'=>$literasi->id])}}" class="btn btn-sm btn-default">Detail</a>

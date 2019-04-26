@@ -15,7 +15,7 @@ class VideoController extends Controller
     }
     public function index()
     {
-        $videos = Video::where('reporter_id', Auth::user()->id)->get();
+        $videos = Video::where('reporter_id', Auth::user()->id)->orderBy('id', 'DESC')->get();
     	return view('reporter.video', compact('videos'));
     }
 

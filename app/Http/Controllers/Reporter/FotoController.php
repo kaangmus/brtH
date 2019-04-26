@@ -15,7 +15,7 @@ class FotoController extends Controller
     }
     public function index()
     {
-        $fotos = Foto::where('reporter_id', Auth::user()->id)->paginate(20);
+        $fotos = Foto::where('reporter_id', Auth::user()->id)->orderBy('id', 'DESC')->paginate(20);
     	return view('reporter.foto', compact('fotos'));
     }
     public function store(Request $request)

@@ -29,6 +29,7 @@
                                 <th>Username</th>
                                 <th class="text-center">Berita</th>
                                 <th class="text-center">Video</th>
+                                <th class="text-center">Literasi</th>
                                 <th class="text-center">Foto</th>
                                 <th></th>
                             </tr>
@@ -38,9 +39,34 @@
                             <tr>
                                 <td><b>{{$reporter->nama}}</b></td>
                                 <td><b>{{$reporter->username}}</b></td>
-                                <td class="text-center">{{$reporter->berita()->count()}}</td>
-                                <td class="text-center">{{$reporter->video()->count()}}</td>
-                                <td class="text-center">{{$reporter->foto()->count()}}</td>
+                                <td class="text-center">
+                                    <div class="btn-group" role="group" aria-label="Third group">
+                                        <button type="button" class="btn btn-primary btn-sm">{{$reporter->berita()->where('status', 'Verifikasi')->count()}}</button>
+                                        <button type="button" class="btn btn-danger btn-sm">{{$reporter->berita()->where('status', 'Block')->count()}}</button>
+                                        <button type="button" class="btn btn-info btn-sm">{{$reporter->berita()->where('status', 'Pengajuan')->count()}}</button>
+                                    </div>
+                                </td>
+                                <td class="text-center">
+                                    <div class="btn-group" role="group" aria-label="Third group">
+                                        <button type="button" class="btn btn-primary btn-sm">{{$reporter->video()->where('status', 'Verifikasi')->count()}}</button>
+                                        <button type="button" class="btn btn-danger btn-sm">{{$reporter->video()->where('status', 'Block')->count()}}</button>
+                                        <button type="button" class="btn btn-info btn-sm">{{$reporter->video()->where('status', 'Pengajuan')->count()}}</button>
+                                    </div>
+                                </td>
+                                <td class="text-center">
+                                    <div class="btn-group" role="group" aria-label="Third group">
+                                        <button type="button" class="btn btn-primary btn-sm">{{$reporter->literasi()->where('status', 'Verifikasi')->count()}}</button>
+                                        <button type="button" class="btn btn-danger btn-sm">{{$reporter->literasi()->where('status', 'Block')->count()}}</button>
+                                        <button type="button" class="btn btn-info btn-sm">{{$reporter->literasi()->where('status', 'Pengajuan')->count()}}</button>
+                                    </div>
+                                </td>
+                                <td class="text-center">
+                                    <div class="btn-group" role="group" aria-label="Third group">
+                                        <button type="button" class="btn btn-primary btn-sm">{{$reporter->foto()->where('status', 'Verifikasi')->count()}}</button>
+                                        <button type="button" class="btn btn-danger btn-sm">{{$reporter->foto()->where('status', 'Block')->count()}}</button>
+                                        <button type="button" class="btn btn-info btn-sm">{{$reporter->foto()->where('status', 'Pengajuan')->count()}}</button>
+                                    </div>
+                                </td>
                                 <td class="text-center">
                                 <a href="{{route('admin.reporter.show',['id'=>$reporter->id])}}" class="btn btn-sm btn-default">Detail</a>
                                 <a class="btn btn-light btn-sm" href="{{route('admin.reporter.edit', ['id'=> $reporter->id])}}">

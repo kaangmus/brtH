@@ -16,7 +16,7 @@ class LiterasiController extends Controller
     }
     public function index()
     {
-        $literasis = Literasi::where('reporter_id', Auth::user()->id)->get();
+        $literasis = Literasi::where('reporter_id', Auth::user()->id)->orderBy('id', 'DESC')->get();
     	return view('reporter.literasi', compact('literasis'));
     }
 

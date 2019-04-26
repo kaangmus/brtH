@@ -32,6 +32,15 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>
+                                <div class="col-sm-10">
+                                <textarea class="form-control" name="deskripsi" id="deskripsi" placeholder="Deskripsi Video">{{(empty(old('deskripsi')))? $video->deskripsi: old('deskripsi')}}</textarea>
+                                    @if ($errors->has('deskripsi'))
+                                        <small class="form-text text-muted">{{ $errors->first('deskripsi') }}</small>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <label for="url" class="col-sm-2 col-form-label">URL Youtube</label>
                                 <div class="col-sm-10">
                                 <textarea class="form-control" name="url" id="url" placeholder="URL Video">{{(empty(old('url')))? app('App\Models\Video')->watch($video->url): old('url')}}</textarea>

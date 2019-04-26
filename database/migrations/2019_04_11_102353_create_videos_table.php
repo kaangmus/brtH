@@ -18,6 +18,7 @@ class CreateVideosTable extends Migration
             $table->integer('reporter_id')->default(0);
             $table->string('judul');
             $table->string('url');
+            $table->text('deskripsi')->nullable();
             $table->string('kategori')->nullable();
             $table->enum('publish', ['Public', 'Private'])->default('Private');
             $table->enum('status', ['Verifikasi', 'Block', 'Pengajuan'])->default('Pengajuan');

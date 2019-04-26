@@ -32,7 +32,7 @@
     <!-- Preloader End -->
 
     <!-- ***** Header Area Start ***** -->
-    <header class="header-area sticky">
+    <header class="header-area {{(Request::is('/'))? '': 'sticky'}}">
         <div class="container">
             <div class="row">
                 <div class="col-12">

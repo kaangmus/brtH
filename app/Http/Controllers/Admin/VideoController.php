@@ -14,7 +14,7 @@ class VideoController extends Controller
     }
     public function index()
     {
-        $videos = Video::all();
+        $videos = Video::orderBy('id', 'DESC')->get();
     	return view('admin.video', compact('videos'));
     }
 
@@ -69,6 +69,17 @@ class VideoController extends Controller
         }
         $video->save();
         return response(['kode'=> '00', 'publish' => $video->publish]);
+    }
+    public function verifikasi()
+    {
+        $video = Video::find($_GET['id']);
+        if ($video->status == 'Verifikasi') {
+            $video['status'] = 'Block';
+        }else{
+            $video['status'] = 'Verifikasi';
+        }
+        $video->save();
+        return response(['kode'=> '00', 'status' => $video->status]);
     }
     public function update(Request $request)
     {

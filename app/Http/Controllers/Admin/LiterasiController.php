@@ -15,7 +15,7 @@ class LiterasiController extends Controller
     }
     public function index()
     {
-        $literasis = Literasi::all();
+        $literasis = Literasi::orderBy('id', 'DESC')->get();
     	return view('admin.literasi', compact('literasis'));
     }
 
@@ -70,6 +70,17 @@ class LiterasiController extends Controller
         }
         $literasi->save();
         return response(['kode'=> '00', 'publish' => $literasi->publish]);
+    }
+    public function verifikasi()
+    {
+        $literasi = Literasi::find($_GET['id']);
+        if ($literasi->status == 'Verifikasi') {
+            $literasi['status'] = 'Block';
+        }else{
+            $literasi['status'] = 'Verifikasi';
+        }
+        $literasi->save();
+        return response(['kode'=> '00', 'status' => $literasi->status]);
     }
     public function update(Request $request)
     {

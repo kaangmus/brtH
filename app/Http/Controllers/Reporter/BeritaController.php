@@ -15,7 +15,7 @@ class BeritaController extends Controller
     }
     public function index()
     {
-        $beritas = Berita::where('reporter_id', Auth::user()->id)->get();
+        $beritas = Berita::where('reporter_id', Auth::user()->id)->orderBy('id', 'DESC')->get();
     	return view('reporter.berita', compact('beritas'));
     }
 

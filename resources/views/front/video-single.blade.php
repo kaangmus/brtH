@@ -29,6 +29,12 @@
                     <div class="row">
                         <div class="col-12 col-lg-8">
                             <div class="title">
+                            <h5>{{$video->judul}}</h5>
+                            </div>
+
+                            {!!$video->deskripsi!!}
+
+                            <div class="title">
                                 <h5>Video Terbaru</h5>
                             </div>
         
@@ -75,7 +81,9 @@
                                         <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
                                             <!-- Post Thumbnail -->
                                             <div class="post-thumbnail">
-                                                <img src="{{asset($videov->gambarmedium($videov->url))}}" alt="">
+                                                <a href="{{url('video/'.$videov->id)}}">
+                                                    <img src="{{asset($videov->gambarmedium($videov->url))}}" alt="">
+                                                </a>
                                             </div>
                                             <!-- Post Content -->
                                             <div class="post-content">

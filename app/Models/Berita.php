@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Berita extends Model
 {
     protected $fillable = [
-        'reporter_id','judul','gambar','berita','dilihat','kategori','publish','data'
+        'reporter_id','judul','gambar','berita','dilihat','kategori','publish','data', 'status'
     ];
 
     protected $hidden = [

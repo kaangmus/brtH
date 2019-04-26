@@ -15,7 +15,7 @@ class ReporterController extends Controller
     }
     public function index()
     {
-        $reporters = Reporter::all();
+        $reporters = Reporter::orderBy('id', 'DESC')->get();
     	return view('admin.reporter', compact('reporters'));
     }
 

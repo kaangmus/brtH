@@ -31,4 +31,8 @@ class Reporter extends Authenticatable
     {
         return $this->hasMany(Video::class, 'reporter_id', 'id');
     }
+    public function literasi()
+    {
+        return $this->hasMany(Literasi::class, 'reporter_id', 'id');
+    }
 }
