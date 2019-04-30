@@ -110,7 +110,6 @@ $("#deskripsi").summernote({
         ]
     });
 });
-<script>
 function fotoURl(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();

@@ -109,16 +109,15 @@ $("#deskripsi").summernote({
         ]
     });
 });
-<script>
 
-    function fotoURl(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                $('#gambar').attr('src', e.target.result);
-            }
-            reader.readAsDataURL(input.files[0]);
+function fotoURl(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#gambar').attr('src', e.target.result);
         }
+        reader.readAsDataURL(input.files[0]);
     }
-    </script>
+}
+</script>
 @endsection

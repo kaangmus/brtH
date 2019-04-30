@@ -15,11 +15,11 @@
         <div class="col-md-12">
 			<div class="tile">
 			  <div class="tile-body">
-				<form class="form-horizontal" id="submit-form" method="post" action="{{route('reporter.video.store')}}">
+				<form class="form-horizontal"  enctype="multipart/form-data"  id="submit-form" method="post" action="{{route('reporter.video.store')}}">
                 {{ csrf_field() }}
 
                     <div class="row">
-                        <div class="col-sm-12">
+                        <div class="col-sm-12 col-md-9">
                            <div class="form-group row">
                                 <label for="judul" class="col-sm-2 col-form-label">Judul Video</label>
                                 <div class="col-sm-10">
@@ -38,7 +38,6 @@
                                     @endif
                                 </div>
                             </div>
-                            
                             <div class="form-group row">
                                 <label for="url" class="col-sm-2 col-form-label">URL Youtube</label>
                                 <div class="col-sm-10">
@@ -48,7 +47,6 @@
                                     @endif
                                 </div>
                             </div>
-                            
                             <div class="form-group row">
                                 <label for="thumbnail" class="col-sm-2 col-form-label">Thumbnail</label>
                                 <div class="col-sm-10">
@@ -106,16 +104,14 @@ $("#deskripsi").summernote({
     });
 });
 
-<script>
-
-    function fotoURl(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                $('#gambar').attr('src', e.target.result);
-            }
-            reader.readAsDataURL(input.files[0]);
+function fotoURl(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#gambar').attr('src', e.target.result);
         }
+        reader.readAsDataURL(input.files[0]);
     }
-    </script>
+}
+</script>
 @endsection

@@ -23,7 +23,7 @@
 			<div class="tile">
                     <div class="text-center" style="padding-bottom: 20px">
                         <h3>{{$berita->judul}} 
-                            @if ($literasi->reporter_id != 0 )
+                            @if ($berita->reporter_id != 0 )
                             <br><small style="font-size: 14px">Reporter : <a href="{{url('/admin/reporter/show/'.$berita->reporter_id)}}">{{$berita->reporter->nama}}</a></small>
                             @endif
                         </h3>
