@@ -22,7 +22,11 @@
         <div class="col-md-9 col-sm-12">
 			<div class="tile">
                     <div class="text-center" style="padding-bottom: 20px">
-                        <h3>{{$literasi->judul}}</h3>
+                        <h3>{{$literasi->judul}}
+                            @if ($literasi->reporter_id != 0 )
+                            <br><small style="font-size: 14px">Reporter : <a href="{{url('/admin/reporter/show/'.$literasi->reporter_id)}}">{{$literasi->reporter->nama}}</a></small>
+                            @endif
+                        </h3>
                         <br>
                     <img src="{{asset($literasi->gambar)}}" style="max-width: 70%" alt="Gambar Timline literasi">
                     </div>

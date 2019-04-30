@@ -88,7 +88,7 @@
 <script>
 $(document).ready(function() {
 $("#summernote").summernote({
-    placeholder: 'Isi Artikel',
+    placeholder: 'Isi Literasi',
         height: 300,
             callbacks: {
         onImageUpload : function(files, editor, welEditable) {

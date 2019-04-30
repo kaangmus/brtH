@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use File;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Reporter;
 use Illuminate\Support\Facades\Hash;
 
@@ -31,7 +33,7 @@ class ReporterController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'username' => 'required|string|max:255|alpha_num',
+            'username' => 'required|string|max:255|alpha_num|unique:reporters',
             'password' => 'required|string',
             'foto' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         ]);
@@ -82,6 +84,9 @@ class ReporterController extends Controller
         $reporter = Reporter::findOrFail($request->id);
         $reporter->fill($request->all());
         if($request->hasFile('foto')){
+            $reporterd =Reporter::findOrFail($request->id);
+            File::delete($reporterd->foto);
+
             $upload = app('App\Helper\Images')->upload($request->file('foto'), 'reporter');
             $reporter['foto'] = $upload['url'];
         }
@@ -103,6 +108,7 @@ class ReporterController extends Controller
     {
         $reporter = Reporter::findOrFail($id);
         if (!empty($reporter)) {
+            File::delete($reporter->foto);
             $reporter->delete();
             return response()->json(['kode'=>'00'], 200);
         }else{

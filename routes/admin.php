@@ -5,6 +5,10 @@ Route::get('/login', 'Admin\LoginController@form');
 Route::post('/login', 'Admin\LoginController@login')->name('admin.login');
 Route::post('/logout', 'Admin\LoginController@logout')->name('admin.logout');
 
+Route::get('/profil', 'Admin\AdminController@profil')->name('admin.profil');
+Route::put('/profil/update', 'Admin\AdminController@profilupdate')->name('admin.profil.update');
+Route::put('/profil/password', 'Admin\AdminController@profilupdatepasword')->name('admin.profil.password');
+
 // Route::get('/gunung', 'Admin\GunungController@index')->name('admin.gunung');
 // Route::get('/gunung/publish', 'Admin\GunungController@publish')->name('admin.gunung.publish');
 // Route::get('/gunung/tambah', 'Admin\GunungController@create')->name('admin.gunung.create');

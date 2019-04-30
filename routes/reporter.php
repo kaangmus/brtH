@@ -5,6 +5,10 @@ Route::get('/login', 'Reporter\LoginController@form');
 Route::post('/login', 'Reporter\LoginController@login')->name('reporter.login');
 Route::post('/logout', 'Reporter\LoginController@logout')->name('reporter.logout');
 
+Route::get('/profil', 'Reporter\ReporterController@profil')->name('reporter.profil');
+Route::put('/profil/update', 'Reporter\ReporterController@profilupdate')->name('reporter.profil.update');
+Route::put('/profil/password', 'Reporter\ReporterController@profilupdatepasword')->name('reporter.profil.password');
+
 Route::get('/berita', 'Reporter\BeritaController@index')->name('reporter.berita');
 Route::get('/berita/publish', 'Reporter\BeritaController@publish')->name('reporter.berita.publish');
 Route::get('/berita/tambah', 'Reporter\BeritaController@create')->name('reporter.berita.create');

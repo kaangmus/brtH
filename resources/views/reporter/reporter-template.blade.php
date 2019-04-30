@@ -30,16 +30,16 @@
       <!-- Navbar Right Menu-->
       <ul class="app-nav">
         <form action="{{url('invoice.cari')}}" method="post"> @csrf
-        <li class="app-search">
+        {{-- <li class="app-search">
           <input class="app-search__input" type="search" placeholder="Search" name="invoice">
           <button class="app-search__button" type="submit"><i class="fa fa-search"></i></button>
-        </li>
+        </li> --}}
         </form>
         <!-- User Menu-->
         <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
           <ul class="dropdown-menu settings-menu dropdown-menu-right">
             {{-- <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-cog fa-lg"></i> Settings</a></li> --}}
-            {{-- <li><a class="dropdown-item" href="{{ route('admin.profil') }}"><i class="fa fa-user fa-lg"></i> Profile</a></li> --}}
+            <li><a class="dropdown-item" href="{{ route('reporter.profil') }}"><i class="fa fa-user fa-lg"></i> Profile</a></li>
             <li><a class="dropdown-item" href="{{ route('reporter.logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-sign-out fa-lg"></i>  {{ __('Logout') }}</a></li>
             <form id="logout-form" action="{{ route('reporter.logout') }}" method="POST">
                     {{ csrf_field() }}
@@ -51,9 +51,9 @@
     <!-- Sidebar menu-->
     <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
     <aside class="app-sidebar" style="background-color: {{env('THEME_COLOR_3')}}">
-      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="{{asset(Auth::user()->foto)}}" alt="User Image" style="max-height: 64px; max-width: 64px">
+      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="{{asset(Auth::user()->foto)}}" alt="User Image" style="object-fit: cover; width: 60px; height: 60px">
         <div>
-          <p class="app-sidebar__user-name">{{Auth::user()->nama}}</p>
+          <p class="app-sidebar__user-name">{{limit_word(Auth::user()->nama, 10)}}</p>
 
           <p class="app-sidebar__user-name"><small>Reporter</small></p>
         </div>

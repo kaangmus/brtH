@@ -15,7 +15,7 @@
         <div class="col-md-12">
 			<div class="tile">
 			  <div class="tile-body">
-				<form class="form-horizontal" id="submit-form" enctype="multipart/form-data" method="post" action="{{route('reporter.berita.store')}}">
+                <form class="form-horizontal" id="submit-form" enctype="multipart/form-data" method="post" action="{{route('reporter.berita.store')}}">
                 {{ csrf_field() }}
 
                     <div class="row">
@@ -32,7 +32,7 @@
                             <div class="form-group row">
                                 <label for="kategori" class="col-sm-2 col-form-label">Kategori Berita</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="kategori" id="kategori" placeholder="kategori Berita" value="{{old('kategori')}}">
+                                    <input type="text" class="form-control" name="kategori" id="kategori" placeholder="Kategori Berita" value="{{old('kategori')}}">
                                     @if ($errors->has('kategori'))
                                         <small class="form-text text-muted">{{ $errors->first('kategori') }}</small>
                                     @endif
@@ -85,7 +85,6 @@
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.js"></script>
-<script src="{{asset('js/plugins/select2.min.js')}}"></script>
 <script>
 $(document).ready(function() {
 $("#summernote").summernote({
@@ -133,8 +132,5 @@ function fotoURl(input) {
     }
 }
 
-$(document).ready(function() {
-    $('.select2').select2();
-});
 </script>
 @endsection

@@ -41,7 +41,7 @@
                                     <img src="{{asset($literasi->gambar)}}" class="leading mr-3" alt="..." style="width: 64px">
                                     <div class="media-body">
                                         <b>{{$literasi->judul}}</b><br>
-                                        <small style="font-size: 80%">{{hari_tanggal_waktu($literasi->created_at, true)}}</small> <br>
+                                        <small style="font-size: 80%">@if ($literasi->reporter_id != 0 ) Reporter : <a href="{{url('/admin/reporter/show/'.$literasi->reporter_id)}}">{{$literasi->reporter->nama}}</a> - @endif {{hari_tanggal_waktu($literasi->created_at, true)}}</small> <br>
                                         Kategori : {{$literasi->kategori}}
                                     </div>
                                     </div>
