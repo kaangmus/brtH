@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use File;
 use App\Models\Foto;
 
 class FotoController extends Controller
@@ -58,6 +59,7 @@ class FotoController extends Controller
     {
         $foto = Foto::findOrFail($id);
         if (!empty($foto)) {
+            File::delete($foto->foto);
             $foto->delete();
             return response()->json(['kode'=>'00'], 200);
         }else{

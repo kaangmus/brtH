@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Reporter;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use File;
 use App\Models\Berita;
 
 class BeritaController extends Controller

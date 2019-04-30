@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Video;
+use File;
 
 class VideoController extends Controller
 {
@@ -84,6 +85,8 @@ class VideoController extends Controller
         $video->fill($request->all());
         $video['url'] = app('App\Models\Video')->idyoutube($request->url);
         if($request->hasFile('thumbnail')){
+            $videod =Video::findOrFail($request->id);
+            File::delete($videod->thumbnail);
             $upload = app('App\Helper\Images')->upload($request->file('thumbnail'), 'video');
             $video['thumbnail'] = $upload['url'];
         }
@@ -102,6 +105,7 @@ class VideoController extends Controller
     {
         $video = Video::findOrFail($id);
         if (!empty($video)) {
+            File::delete($video->thumbnail);
             $video->delete();
             return response()->json(['kode'=>'00'], 200);
         }else{

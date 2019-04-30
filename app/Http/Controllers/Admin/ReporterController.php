@@ -31,7 +31,7 @@ class ReporterController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'username' => 'required|string|max:255',
+            'username' => 'required|string|max:255|alpha_num',
             'password' => 'required|string',
             'foto' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         ]);

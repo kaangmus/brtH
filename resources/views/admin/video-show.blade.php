@@ -26,7 +26,7 @@
                     </div>
                         <div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" src="{{app('App\Models\Video')->embed($video->url)}}" allowfullscreen></iframe></div>
                         <hr>
-                    {{$video->deskripsi}}
+                    {!!$video->deskripsi!!}
             <div class="tile-footer">
                 Terakhir diupdate {{hari_tanggal_waktu($video->updated_at, true)}}
 
