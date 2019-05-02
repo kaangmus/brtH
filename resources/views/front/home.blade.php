@@ -1,7 +1,8 @@
 @extends('front.front-template')
 @section('css')
-<link rel="stylesheet" href="{{asset('display/css/lightgallery.css')}}">
-<script src="{{asset('display/js/lightgallery.min.js')}}"></script>
+<link rel="stylesheet" href="{{asset('vendor/galeri/css/lc_lightbox.css')}}">
+<link rel="stylesheet" href="{{asset('vendor/galeri/css/lc_lightbox.min.css')}}">
+
 @endsection
 @section('content')
 
@@ -226,15 +227,11 @@
                                 <div class="col-md-12">
                                     <div class="tile">
                                             <div class="row">
-                                            <div id="aniimated-thumbnials">
-                                                @forelse ($fotos as $foto)
-                                                    <a href="{{asset($foto->foto)}}" style="text-decoration: none;padding: 0px; margin: 0px;">
-                                                        <img src="{{asset($foto->foto)}}" class="col-sm-2" style="padding: 0px; margin: 0px;object-fit: cover; width: 100%; height: 60px"/>
-                                                    </a>
-                                                @empty
-                                                Belum ada content Foto
-                                                @endforelse
-                                                </div>
+                                                @foreach ($fotos as $foto)
+                                                <a href="{{$foto->foto}}" class="mybox md-5" title="Title" data-lcl-txt="Deskripsi" data-lcl-author="Author">
+                                                    <img src="{{$foto->foto}}" width="500px" style="padding: 0px; margin: 0px;object-fit: cover; width: 60px; height: 60px">
+                                                </a>
+                                                @endforeach
                                             </div>
 
                                             @if (count($fotos) == 15)
@@ -279,6 +276,7 @@
                                 
 
                             </div>
+
                         </div>
 
 
@@ -317,9 +315,13 @@
 @endsection
 
 @section('script')
+<script src="{{asset('vendor/galeri/lib/AlloyFinger/alloy_finger.min.js')}}"></script>
+<script src="{{asset('vendor/galeri/js/lc_lightbox.lite.min.js')}}"></script>
 <script>
-        lightGallery(document.getElementById('aniimated-thumbnials'), {
-            thumbnail:true
-        }); 
-    </script>
+        lc_lightbox('.mybox',{
+            wrap_class: 'lcl_fade_oc',
+            gallery: true,
+            skin: 'minimal',
+        })
+</script>
 @endsection

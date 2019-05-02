@@ -1,16 +1,9 @@
 @extends('front.front-template')
 @section('css')
 
-<link rel="stylesheet" href="{{asset('display/css/lightgallery.css')}}">
-<script src="{{asset('display/js/lightgallery.min.js')}}"></script>
+<link rel="stylesheet" href="{{asset('vendor/galeri/css/lc_lightbox.css')}}">
+<link rel="stylesheet" href="{{asset('vendor/galeri/css/lc_lightbox.min.css')}}">
 
-<style>
-.cover {
-  object-fit: cover;
-  width: 100x;
-  height: 100px;
-}
-</style>
 @endsection
 @section('content')
 
@@ -27,8 +20,8 @@
                     <div class="row text-center ">
                         <div id="aniimated-thumbnials">
                             @forelse ($fotos as $foto)
-                                <a href="{{asset($foto->foto)}}" style="text-decoration: none;padding: 0px; margin: 0px;">
-                                    <img src="{{asset($foto->foto)}}" class="col-sm-2" style="padding: 0px; margin: 0px;object-fit: cover; width: 100%; height: 200px"/>
+                                <a href="{{$foto->foto}}" class="mybox" title="Title" data-lcl-txt="Deskripsi" data-lcl-author="Author">
+                                    <img src="{{$foto->foto}}" style="padding: 0px; margin: 0px;object-fit: cover; width: 200px; height: 200px">
                                 </a>
                             @empty
                             Belum ada content Foto
@@ -51,9 +44,13 @@
 @endsection
 
 @section('script')
+<script src="{{asset('vendor/galeri/lib/AlloyFinger/alloy_finger.min.js')}}"></script>
+<script src="{{asset('vendor/galeri/js/lc_lightbox.lite.min.js')}}"></script>
 <script>
-    lightGallery(document.getElementById('aniimated-thumbnials'), {
-        thumbnail:true
-    }); 
+        lc_lightbox('.mybox',{
+            wrap_class: 'lcl_fade_oc',
+            gallery: true,
+            skin: 'minimal',
+        })
 </script>
 @endsection

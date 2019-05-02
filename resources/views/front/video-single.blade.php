@@ -30,7 +30,23 @@
                         <div class="col-12 col-lg-8">
                             <div class="title">
                             <h5>{{$video->judul}}</h5>
+
+                            
+                            <div class="row mb-2 mt-4 align-items-center">
+                                <div class="col-md-7">
+                                    <div class="post-date"><span class="doted">Dipublikasikan pada {{hari_tanggal_waktu($video->created_at)}}</span></div>
+                                </div> 
+                                <div class="col-md-5 m-hide">
+                                        <div class="social-area d-flex ">
+                                                <a href="https://www.facebook.com/sharer.php?u={{url()->current()}}" style="margin: 0px 20px" target="_blank"><i class="fa fa-facebook"></i></a>
+                                                <a href="https://twitter.com/intent/tweet?url={{url()->current()}}" style="margin: 0px 20px" target="_blank"><i class="fa fa-twitter"></i></a>
+                                                <a href="   https://wa.me/?text={{url()->current()}}" style="margin: 0px 20px" target="_blank" data-action="share/whatsapp/share"><i class="fa fa-whatsapp"></i></a>
+                                            </div>
+                                </div>
                             </div>
+                            </div>
+                            <hr>
+
 
                             {!!$video->deskripsi!!}
 
