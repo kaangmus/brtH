@@ -44,6 +44,7 @@ class BeritaController extends Controller
             $upload = app('App\Helper\Images')->upload($request->file('gambar'), 'berita');
             $berita['gambar'] = $upload['url'];
         }
+        $berita['slug'] = str_slug($request->judul, '-');
         $berita->save();
 
         if($berita){
@@ -102,6 +103,7 @@ class BeritaController extends Controller
             $upload = app('App\Helper\Images')->upload($request->file('gambar'), 'berita');
             $berita['gambar'] = $upload['url'];
         }
+        $berita['slug'] = str_slug($request->judul, '-');
         $berita->save();
 
         if($berita){

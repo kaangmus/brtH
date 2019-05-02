@@ -17,6 +17,7 @@ class CreateLiterasisTable extends Migration
             $table->bigIncrements('id');
             $table->integer('reporter_id')->default(0);
             $table->string('judul');
+            $table->string('slug');
             $table->string('gambar');
             $table->longText('artikel');
             $table->integer('dilihat');

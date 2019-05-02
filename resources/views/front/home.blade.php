@@ -16,27 +16,28 @@
                                         <div class="carousel-caption text-left" style="text-shadow: 2px 2px #000000">
                                         <a class="text-white" href="{{url('video/'.$video->id)}}" onMouseOver="this.style.color='black'" onMouseOut="this.style.color='white'"><i class="fa fa-play-circle-o fa-5x"></i></a>
                                         <div class="d-block d-sm-none">
-                                                <h6 class="text-white font-weight-bold">{{$video->judul}}</h6>
+                                            <br>
+                                                <h4 class="text-white font-weight-bold">{{$video->judul}}</h4>
                                         </div>
                                         <div class="d-none d-sm-block ">
-                                                <h3 class="text-white font-weight-bold"  style="width: 70%;" >{{$video->judul}}</h3>
+                                                <h3 class="text-white font-weight-bold"  style="width: 70%;" >{{$video->judul}}</h>
                                         </div>
                                         </div>
                                 </div>
                         @endforeach
                     </div>
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev" style="z-index: 10">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="sr-only">Previous</span>
                     </a>
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next" style="z-index: 10">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
                 </div>
 
         <!-- Hero Post Slide -->
-        <div class="hero-post-area">
+        <div class="hero-post-area d-none d-sm-block">
             <div class="container">
                 <div class="row">
                     <div class="col-12">

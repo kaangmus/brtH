@@ -53,7 +53,7 @@ a {
   font-size: 14px;
   font-weight: 400;
   font-family: "Century Gothic", sans-serif;
-  color: #8d8d8d; }
+  color: #ffffff; }
   a:hover, a:focus {
     font-family: "Century Gothic", sans-serif;
     -webkit-transition-duration: 500ms;
@@ -335,7 +335,7 @@ img {
       margin-right: 50px; }
       .header-area .navbar .navbar-nav .nav-link {
         padding: 0.5em 1em;
-        font-weight: 500; }
+        font-weight: 900; }
         .header-area .navbar .navbar-nav .nav-link:hover, .header-area .navbar .navbar-nav .nav-link:focus {
           color: #ff6600; }
         @media only screen and (min-width: 992px) and (max-width: 1199px) {

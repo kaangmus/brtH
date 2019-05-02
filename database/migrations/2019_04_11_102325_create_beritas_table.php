@@ -17,6 +17,7 @@ class CreateBeritasTable extends Migration
             $table->bigIncrements('id');
             $table->integer('reporter_id');
             $table->string('judul');
+            $table->string('slug');
             $table->string('gambar');
             $table->longText('berita');
             $table->integer('dilihat');

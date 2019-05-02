@@ -17,6 +17,8 @@ class CreateFotosTable extends Migration
             $table->bigIncrements('id');
             $table->integer('reporter_id');
             $table->string('foto');
+            $table->string('judul')->nullable();
+            $table->string('deskripsi')->nullable();
             $table->string('kategori')->nullable();
             $table->enum('publish', ['Public', 'Private'])->default('Private');
             $table->enum('status', ['Verifikasi', 'Block', 'Pengajuan'])->default('Pengajuan');

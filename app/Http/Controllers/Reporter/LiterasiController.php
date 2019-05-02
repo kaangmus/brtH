@@ -45,6 +45,7 @@ class LiterasiController extends Controller
             $upload = app('App\Helper\Images')->upload($request->file('gambar'), 'literasi');
             $literasi['gambar'] = $upload['url'];
         }
+        $literasi['slug'] = str_slug($request->judul, '-');
         $literasi->save();
 
         if($literasi){
@@ -89,6 +90,7 @@ class LiterasiController extends Controller
             $upload = app('App\Helper\Images')->upload($request->file('gambar'), 'literasi');
             $literasi['gambar'] = $upload['url'];
         }
+        $literasi['slug'] = str_slug($request->judul, '-');
         $literasi->save();
 
         if($literasi){
