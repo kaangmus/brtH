@@ -13,8 +13,9 @@
                         @foreach ($videos as $i => $video)
                                 <div class="carousel-item background-overlay {{$i == 0 ? 'active': ''}}">
                                         <img src="{{$video->thumbnail}}" style="object-fit: cover; width: 100%; height: 600px">
-                                        <div class="carousel-caption text-left" style="text-shadow: 2px 2px #000000">
+                                        <div class="carousel-caption text-left" style="text-weight: 900">
                                         <a class="text-white" href="{{url('video/'.$video->id)}}" onMouseOver="this.style.color='black'" onMouseOut="this.style.color='white'"><i class="fa fa-play-circle-o fa-5x"></i></a>
+                                        <br><br>
                                         <div class="d-block d-sm-none">
                                             <br>
                                                 <h4 class="text-white font-weight-bold">{{$video->judul}}</h4>
