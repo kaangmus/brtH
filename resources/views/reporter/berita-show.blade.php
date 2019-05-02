@@ -7,12 +7,6 @@
     <div class="app-title">
 
     <h4>{{$berita->judul}}</h4>
-
-            <div class="toggle-flip">
-            <label>
-                <input type="checkbox"  onchange="publish('{{$berita->id}}')" {{($berita->publish == 'Public')? 'checked' : '' }}  ><span class="flip-indecator" data-toggle-on="Public" data-toggle-off="Private"></span>
-            </label>
-            </div>
     </div>
 
     <div class="row justify-content-md-center">
@@ -45,12 +39,4 @@
 
 @section('script')
 <script src="{{asset('js/hapus.js')}}"></script>
-<script>
-    function publish(no) {
-        $.get('{{ route('reporter.berita.publish')}}?id='+no, function(response){
-            console.log(response);
-        });
-        
-    }
-</script>
 @endsection

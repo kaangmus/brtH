@@ -80,6 +80,13 @@
 
                 </div>
 
+                <hr>Keterangan <br>
+                <div class="btn-group" role="group" aria-label="Third group">
+                    <button type="button" class="btn btn-primary btn-sm">Terferifikasi</button>
+                    <button type="button" class="btn btn-danger btn-sm">Diblock</button>
+                    <button type="button" class="btn btn-info btn-sm">Pengajuan</button>
+                </div>
+
             </div>
 
         </div>

@@ -25,10 +25,10 @@
   padding: 0; }
 
 body {
-  font-family: "Work Sans", sans-serif; }
+  font-family: "Century Gothic" }
 
 .ubuntu-fonts {
-  font-family: "Ubuntu", sans-serif; }
+  font-family: "Century Gothic", sans-serif; }
 
 h1,
 h2,
@@ -52,10 +52,10 @@ a {
   outline: none;
   font-size: 14px;
   font-weight: 400;
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Century Gothic", sans-serif;
   color: #8d8d8d; }
   a:hover, a:focus {
-    font-family: "Ubuntu", sans-serif;
+    font-family: "Century Gothic", sans-serif;
     -webkit-transition-duration: 500ms;
     transition-duration: 500ms;
     text-decoration: none;
@@ -411,7 +411,7 @@ img {
       text-align: center;
       line-height: 45px;
       font-size: 24px;
-      font-family: "Ubuntu", sans-serif;
+      font-family: "Century Gothic", sans-serif;
       font-weight: 700; }
   .hero-area .hero-post-slide .single-slide .post-title a {
     margin-bottom: 0;
@@ -437,7 +437,7 @@ img {
     color: #000000;
     margin-bottom: 0;
     margin-right: auto;
-    font-family: "Ubuntu", sans-serif;
+    font-family: "Century Gothic", sans-serif;
     font-weight: 700; }
   .world-catagory-area .nav-tabs .nav-link {
     padding: 0 1em;
@@ -721,7 +721,7 @@ img {
     color: #000000;
     margin-bottom: 0;
     margin-right: auto;
-    font-family: "Ubuntu", sans-serif;
+    font-family: "Century Gothic", sans-serif;
     font-weight: 700;
     padding: 10px 0;
     border-bottom: 2px solid #f1f1f1; }
@@ -739,7 +739,7 @@ img {
     color: #000000;
     margin-bottom: 0;
     margin-right: auto;
-    font-family: "Ubuntu", sans-serif;
+    font-family: "Century Gothic", sans-serif;
     font-weight: 700;
     padding: 12px 0;
     border-bottom: 2px solid #f1f1f1;
@@ -826,7 +826,7 @@ img {
     line-height: 1.8;
     margin-bottom: 30px;
     color: #8d8d8d;
-    font-family: "Ubuntu", sans-serif; }
+    font-family: "Century Gothic", sans-serif; }
   .single-blog-content .post-content blockquote {
     border-left: 2px solid;
     border-color: #0000ff;
@@ -895,7 +895,7 @@ img {
     font-size: 18px;
     color: #000000;
     margin-bottom: 0;
-    font-family: "Ubuntu", sans-serif;
+    font-family: "Century Gothic", sans-serif;
     font-weight: 700;
     margin-bottom: 30px; }
   .contact-form button.world-btn,
@@ -933,7 +933,7 @@ img {
     left: 0;
     top: 5px;
     transition: 0.5s ease all;
-    font-family: "Ubuntu", sans-serif; }
+    font-family: "Century Gothic", sans-serif; }
   .group .bar {
     position: relative;
     display: block;
@@ -1215,7 +1215,7 @@ textarea:focus ~ .highlight {
 /* Footer Area CSS */
 .footer-area {
   background-color: #161616;
-  padding: 70px 0;
+  padding: 20px 0;
   position: relative;
   z-index: 1; }
   .footer-area .footer-single-widget .copywrite-text p {
@@ -1236,7 +1236,7 @@ textarea:focus ~ .highlight {
         margin: 50px 0; } }
   .footer-area .footer-single-widget h5 {
     font-size: 18px;
-    font-family: "Ubuntu", sans-serif;
+    font-family: "Century Gothic", sans-serif;
     margin-bottom: 20px;
     font-weight: 700;
     color: #ffffff; }
@@ -1253,7 +1253,7 @@ textarea:focus ~ .highlight {
       color: #959595;
       font-size: 14px;
       padding: 0 5px;
-      font-family: "Ubuntu", sans-serif; }
+      font-family: "Century Gothic", sans-serif; }
     .footer-area .footer-single-widget form button {
       position: absolute;
       height: 35px;

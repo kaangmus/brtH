@@ -7,12 +7,6 @@
     <div class="app-title">
 
     <h4>{{$literasi->judul}}</h4>
-
-            <div class="toggle-flip">
-            <label>
-                <input type="checkbox"  onchange="publish('{{$literasi->id}}')" {{($literasi->publish == 'Public')? 'checked' : '' }}  ><span class="flip-indecator" data-toggle-on="Public" data-toggle-off="Private"></span>
-            </label>
-            </div>
     </div>
 
     <div class="row justify-content-md-center">
@@ -46,11 +40,4 @@
 
 @section('script')
 <script src="{{asset('js/hapus.js')}}"></script>
-<script>
-    function publish(no) {
-        $.get('{{ route('reporter.literasi.publish')}}?id='+no, function(response){
-            console.log(response);
-        });
-    }
-</script>
 @endsection

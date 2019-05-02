@@ -11,6 +11,7 @@
 |
 */
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/index2', 'HomeController@index2');
 Route::get('/berita/{id}', 'HomeController@beritasingle')->name('berita.single');
 Route::get('/literasi/{id}', 'HomeController@literasisingle')->name('literasi.single');
 Route::get('/video/{id}', 'HomeController@videosingle')->name('video.single');
@@ -27,3 +28,5 @@ Route::delete('/galeri/delete/{id}', 'ImagesController@delete')->name('galeri.de
 Route::get('login', function (){
     print("Halaman Belum Tersedia");
 })->name('login');
+
+
