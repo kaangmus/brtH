@@ -15,7 +15,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Main CSS-->
-    <link rel="icon" href="{{asset(env('APP_LOGO'))}}">
+    <link rel="icon" href="{{asset(env('APP_ICON'))}}">
     <link rel="stylesheet" type="text/css" href="{{asset('back/css/main.css')}}">
     <!-- Font-icon css-->
   <meta name="csrf-token" content="{{ csrf_token() }}">

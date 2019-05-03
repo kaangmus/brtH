@@ -47,7 +47,7 @@
                                     </div>
                                     </div>
                                 </td>
-                                <td>{{$berita->reporter_id != 0 ? $berita->reporter->nama : 'Admin'}}</td>
+                                <td>{{$berita->reporter_id != 0 ?  ($berita->reporter) ?  $berita->reporter->nama : 'NN' : 'Admin'}}</td>
                                 <td class="text-center">{{$berita->dilihat}}</td>
                                 <td class="text-center">{{$berita->publish}}</td>
                                 <td class="text-center">{{$berita->status}}</td>

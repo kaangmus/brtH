@@ -12,7 +12,7 @@
                     <div class="single-blog-content mb-100">
                         <!-- Post Meta -->
                         <div class="post-meta">
-                            <p><a href="#" class="post-date">{{hari_tanggal_waktu($berita->created_at, true)}}</a> <a href="#" class="post-author">{{$berita->reporter_id != 0 ? $berita->reporter->nama : 'Admin'}}</a> - Papua 60 Detik</p>
+                            <p><a href="#" class="post-date">{{hari_tanggal_waktu($berita->created_at, true)}}</a> <a href="#" class="post-author">{{$berita->reporter_id != 0 ?  ($berita->reporter) ? $berita->reporter->nama: 'NN' : 'Admin'}}</a> - Papua 60 Detik</p>
                         </div>
 
                         <!-- Post Content -->
@@ -38,10 +38,7 @@
                         <div class="sidebar-widget-area">
                             <h5 class="title">Top Berita</h5>
                             <div class="widget-content">
-                                <!-- Single Blog Post -->
-                                <div class="sidebar-widget-area">
-                                    <h5 class="title">Berita Terpopuler</h5>
-                                    <div class="widget-content">
+                                
                                         @foreach ($beritavs as $beritav)
                                         <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
                                             <!-- Post Thumbnail -->
@@ -50,28 +47,16 @@
                                             </div>
                                             <!-- Post Content -->
                                             <div class="post-content">
-                                                <a href="{{url('berita/'.$beritav->id)}}" class="headline">
+                                                <a href="{{route('berita.single', ['slug'=>$berita->slug])}}" class="headline">
                                                     <h5 class="mb-0">{{$beritav->judul}}</h5>
                                                 </a>
                                             </div>
                                         </div>
                                         @endforeach
         
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <!-- Widget Area -->
-                        <div class="sidebar-widget-area">
-                            <h5 class="title">Bagikan Artikel Ini</h5>
-                            <div class="widget-content">
-                                <div class="social-area d-flex ">
-                                    <a href="#" style="margin: 0px 20px"><i class="fa fa-facebook"></i></a>
-                                    <a href="#" style="margin: 0px 20px"><i class="fa fa-instagram"></i></a>
-                                    <a href="#" style="margin: 0px 20px"><i class="fa fa-youtube"></i></a>
-                                </div>
-                            </div>
-                        </div>
                         
                     </div>
                 </div>
@@ -81,12 +66,12 @@
             <div class="row">
 
                 @foreach ($videos as $video)
-                <div class="col-12 col-md-6 col-lg-4">
+                <div class="col-12 col-md-4 col-lg-3">
                     <!-- Single Blog Post -->
                     <div class="single-blog-post">
                         <!-- Post Thumbnail -->
                         <div class="post-thumbnail">
-                            <a href="{{url('video/'.$video->id)}}">
+                            <a href="{{route('video.single', ['slug'=>$video->slug])}}">
                             <img src="{{app('App\Models\Video')->gambarmedium($video->url)}}" alt="">
                             </a>
                             <!-- Catagory -->
@@ -94,13 +79,13 @@
                         </div>
                         <!-- Post Content -->
                         <div class="post-content">
-                            <a href="{{url('video/'.$video->id)}}" class="headline">
-                                <h5>{{$video->judul}}</h5>
+                            <a href="{{route('video.single', ['slug'=>$video->slug])}}" class="headline">
+                                <h6 data-toggle="tooltip" data-placement="bottom" title="{{$video->judul}}">{{limit_word($video->judul, 40)}}</h6>
                             </a>
                             {{-- <p>How Did van Gogh’s Turbulent Mind Depict One of the Most Complex Concepts in...</p> --}}
                             <!-- Post Meta -->
                             <div class="post-meta">
-                                <p><a href="#" class="post-author">{{$video->reporter_id != 0 ? $video->reporter->nama : 'Admin'}}</a> on <a href="#" class="post-date">{{hari_tanggal_waktu($video->created_at, true)}}</a></p>
+                                <p><a href="#" class="post-author">{{$video->reporter_id != 0 ?  ($video->reporter) ? $video->reporter->nama : 'NN' : 'Admin'}}</a> on <a href="#" class="post-date">{{hari_tanggal_waktu($video->created_at, true)}}</a></p>
 
                             </div>
                         </div>

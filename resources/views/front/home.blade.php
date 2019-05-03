@@ -2,7 +2,7 @@
 @section('css')
 <link rel="stylesheet" href="{{asset('vendor/galeri/css/lc_lightbox.css')}}">
 <link rel="stylesheet" href="{{asset('vendor/galeri/css/lc_lightbox.min.css')}}">
-
+<link href='https://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
 @endsection
 @section('content')
 
@@ -14,14 +14,14 @@
                                 <div class="carousel-item background-overlay {{$i == 0 ? 'active': ''}}">
                                         <img src="{{$video->thumbnail}}" style="object-fit: cover; width: 100%; height: 600px">
                                         <div class="carousel-caption text-left" style="text-weight: 900">
-                                        <a class="text-white" href="{{url('video/'.$video->id)}}" onMouseOver="this.style.color='black'" onMouseOut="this.style.color='white'"><i class="fa fa-play-circle-o fa-5x"></i></a>
+                                        <a class="text-white" href="{{route('video.single', ['slug'=>$video->slug])}}" onMouseOver="this.style.color='black'" onMouseOut="this.style.color='white'"><i class="fa fa-play-circle-o fa-5x"></i></a>
                                         <br><br>
                                         <div class="d-block d-sm-none">
                                             <br>
                                                 <h4 class="text-white font-weight-bold">{{$video->judul}}</h4>
                                         </div>
                                         <div class="d-none d-sm-block ">
-                                                <h3 class="text-white font-weight-bold"  style="width: 70%;" >{{$video->judul}}</h>
+                                                <h3 class="text-white"  style="width: 70%; font-family: 'Bree Serif', serif;" >{{$video->judul}}</h3>
                                         </div>
                                         </div>
                                 </div>
@@ -50,7 +50,7 @@
                                     <p>{{$i+1}}</p>
                                 </div>
                                 <div class="post-title">
-                                    <a href="{{url('video/'.$video->id)}}">{{$video->judul}}</a>
+                                    <a href="{{route('video.single', ['slug'=>$video->slug])}}">{{$video->judul}}</a>
                                 </div>
                             </div>
                             @endforeach
@@ -165,12 +165,12 @@
                         </div>
                         <!-- Post Content -->
                         <div class="post-content">
-                            <a href="{{url('berita/'.$berita->id)}}" class="headline">
+                            <a href="{{route('berita.single', ['slug'=>$berita->slug])}}" class="headline">
                                 <h5>{{$berita->judul}}</h5>
                             </a>
                             <!-- Post Meta -->
                             <div class="post-meta">
-                                <p><a href="#" class="post-author">{{$berita->reporter_id != 0 ? $berita->reporter->nama : 'Admin'}}</a> on <a href="#" class="post-date">{{hari_tanggal_waktu($berita->created_at, true)}}</a></p>
+                                <p>{{$berita->reporter_id != 0 ?  ($berita->reporter) ? $berita->reporter->nama : 'NN' : 'Admin'}} on {{hari_tanggal_waktu($berita->created_at)}}</a></p>
 
                                 
                             </div>
@@ -200,12 +200,12 @@
                             </div>
                             <!-- Post Content -->
                             <div class="post-content">
-                                <a href="{{url('berita/'.$beritav->id)}}" class="headline">
+                                <a href="{{route('berita.single', ['slug'=>$beritav->slug])}}" class="headline">
                                     <h5>{{$beritav->judul}}</h5>
                                 </a>
                                 <!-- Post Meta -->
                                 <div class="post-meta">
-                                    <p><a href="#" class="post-author">{{$beritav->reporter_id != 0 ? $beritav->reporter->nama : 'Admin'}}</a> on <a href="#" class="post-date">{{hari_tanggal_waktu($beritav->created_at, true)}}</a></p>
+                                    <p><a href="#" class="post-author">{{$beritav->reporter_id != 0 ?  ($beritav->reporter) ?$beritav->reporter->nama : 'NN' : 'Admin'}}</a> on <a href="#" class="post-date">{{hari_tanggal_waktu($beritav->created_at, true)}}</a></p>
     
                                     
                                 </div>
@@ -229,11 +229,13 @@
                                 <div class="col-md-12">
                                     <div class="tile">
                                             <div class="row">
-                                                @foreach ($fotos as $foto)
-                                                <a href="{{$foto->foto}}" class="mybox md-5" title="Title" data-lcl-txt="Deskripsi" data-lcl-author="Author">
+                                                @forelse ($fotos as $foto)
+                                                <a href="{{$foto->foto}}" class="mybox md-5" title="{{$foto->judul}}" data-lcl-txt="{{$foto->deskripsi}}" data-lcl-author="{{$foto->reporter_id != 0 ?  ($foto->reporter) ? $foto->reporter->nama : 'NN' : 'Admin'}}">
                                                     <img src="{{$foto->foto}}" width="500px" style="padding: 0px; margin: 0px;object-fit: cover; width: 60px; height: 60px">
                                                 </a>
-                                                @endforeach
+                                                @empty
+                                                "Belum ada foto"
+                                                @endforelse
                                             </div>
 
                                             @if (count($fotos) == 15)
@@ -259,7 +261,7 @@
                                     </div>
                                     <!-- Post Content -->
                                     <div class="post-content">
-                                        <a href="{{url('literasi/'.$literasi->id)}}" class="headline">
+                                        <a href="{{route('literasi.single', ['slug'=>$literasi->slug])}}" class="headline">
                                             <h5 class="mb-0">{{$literasi->judul}}</h5>
                                         </a>
                                     </div>

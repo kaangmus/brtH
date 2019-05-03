@@ -20,7 +20,7 @@
                                 <div class="single-blog-post wow fadeInUpBig" data-wow-delay="0.2s">
                                         <!-- Post Thumbnail -->
                                     <div class="post-thumbnail">
-                                        <a href="{{url('video/'.$video->id)}}">
+                                        <a href="{{route('video.single', ['slug'=>$video->slug])}}">
                                             <img src="{{app('App\Models\Video')->gambarmedium($video->url)}}" alt="">
                                         <!-- Catagory -->
                                         {{-- <div class="post-cta"><a href="#">travel</a></div> --}}
@@ -30,13 +30,13 @@
                                     </div>
                                     <!-- Post Content -->
                                     <div class="post-content" style="padding: 10px 15px">
-                                        <a href="{{url('video/'.$video->id)}}" class="headline">
-                                            <h6>{{limit_word($video->judul, 30)}}</h6>
+                                        <a href="{{route('video.single', ['slug'=>$video->slug])}}" class="headline">
+                                            <h6 data-toggle="tooltip" data-placement="bottom" title="{{$video->judul}}">{{limit_word($video->judul, 40)}}</h6>
                                         </a>
                                         {{-- <p>How Did van Gogh’s Turbulent Mind Depict One of the Most Complex Concepts in...</p> --}}
                                         <!-- Post Meta -->
                                         <div class="post-meta">
-                                            <p><a href="#" class="post-author">{{$video->reporter_id != 0 ? $video->reporter->nama : 'Admin'}}</a> on <a href="#" class="post-date">{{hari_tanggal_waktu($video->created_at, true)}}</a></p>
+                                            <p><a href="#" class="post-author">{{$video->reporter_id != 0 ?  ($foto->reporter) ? $video->reporter->nama : 'NN' : 'Admin'}}</a> on <a href="#" class="post-date">{{hari_tanggal_waktu($video->created_at)}}</a></p>
                                         </div>
                                     </div>
                                 </div>
@@ -65,7 +65,7 @@
                                     </div>
                                     <!-- Post Content -->
                                     <div class="post-content">
-                                        <a href="{{url('video/'.$videov->id)}}" class="headline">
+                                        <a href="{{route('video.single', ['slug'=>$videov->slug])}}" class="headline">
                                             <h5 class="mb-0">{{$videov->judul}}</h5>
                                         </a>
                                     </div>

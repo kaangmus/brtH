@@ -33,9 +33,9 @@ class HomeController extends Controller
         return view('front.index2', compact('beritavs', 'beritas', 'videos', 'literasis','literasivs', 'fotos'));
     }
     
-    public function beritasingle($id)
+    public function beritasingle($slug)
     {
-        $berita = Berita::where(['id'=>$id,'publish'=>'Public'])->first();
+        $berita = Berita::where(['slug'=>$slug,'publish'=>'Public'])->first();
         $berita['dilihat'] = $berita->dilihat+1;
         $berita->save();
         $beritavs = Berita::where('publish', 'Public')->where('status', 'Verifikasi')->orderBy('dilihat', 'DESC')->limit(10)->get();
@@ -43,9 +43,9 @@ class HomeController extends Controller
         return view('front.berita-single', compact('berita', 'beritavs', 'videos'));
     }
 
-    public function literasisingle($id)
+    public function literasisingle($slug)
     {
-        $literasi = Berita::where(['id'=>$id,'publish'=>'Public'])->first();
+        $literasi = Literasi::where(['slug'=>$slug,'publish'=>'Public'])->first();
         $literasi['dilihat'] = $literasi->dilihat+1;
         $literasi->save();
         $literasivs = Berita::where('publish', 'Public')->where('status', 'Verifikasi')->orderBy('dilihat', 'DESC')->limit(10)->get();
@@ -53,9 +53,9 @@ class HomeController extends Controller
         return view('front.literasi-single', compact('literasi', 'literasivs', 'videos'));
     }
 
-    public function videosingle($id)
+    public function videosingle($slug)
     {
-        $video = Video::where(['id'=>$id,'publish'=>'Public'])->first();
+        $video = Video::where(['slug'=>$slug,'publish'=>'Public'])->first();
         $video['dilihat'] = $video->dilihat+1;
         $video->save();
         $videovs = Video::where('publish', 'Public')->where('status', 'Verifikasi')->orderBy('dilihat', 'DESC')->limit(10)->get();
@@ -90,7 +90,7 @@ class HomeController extends Controller
 
     public function fotolist()
     {
-        $fotos = Foto::where('publish', 'Public')->orderBy('created_at', 'DESC')->paginate(10);
+        $fotos = Foto::where('publish', 'Public')->where('status', 'Verifikasi')->orderBy('created_at', 'DESC')->paginate(10);
         // $populers = Foto::where('publish', 'Public')->orderBy('dilihat', 'DESC')->limit(10)->get();
         return view('front.galeri-list', compact('fotos'));
     }

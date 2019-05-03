@@ -58,8 +58,10 @@ Route::put('/video/update', 'Admin\VideoController@update')->name('admin.video.u
 Route::delete('/video/delete/{id}', 'Admin\VideoController@delete')->name('admin.video.delete');
 
 Route::get('/foto', 'Admin\FotoController@index')->name('admin.foto');
+Route::get('/foto/tambah', 'Admin\FotoController@create')->name('admin.foto.create');
 Route::get('/foto/publish', 'Admin\FotoController@publish')->name('admin.foto.publish');
 Route::get('/foto/verifikasi', 'Admin\FotoController@verifikasi')->name('admin.foto.verifikasi');
 Route::post('/foto/tambah', 'Admin\FotoController@store')->name('admin.foto.store');
+Route::get('/foto/edit/{id}', 'Admin\FotoController@edit')->name('admin.foto.edit');
 Route::put('/foto/update', 'Admin\FotoController@update')->name('admin.foto.update');
 Route::delete('/foto/delete/{id}', 'Admin\FotoController@delete')->name('admin.foto.delete');

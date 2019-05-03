@@ -17,6 +17,7 @@ class CreateVideosTable extends Migration
             $table->bigIncrements('id');
             $table->integer('reporter_id')->default(0);
             $table->string('judul');
+            $table->string('slug');
             $table->string('url');
             $table->text('deskripsi')->nullable();
             $table->string('kategori')->nullable();

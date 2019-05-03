@@ -81,6 +81,13 @@ a {
   height: 100%;
   z-index: 1000000; }
 
+.post-author{
+  color: #8d8d8d
+}
+.post-date{
+  color: #8d8d8d
+}
+
 #world-load {
   width: 70px;
   height: 70px;

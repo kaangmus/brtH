@@ -38,6 +38,8 @@ Route::delete('/video/delete/{id}', 'Reporter\VideoController@delete')->name('re
 
 Route::get('/foto', 'Reporter\FotoController@index')->name('reporter.foto');
 Route::get('/foto/publish', 'Reporter\FotoController@publish')->name('reporter.foto.publish');
+Route::get('/foto/tambah', 'Reporter\FotoController@create')->name('reporter.foto.create');
 Route::post('/foto/tambah', 'Reporter\FotoController@store')->name('reporter.foto.store');
+Route::get('/foto/edit/{id}', 'Reporter\FotoController@edit')->name('reporter.foto.edit');
 Route::put('/foto/update', 'Reporter\FotoController@update')->name('reporter.foto.update');
 Route::delete('/foto/delete/{id}', 'Reporter\FotoController@delete')->name('reporter.foto.delete');

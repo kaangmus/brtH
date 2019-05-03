@@ -24,12 +24,12 @@
                         </div>
                         <!-- Post Content -->
                         <div class="post-content">
-                            <a href="{{url($menu.'/'.$content->id)}}" class="headline">
+                            <a href="{{route($menu.'.single', ['slug'=>$content->slug])}}" class="headline">
                                 <h5>{{$content->judul}}</h5>
                             </a>
                             <!-- Post Meta -->
                             <div class="post-meta">
-                                <p><a href="#" class="post-author">{{$content->reporter_id != 0 ? $content->reporter->nama : 'Admin'}}</a> on <a href="#" class="post-date">{{hari_tanggal_waktu($content->created_at, true)}}</a></p>
+                                <p><a href="#" class="post-author">{{$content->reporter_id != 0 ?   ($content->reporter) ? $content->reporter->nama : 'NN' : 'Admin'}}</a> on <a href="#" class="post-date">{{hari_tanggal_waktu($content->created_at, true)}}</a></p>
 
                                 
                             </div>
@@ -59,7 +59,7 @@
                                     </div>
                                     <!-- Post Content -->
                                     <div class="post-content">
-                                        <a href="{{url($menu.'/'.$populer->id)}}" class="headline">
+                                        <a href="{{route($menu.'.single', ['slug'=>$content->slug])}}" class="headline">
                                             <h5 class="mb-0">{{$populer->judul}}</h5>
                                         </a>
                                     </div>

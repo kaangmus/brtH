@@ -13,7 +13,7 @@
 
     <!-- Title  -->
     <title>Papua 60 Detik</title>
-    <link rel="icon" href="{{asset(env('APP_LOGO', 'images/logo.png'))}}">
+    <link rel="icon" href="{{asset(env('APP_ICON', 'images/icon.png'))}}">
 
     <!-- Style CSS -->
     <link rel="stylesheet" href="{{asset('front/style.css')}}">
@@ -38,7 +38,7 @@
                 <div class="col-12">
                     <nav class="navbar navbar-expand-lg" style="border-bottom: 0px">
                         <!-- Logo -->
-                        <a class="navbar-brand" href="{{url('')}}"><img src="{{asset(env('APP_LOGO'))}}" style="max-height:120px; " alt="Logo"></a>
+                        <a class="navbar-brand" href="{{url('')}}"><img src="{{asset(env('APP_LOGO'))}}" style="max-width:200px; " alt="Logo"></a>
                         <!-- Navbar Toggler -->
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#worldNav" aria-controls="worldNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                         <!-- Navbar -->
@@ -82,11 +82,9 @@
     <footer class="footer-area">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-md-4">
+                <div class="col-12 col-md-7">
                     <div class="footer-single-widget">
-                        <a href="#"><img src="{{asset(env('APP_LOGO'))}}" style="max-width: 120px" alt=""></a>
-                        <div class="copywrite-text mt-30">
-                            <p>Papua 60 Detik</p>
+                            <img src="{{asset(env('APP_LOGO'))}}" class="mr-3" alt="..." style="max-width: 200px">
                             <p>Alamat Jalan Budi Utomo, Timika Papua 99910</p>
 
                             {{-- <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
@@ -95,28 +93,7 @@
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 col-md-4">
-                    <div class="footer-single-widget">
-                        <ul class="footer-menu d-flex justify-content-between">
-                            <li class="{{(Request::is('/'))? 'active': ''}}">
-                                <a  href="{{url('')}}">Home <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="{{(Request::is('video-all') OR \Request::is('video-all/*') OR \Request::is('video-all'))? 'active': ''}}">
-                                <a href="{{url('video-all')}}">Video <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="{{(Request::is('berita') OR \Request::is('berita/*') OR \Request::is('berita-all'))? 'active': ''}}">
-                                <a  href="{{url('berita-all')}}">Berita <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="{{(Request::is('galeri') OR \Request::is('galeri/*') OR \Request::is('galeri-all'))? 'active': ''}}">
-                                <a  href="{{url('galeri-all')}}">Galeri <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="{{(Request::is('literasi') OR \Request::is('literasi/*') OR \Request::is('literasi-all'))? 'active': ''}}">
-                                <a  href="{{url('literasi-all')}}">Literasi <span class="sr-only">(current)</span></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                
                 <div class="col-12 col-md-3">
                     <div class="footer-single-widget">
                             <div class="sidebar-widget-area">

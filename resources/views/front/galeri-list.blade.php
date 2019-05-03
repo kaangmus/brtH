@@ -20,7 +20,7 @@
                     <div class="row text-center ">
                         <div id="aniimated-thumbnials">
                             @forelse ($fotos as $foto)
-                                <a href="{{$foto->foto}}" class="mybox" title="Title" data-lcl-txt="Deskripsi" data-lcl-author="Author">
+                            <a href="{{$foto->foto}}" class="mybox md-5" title="{{$foto->judul}}" data-lcl-txt="{{$foto->deskripsi}}" data-lcl-author="{{$foto->reporter_id != 0 ?  ($foto->reporter) ? $foto->reporter->nama : 'NN' : 'Admin'}}">
                                     <img src="{{$foto->foto}}" style="padding: 0px; margin: 0px;object-fit: cover; width: 200px; height: 200px">
                                 </a>
                             @empty

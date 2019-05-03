@@ -18,6 +18,7 @@ class CreateFotosTable extends Migration
             $table->integer('reporter_id');
             $table->string('foto');
             $table->string('judul')->nullable();
+            $table->string('slug')->nullable();
             $table->string('deskripsi')->nullable();
             $table->string('kategori')->nullable();
             $table->enum('publish', ['Public', 'Private'])->default('Private');

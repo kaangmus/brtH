@@ -46,6 +46,7 @@ class VideoController extends Controller
             $upload = app('App\Helper\Images')->upload($request->file('thumbnail'), 'video');
             $video['thumbnail'] = $upload['url'];
         }
+        $video['slug'] = str_slug($request->judul, '-');
         $video->save();
 
         if($video){
@@ -90,6 +91,7 @@ class VideoController extends Controller
             $upload = app('App\Helper\Images')->upload($request->file('thumbnail'), 'video');
             $video['thumbnail'] = $upload['url'];
         }
+        $video['slug'] = str_slug($request->judul, '-');
         $video->save();
 
         if($video){

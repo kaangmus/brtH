@@ -37,11 +37,13 @@
                                     <div class="post-date"><span class="doted">Dipublikasikan pada {{hari_tanggal_waktu($video->created_at)}}</span></div>
                                 </div> 
                                 <div class="col-md-5 m-hide">
-                                        <div class="social-area d-flex ">
-                                                <a href="https://www.facebook.com/sharer.php?u={{url()->current()}}" style="margin: 0px 20px" target="_blank"><i class="fa fa-facebook"></i></a>
-                                                <a href="https://twitter.com/intent/tweet?url={{url()->current()}}" style="margin: 0px 20px" target="_blank"><i class="fa fa-twitter"></i></a>
-                                                <a href="   https://wa.me/?text={{url()->current()}}" style="margin: 0px 20px" target="_blank" data-action="share/whatsapp/share"><i class="fa fa-whatsapp"></i></a>
-                                            </div>
+                                    <div class="widget-content" style="padding: 5px;">
+                                        <div class="social-area d-flex" >
+                                            <a href="https://www.facebook.com/sharer.php?u={{url()->current()}}" style="margin: 0px 20px; color: blue" target="_blank"><i class="fa fa-facebook"></i></a>
+                                            <a href="https://twitter.com/intent/tweet?url={{url()->current()}}" style="margin: 0px 20px; color: lightblue" target="_blank"><i class="fa fa-twitter"></i></a>
+                                            <a href="   https://wa.me/?text={{url()->current()}}" style="margin: 0px 20px; color: green" target="_blank" data-action="share/whatsapp/share"><i class="fa fa-whatsapp"></i></a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             </div>
@@ -60,7 +62,7 @@
                                         <div class="single-blog-post wow fadeInUpBig" data-wow-delay="0.2s">
                                                 <!-- Post Thumbnail -->
                                             <div class="post-thumbnail">
-                                                <a href="{{url('video/'.$video->id)}}">
+                                                <a href="{{route('video.single', ['slug'=>$video->slug])}}">
                                                     <img src="{{app('App\Models\Video')->gambarmedium($video->url)}}" alt="">
                                                 <!-- Catagory -->
                                                 {{-- <div class="post-cta"><a href="#">travel</a></div> --}}
@@ -70,13 +72,13 @@
                                             </div>
                                             <!-- Post Content -->
                                             <div class="post-content" style="padding: 10px 15px">
-                                                <a href="{{url('video/'.$video->id)}}" class="headline">
-                                                    <h6>{{limit_word($video->judul, 30)}}</h6>
+                                                <a href="{{route('video.single', ['slug'=>$video->slug])}}" class="headline">
+                                                    <h6 data-toggle="tooltip" data-placement="bottom" title="{{$video->judul}}">{{limit_word($video->judul, 40)}}</h6>
                                                 </a>
                                                 {{-- <p>How Did van Gogh’s Turbulent Mind Depict One of the Most Complex Concepts in...</p> --}}
                                                 <!-- Post Meta -->
                                                 <div class="post-meta">
-                                                    <p><a href="#" class="post-author">{{$video->reporter_id != 0 ? $video->reporter->nama : 'Admin'}}</a> on <a href="#" class="post-date">{{hari_tanggal_waktu($video->created_at, true)}}</a></p>
+                                                    <p style="color: #a29b9b">{{$video->reporter_id != 0 ?  ($video->reporter) ? $video->reporter->nama : 'NN' : 'Admin'}} on {{hari_tanggal_waktu($video->created_at)}}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -97,13 +99,13 @@
                                         <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
                                             <!-- Post Thumbnail -->
                                             <div class="post-thumbnail">
-                                                <a href="{{url('video/'.$videov->id)}}">
+                                                <a href="{{route('video.single', ['slug'=>$video->slug])}}">
                                                     <img src="{{asset($videov->gambarmedium($videov->url))}}" alt="">
                                                 </a>
                                             </div>
                                             <!-- Post Content -->
                                             <div class="post-content">
-                                                <a href="{{url('video/'.$videov->id)}}" class="headline">
+                                                <a href="{{route('video.single', ['slug'=>$video->slug])}}" class="headline">
                                                     <h5 class="mb-0">{{$videov->judul}}</h5>
                                                 </a>
                                             </div>
