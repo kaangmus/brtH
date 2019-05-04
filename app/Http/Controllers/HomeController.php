@@ -6,6 +6,7 @@ use App\Models\Berita;
 use App\Models\Video;
 use App\Models\Literasi;
 use App\Models\Foto;
+use App\Models\Atribut;
 
 class HomeController extends Controller
 {
@@ -94,5 +95,9 @@ class HomeController extends Controller
         // $populers = Foto::where('publish', 'Public')->orderBy('dilihat', 'DESC')->limit(10)->get();
         return view('front.galeri-list', compact('fotos'));
     }
-     
+    public function atribut($atribut)
+    {
+        $atribut = Atribut::where('atribut', $atribut)->first();
+        return view('front.atribut', compact('atribut'));
+    }
 }

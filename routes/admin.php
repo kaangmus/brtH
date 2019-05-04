@@ -57,6 +57,14 @@ Route::get('/video/edit/{id}', 'Admin\VideoController@edit')->name('admin.video.
 Route::put('/video/update', 'Admin\VideoController@update')->name('admin.video.update');
 Route::delete('/video/delete/{id}', 'Admin\VideoController@delete')->name('admin.video.delete');
 
+Route::get('/atribut', 'Admin\AtributController@index')->name('admin.atribut');
+Route::get('/atribut/tambah', 'Admin\AtributController@create')->name('admin.atribut.create');
+Route::get('/atribut/show/{id}', 'Admin\AtributController@show')->name('admin.atribut.show');
+Route::post('/atribut/tambah', 'Admin\AtributController@store')->name('admin.atribut.store');
+Route::get('/atribut/edit/{id}', 'Admin\AtributController@edit')->name('admin.atribut.edit');
+Route::put('/atribut/update', 'Admin\AtributController@update')->name('admin.atribut.update');
+Route::delete('/atribut/delete/{id}', 'Admin\AtributController@delete')->name('admin.atribut.delete');
+
 Route::get('/foto', 'Admin\FotoController@index')->name('admin.foto');
 Route::get('/foto/tambah', 'Admin\FotoController@create')->name('admin.foto.create');
 Route::get('/foto/publish', 'Admin\FotoController@publish')->name('admin.foto.publish');

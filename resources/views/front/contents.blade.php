@@ -17,24 +17,17 @@
                     <!-- Single Blog Post -->
 
                     @foreach ($contents as $content)
-                    <div class="single-blog-post post-style-4 d-flex align-items-center wow fadeInUpBig" data-wow-delay="0.2s">
-                        <!-- Post Thumbnail -->
-                        <div class="post-thumbnail">
-                            <img src="{{asset($content->gambar)}}" alt="">
+                    <a href="{{route($menu.'.single', ['slug'=>$content->slug])}}" class="list-group-item list-group-item-action">
+                        <div class="media">
+                        <img src="{{asset($content->gambar)}}" class="mr-3" alt="{{$content->slug}}" style="padding: 0px; margin: 0px;object-fit: cover; width: 140px; height: 100px">
+                        <div class="media-body">
+                            <h6 class="mt-0" style="font-weight: 600">{{$content->judul}}</h6>
+                            {{-- {{$content->berita}} --}}
+                            {{$content->reporter_id != 0 ?  ($content->reporter) ? $content->reporter->nama : 'NN' : 'Admin'}} on {{hari_tanggal_waktu($content->created_at)}}
+                            
                         </div>
-                        <!-- Post Content -->
-                        <div class="post-content">
-                            <a href="{{route($menu.'.single', ['slug'=>$content->slug])}}" class="headline">
-                                <h5>{{$content->judul}}</h5>
-                            </a>
-                            <!-- Post Meta -->
-                            <div class="post-meta">
-                                <p><a href="#" class="post-author">{{$content->reporter_id != 0 ?   ($content->reporter) ? $content->reporter->nama : 'NN' : 'Admin'}}</a> on <a href="#" class="post-date">{{hari_tanggal_waktu($content->created_at, true)}}</a></p>
-
-                                
-                            </div>
                         </div>
-                    </div>
+                    </a>
                     @endforeach
 
 
@@ -50,20 +43,19 @@
 
                         <div class="sidebar-widget-area">
                             <h5 class="title">{{$title}} Terpopuler</h5>
-                            <div class="widget-content">
+                            <div class="list-group">
                                 @foreach ($populers as $populer)
-                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
-                                    <!-- Post Thumbnail -->
-                                    <div class="post-thumbnail">
-                                        <img src="{{asset($populer->gambar)}}" alt="">
-                                    </div>
-                                    <!-- Post Content -->
-                                    <div class="post-content">
-                                        <a href="{{route($menu.'.single', ['slug'=>$content->slug])}}" class="headline">
-                                            <h5 class="mb-0">{{$populer->judul}}</h5>
-                                        </a>
-                                    </div>
-                                </div>
+                                <a href="{{route('literasi.single', ['slug'=>$populer->slug])}}" class="list-group-item list-group-item-action">
+                                        <div class="media">
+                                        <img src="{{asset($populer->gambar)}}" class="mr-3" alt="{{$populer->slug}}" style="padding: 0px; margin: 0px;object-fit: cover; width: 90px; height: 60px">
+                                        <div class="media-body">
+                                            <h6 class="mt-0" style="font-weight: 600">{{$populer->judul}}</h6>
+                                            {{-- {{$literasi->berita}} --}}
+                                            {{$populer->reporter_id != 0 ?  ($populer->reporter) ? $populer->reporter->nama : 'NN' : 'Admin'}} on {{hari_tanggal_waktu($populer->created_at)}}
+                                            
+                                        </div>
+                                        </div>
+                                    </a>
                                 @endforeach
 
                             </div>

@@ -58,18 +58,19 @@
                             <h5 class="title">Video Terpopuler</h5>
                             <div class="widget-content">
                                 @foreach ($videovs as $videov)
-                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
-                                    <!-- Post Thumbnail -->
-                                    <div class="post-thumbnail">
-                                        <img src="{{asset($videov->gambarmedium($videov->url))}}" alt="">
-                                    </div>
-                                    <!-- Post Content -->
-                                    <div class="post-content">
-                                        <a href="{{route('video.single', ['slug'=>$videov->slug])}}" class="headline">
-                                            <h5 class="mb-0">{{$videov->judul}}</h5>
-                                        </a>
-                                    </div>
-                                </div>
+
+                                <a href="{{route('video.single', ['slug'=>$videov->slug])}}" class="list-group-item list-group-item-action">
+                                        <div class="media">
+                                        <img src="{{asset($videov->gambarmedium($videov->url))}}" class="mr-3" alt="{{$videov->slug}}" style="padding: 0px; margin: 0px;object-fit: cover; width: 90px; height: 60px">
+                                        <div class="media-body">
+                                            <b class="mt-0">{{limit_word($videov->judul,30)}}</b>
+                                            <br>
+                                            {{-- {{$literasi->berita}} --}}
+                                            {{$videov->reporter_id != 0 ?  ($videov->reporter) ? $videov->reporter->nama : 'NN' : 'Admin'}} on {{hari_tanggal_waktu($videov->created_at)}}
+                                            
+                                        </div>
+                                        </div>
+                                    </a>
                                 @endforeach
 
                             </div>

@@ -24,11 +24,11 @@
 
 <body>
     <!-- Preloader Start -->
-    <div id="preloader">
+    {{-- <div id="preloader">
         <div class="preload-content">
             <div id="world-load"></div>
         </div>
-    </div>
+    </div> --}}
     <!-- Preloader End -->
 
     <!-- ***** Header Area Start ***** -->
@@ -60,14 +60,6 @@
                                     <a class="nav-link" href="{{url('literasi-all')}}">Literasi <span class="sr-only">(current)</span></a>
                                 </li>
                             </ul>
-                            <!-- Search Form  -->
-                            {{-- <div id="search-wrapper">
-                                <form action="#">
-                                    <input type="text" id="search" placeholder="Search something...">
-                                    <div id="close-icon"></div>
-                                    <input class="d-none" type="submit" value="">
-                                </form>
-                            </div> --}}
                         </div>
                     </nav>
                 </div>
@@ -82,17 +74,28 @@
     <footer class="footer-area">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-md-7">
+                <div class="col-12 col-md-4">
                     <div class="footer-single-widget">
-                            <img src="{{asset(env('APP_LOGO'))}}" class="mr-3" alt="..." style="max-width: 200px">
-                            <p>Alamat Jalan Budi Utomo, Timika Papua 99910</p>
+                        <img src="{{asset(env('APP_LOGO'))}}" class="mt-4" alt="..." style="max-width: 200px">
+                        <p class="text-white">Copyright &copy 2019 - Papua60Detik.id</p>
 
-                            {{-- <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com/" target="_blank">Colorlib</a>
-                            <p>Proudly distributed by <a href="https://themewagon.com/" target="_blank">ThemeWagon</a></p> --}}
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-                        </div>
+                        <?php
+                            $atributs = App\Models\Atribut::all();
+                        ?>
+
+                        {{-- <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com/" target="_blank">Colorlib</a>
+                        <p>Proudly distributed by <a href="https://themewagon.com/" target="_blank">ThemeWagon</a></p> --}}
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                     </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="mt-4">
+                        @foreach ($atributs as $atribut)
+                            <a href="{{url('informasi/'.$atribut->atribut)}}" class="btn btn-sm btn-default">{{$atribut->atribut}}</a>
+                        @endforeach
+                    </div>
+                </div>
                 
                 <div class="col-12 col-md-3">
                     <div class="footer-single-widget">
@@ -100,9 +103,9 @@
                                     <h5 class="title">Sosial Media</h5>
                                     <div class="widget-content" style="padding: 5px;">
                                         <div class="social-area d-flex ">
-                                            <a href="#" style="margin: 0px 20px"><i class="fa fa-facebook"></i></a>
-                                            <a href="#" style="margin: 0px 20px"><i class="fa fa-instagram"></i></a>
-                                            <a href="#" style="margin: 0px 20px"><i class="fa fa-youtube"></i></a>
+                                            <a target="_blank" href="{{env('URL_FACEBOOK')}}" style="margin: 0px 20px"><i class="fa fa-facebook"></i></a>
+                                            <a target="_blank" href="{{env('URL_INSTAGRAM')}}" style="margin: 0px 20px"><i class="fa fa-instagram"></i></a>
+                                            <a target="_blank" href="{{env('URL_YOUTUBE')}}" style="margin: 0px 20px"><i class="fa fa-youtube"></i></a>
                                         </div>
                                     </div>
                                 </div>

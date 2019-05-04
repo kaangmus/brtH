@@ -61,89 +61,7 @@
             </div>
         </div>
     </div>
-    <!-- ********** Hero Area End ********** -->
 
-
-{{-- 
-<div class="main-content-wrapper"  style="padding: 20px 0px">
-    <div class="container">
-        <div class="row justify-content-center">
-                <div class="world-catagory-slider2 owl-carousel wow fadeInUpBig" data-wow-delay="0.4s">
-                        <!-- ========= Single Catagory Slide ========= -->
-                        <div class="single-cata-slide">
-                            <div class="row">
-                                @foreach ($videos as $i => $video)
-                                @if ($i<4)
-                                <div class="col-12 col-md-4 col-lg-3">
-                                        <div class="single-blog-post wow fadeInUpBig" data-wow-delay="0.2s">
-                                                <!-- Post Thumbnail -->
-                                            <div class="post-thumbnail">
-                                                <a href="{{url('video/'.$video->id)}}">
-                                                    <img src="{{app('App\Models\Video')->gambarmedium($video->url)}}" alt="">
-                                                <!-- Catagory -->
-                                                <!-- <div class="post-cta"><a href="#">travel</a></div> -->
-                                                <!-- Video Button -->
-                                                <!-- <a href="{{app('App\Models\Video')->watch($video->url)}}" class="video-btn"><i class="fa fa-play"></i></a> -->
-                                                </a>
-                                            </div>
-                                            <!-- Post Content -->
-                                            <div class="post-content">
-                                                <a href="{{url('video/'.$video->id)}}" class="headline">
-                                                    <h5>{{$video->judul}}</h5>
-                                                </a>
-                                                <!-- <p>How Did van Gogh’s Turbulent Mind Depict One of the Most Complex Concepts in...</p> -->
-                                                <!-- Post Meta -->
-                                                <div class="post-meta">
-                                                    <p><a href="#" class="post-author">{{$video->reporter_id != 0 ? $video->reporter->nama : 'Admin'}}</a> on <a href="#" class="post-date">{{hari_tanggal_waktu($video->created_at, true)}}</a></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                </div>
-                                @endif
-                                @endforeach
-                            </div>
-                        </div>
-                        <!-- ========= Single Catagory Slide ========= -->
-                        <div class="single-cata-slide">
-                            <div class="row">
-                                @if (count($videos)>3)
-                                    @foreach ($videos as $i => $video)
-                                    @if ($i>3 && $i<8)
-                                    <div class="col-12 col-md-4 col-lg-3">
-                                            <div class="single-blog-post wow fadeInUpBig" data-wow-delay="0.2s">
-                                                    <!-- Post Thumbnail -->
-                                                <div class="post-thumbnail">
-                                                <a href="{{url('video/'.$video->id)}}">
-                                                    <img src="{{app('App\Models\Video')->gambarmedium($video->url)}}" alt="">
-                                                    <!-- Catagory -->
-                                                    {{-- <div class="post-cta"><a href="#">travel</a></div> -->
-                                                    <!-- Video Button -->
-                                                    {{-- <a href="{{app('App\Models\Video')->watch($video->url)}}" class="video-btn"><i class="fa fa-play"></i></a> -->
-                                                </a>
-                                                </div>
-                                                <!-- Post Content -->
-                                                <div class="post-content">
-                                                    <a href="{{url('video/'.$video->id)}}" class="headline">
-                                                        <h5>{{$video->judul}}</h5>
-                                                    </a>
-                                                    {{-- <p>How Did van Gogh’s Turbulent Mind Depict One of the Most Complex Concepts in...</p> -->
-                                                    <!-- Post Meta -->
-                                                    <div class="post-meta">
-                                                        <p><a href="#" class="post-author">{{$video->reporter_id != 0 ? $video->reporter->nama : 'Admin'}}</a> on <a href="#" class="post-date">{{hari_tanggal_waktu($video->created_at, true)}}</a></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                    </div>
-                                    @endif
-                                    @endforeach
-                                @endif
-                            </div>
-                        </div>
-                </div>
-        </div>
-    </div>
-</div>
---}}
 
 <div class="main-content-wrapper" style="padding: 20px 0px">
     <div class="container">
@@ -157,26 +75,21 @@
 
                     <!-- Single Blog Post -->
 
+                    <div class="list-group">
                     @foreach ($beritas as $berita)
-                    <div class="single-blog-post post-style-4 d-flex align-items-center wow fadeInUpBig" data-wow-delay="0.2s">
-                        <!-- Post Thumbnail -->
-                        <div class="post-thumbnail">
-                            <img src="{{asset($berita->gambar)}}" alt="">
-                        </div>
-                        <!-- Post Content -->
-                        <div class="post-content">
-                            <a href="{{route('berita.single', ['slug'=>$berita->slug])}}" class="headline">
-                                <h5>{{$berita->judul}}</h5>
-                            </a>
-                            <!-- Post Meta -->
-                            <div class="post-meta">
-                                <p>{{$berita->reporter_id != 0 ?  ($berita->reporter) ? $berita->reporter->nama : 'NN' : 'Admin'}} on {{hari_tanggal_waktu($berita->created_at)}}</a></p>
-
-                                
-                            </div>
-                        </div>
-                    </div>
+                                <a href="{{route('berita.single', ['slug'=>$berita->slug])}}" class="list-group-item list-group-item-action">
+                                    <div class="media">
+                                    <img src="{{asset($berita->gambar)}}" class="mr-3" alt="{{$berita->slug}}" style="padding: 0px; margin: 0px;object-fit: cover; width: 140px; height: 100px">
+                                    <div class="media-body">
+                                        <h6 class="mt-0" style="font-weight: 600">{{$berita->judul}}</h6>
+                                        {{-- {{$berita->berita}} --}}
+                                        {{$berita->reporter_id != 0 ?  ($berita->reporter) ? $berita->reporter->nama : 'NN' : 'Admin'}} on {{hari_tanggal_waktu($berita->created_at)}}
+                                        
+                                    </div>
+                                    </div>
+                                </a>
                     @endforeach
+                    </div>
 
                     
                     @if (count($beritas) == 10)
@@ -186,36 +99,31 @@
                     @endif
 
 
-                        <div class="title">
+                        <div class="title" >
                             <h5>Berita Terpopuler</h5>
                         </div>
     
                         <!-- Single Blog Post -->
     
+                    <div class="list-group">
                         @foreach ($beritavs as $beritav)
-                        <div class="single-blog-post post-style-4 d-flex align-items-center wow fadeInUpBig" data-wow-delay="0.2s">
-                            <!-- Post Thumbnail -->
-                            <div class="post-thumbnail">
-                                <img src="{{asset($beritav->gambar)}}" alt="">
-                            </div>
-                            <!-- Post Content -->
-                            <div class="post-content">
-                                <a href="{{route('berita.single', ['slug'=>$beritav->slug])}}" class="headline">
-                                    <h5>{{$beritav->judul}}</h5>
-                                </a>
-                                <!-- Post Meta -->
-                                <div class="post-meta">
-                                    <p><a href="#" class="post-author">{{$beritav->reporter_id != 0 ?  ($beritav->reporter) ?$beritav->reporter->nama : 'NN' : 'Admin'}}</a> on <a href="#" class="post-date">{{hari_tanggal_waktu($beritav->created_at, true)}}</a></p>
-    
+                        <a href="{{route('berita.single', ['slug'=>$beritav->slug])}}" class="list-group-item list-group-item-action">
+                                <div class="media">
+                                <img src="{{asset($beritav->gambar)}}" class="mr-3" alt="{{$beritav->slug}}" style="padding: 0px; margin: 0px;object-fit: cover; width: 140px; height: 100px">
+                                <div class="media-body">
+                                    <h6 class="mt-0" style="font-weight: 600">{{$beritav->judul}}</h6>
+                                    {{-- {{$beritav->berita}} --}}
+                                    {{$beritav->reporter_id != 0 ?  ($beritav->reporter) ? $beritav->reporter->nama : 'NN' : 'Admin'}} on {{hari_tanggal_waktu($beritav->created_at)}}
                                     
                                 </div>
-                            </div>
-                        </div>
+                                </div>
+                            </a>
                         @endforeach
-    
+                    </div>
 
-                    
-
+                    <div class="d-none d-sm-block ">
+                    <br><br>
+                    </div>
 
                 </div>
 
@@ -225,13 +133,13 @@
 
                         <div class="sidebar-widget-area">
                             <h5 class="title">Galeri</h5>
-                            <div class="widget-content">
+                            <div style="padding: 10px; border: 1px solid #DFDFDB; margin-top: 10px">
                                 <div class="col-md-12">
                                     <div class="tile">
                                             <div class="row">
                                                 @forelse ($fotos as $foto)
                                                 <a href="{{$foto->foto}}" class="mybox md-5" title="{{$foto->judul}}" data-lcl-txt="{{$foto->deskripsi}}" data-lcl-author="{{$foto->reporter_id != 0 ?  ($foto->reporter) ? $foto->reporter->nama : 'NN' : 'Admin'}}">
-                                                    <img src="{{$foto->foto}}" width="500px" style="padding: 0px; margin: 0px;object-fit: cover; width: 60px; height: 60px">
+                                                    <img src="{{$foto->foto}}" width="500px" style="padding: 0px; margin: 0px;object-fit: cover; width: 80px; height: 80px">
                                                 </a>
                                                 @empty
                                                 "Belum ada foto"
@@ -251,26 +159,24 @@
                         </div>
                         <div class="sidebar-widget-area">
                             <h5 class="title">Literasi</h5>
-                            <div class="widget-content">
                                 
+                            <div class="list-group">
                                 @forelse ($literasis as $literasi)
-                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
-                                    <!-- Post Thumbnail -->
-                                    <div class="post-thumbnail">
-                                        <img src="{{asset($literasi->gambar)}}" alt="">
-                                    </div>
-                                    <!-- Post Content -->
-                                    <div class="post-content">
-                                        <a href="{{route('literasi.single', ['slug'=>$literasi->slug])}}" class="headline">
-                                            <h5 class="mb-0">{{$literasi->judul}}</h5>
-                                        </a>
-                                    </div>
-                                </div>
-                                
+                                <a href="{{route('literasi.single', ['slug'=>$literasi->slug])}}" class="list-group-item list-group-item-action">
+                                        <div class="media">
+                                        <img src="{{asset($literasi->gambar)}}" class="mr-3" alt="{{$literasi->slug}}" style="padding: 0px; margin: 0px;object-fit: cover; width: 90px; height: 60px">
+                                        <div class="media-body">
+                                            <h6 class="mt-0" style="font-weight: 600">{{$literasi->judul}}</h6>
+                                            {{-- {{$literasi->berita}} --}}
+                                            {{$literasi->reporter_id != 0 ?  ($literasi->reporter) ? $literasi->reporter->nama : 'NN' : 'Admin'}} on {{hari_tanggal_waktu($literasi->created_at)}}
+                                            
+                                        </div>
+                                        </div>
+                                    </a>
                                 @empty
                                     Belum ada content literasi
                                 @endforelse
-
+                            </div>
                                 @if (count($literasis) == 10)
                                     <div class="load-more-btn mt-50 text-center">
                                         <a href="{{url('literasi-all')}}" class="btn world-btn">Selengkapnya</a>
@@ -279,34 +185,9 @@
 
                                 
 
-                            </div>
 
                         </div>
 
-
-                        {{-- <div class="sidebar-widget-area">
-                            <h5 class="title">Literasi Terpopuler</h5>
-                            <div class="widget-content">
-                                
-                                @forelse ($literasivs as $literasiv)
-                                <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
-                                    <!-- Post Thumbnail -->
-                                    <div class="post-thumbnail">
-                                        <img src="{{asset($literasiv->gambar)}}" alt="">
-                                    </div>
-                                    <!-- Post Content -->
-                                    <div class="post-content">
-                                        <a href="{{url('literasi/'.$literasiv->id)}}" class="headline">
-                                            <h5 class="mb-0">{{$literasiv->judul}}</h5>
-                                        </a>
-                                    </div>
-                                </div>
-                                @empty
-                                    Belum ada content literasi
-                                @endforelse
-
-                            </div>
-                        </div> --}}
                     </div>
                 </div>
             </div>
