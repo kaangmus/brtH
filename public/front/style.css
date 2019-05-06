@@ -19,6 +19,10 @@
 @import url(css/magnific-popup.css);
 @import url(css/font-awesome.min.css);
 @import url(css/themify-icons.css);
+@font-face{
+  font-family: Futura;
+  src: url(fonts/FuturaPT-Bold.7c7bef4.woff2);
+}
 /* :: Base CSS */
 * {
   margin: 0;

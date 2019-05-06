@@ -2,7 +2,7 @@
 @section('css')
 <link rel="stylesheet" href="{{asset('vendor/galeri/css/lc_lightbox.css')}}">
 <link rel="stylesheet" href="{{asset('vendor/galeri/css/lc_lightbox.min.css')}}">
-<link href='https://fonts.googleapis.com/css?family=Passion+One:700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Heebo' rel='stylesheet' type='text/css'>
 @endsection
 @section('content')
 
@@ -13,15 +13,14 @@
                         @foreach ($videos as $i => $video)
                                 <div class="carousel-item background-overlay {{$i == 0 ? 'active': ''}}">
                                         <img src="{{$video->thumbnail}}" style="object-fit: cover; width: 100%; height: 600px">
-                                        <div class="carousel-caption text-left" style="text-weight: 900">
+                                        <div class="carousel-caption text-left" style="margin-top: -40px">
                                         <a class="text-white" href="{{route('video.single', ['slug'=>$video->slug])}}" onMouseOver="this.style.color='black'" onMouseOut="this.style.color='white'"><i class="fa fa-play-circle-o fa-5x"></i></a>
-                                        <br><br>
                                         <div class="d-block d-sm-none">
                                             <br>
-                                                <h4 class="text-white font-weight-bold">{{$video->judul}}</h4>
+                                                <h4 class="text-white font-weight-bold" style="font-family: Futura">{{$video->judul}}</h4>
                                         </div>
                                         <div class="d-none d-sm-block ">
-                                                <h2 class="text-white"  style="width: 70%; font-family: 'Passion One', cursive;" >{{$video->judul}}</h2>
+                                                <h1 class="text-white font-weight-bold"  style="width: 80%; font-family: 'Futura'" >{{$video->judul}}</h1>
                                         </div>
                                         </div>
                                 </div>
