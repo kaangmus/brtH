@@ -15,19 +15,19 @@
     <meta property="og:card" content="{{env('APP_NAME')}}"/>
     <meta property="og:site" content="{{env('APP_NAME')}}"/>
     <meta property="og:creator" content="{{env('APP_NAME')}}"/>
+    <meta property="og:site_name" content="{{env('APP_NAME')}}"/>
     <meta name="robots" content="index, follow"/>
-    <meta name="description" content="Pelaku RR sudah menjadi target polisi."/>
-    <meta name="keywords" content="Narkoba, Narkoba, Narkoba, Narkoba, Narkoba, Narkoba"/>
-    <meta name="news_keywords" content="Narkoba, Narkoba, Narkoba, Narkoba, Narkoba, Narkoba"/>
-    <meta property="og:site_name" content="kumparan"/>
-    <meta property="og:image" content="https://blue.kumparan.com/kumpar/image/upload/w_600,h_315,c_fill,ar_40:21,f_jpg,q_auto/l_tgfrrr0o2getiszltnrm,g_south,w_600/l_text:Verdana_12:Publisher%20Story%20%7C%20Bumi%20Papua,g_south_west,x_10,y_10,co_rgb:797979/kjt21ab5hyzvxuuvq4kq.jpg"/>
+    <meta property="og:url" content="{{url()->current()}}"/>
+
+    <meta name="description" content="@yield('meta-deskripsi')"/>
+    <meta name="keywords" content="@yield('meta-keywords')"/>
+    <meta name="news_keywords" content="@yield('meta-news_keywords')"/>
+    <meta property="og:image" content="@yield('meta-image')"/>
     <meta property="og:image:width" content="600"/>
     <meta property="og:image:height" content="315"/>
     <meta property="og:locale" content="id_ID"/>
-    <meta property="og:title" content="Polisi Tangkap Ibu Rumah Tangga Pengedar Narkoba di Merauke"/>
-    <meta property="og:url" content="https://kumparan.com/bumi-papua/polisi-tangkap-ibu-rumah-tangga-pengedar-narkoba-di-merauke-1r0Pi8fOuDr"/>
-    <meta property="og:description" content="Pelaku RR sudah menjadi target polisi."/>
-    
+    <meta property="og:title" content="@yield('meta-judul')"/>
+    <meta property="og:description" content="@yield('meta-deskripsi')"/>
     <!-- Title  -->
     <title>Papua 60 Detik</title>
     <link rel="icon" href="{{asset(env('APP_ICON', 'images/icon.png'))}}">
