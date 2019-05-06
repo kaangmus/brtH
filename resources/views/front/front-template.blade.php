@@ -6,23 +6,22 @@
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
+    <meta name="author" content="{{env('APP_NAME')}}">
+    <meta name="description" content="@yield('meta-deskripsi')"/>
+    <meta name="keywords" content="@yield('meta-keywords')"/>
+    <meta name="news_keywords" content="@yield('meta-news_keywords')"/>
+    <meta name="robots" content="index, follow"/>
     <meta name="googlebot-news" content="index,follow"/><meta charSet="utf-8"/>
+
     <meta property="og:card" content="{{env('APP_NAME')}}"/>
     <meta property="og:site" content="{{env('APP_NAME')}}"/>
     <meta property="og:creator" content="{{env('APP_NAME')}}"/>
     <meta property="og:site_name" content="{{env('APP_NAME')}}"/>
-    <meta name="robots" content="index, follow"/>
     <meta property="og:url" content="{{url()->current()}}"/>
-    <meta name="author" content="{{env('APP_NAME')}}">
-    
-    <meta name="description" content="@yield('meta-deskripsi')"/>
-    <meta name="keywords" content="@yield('meta-keywords')"/>
-    <meta name="news_keywords" content="@yield('meta-news_keywords')"/>
     <meta property="og:image" content="@yield('meta-image')"/>
     <meta property="og:image:width" content="600"/>
     <meta property="og:image:height" content="315"/>
