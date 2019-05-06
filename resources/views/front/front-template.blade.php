@@ -18,7 +18,8 @@
     <meta property="og:site_name" content="{{env('APP_NAME')}}"/>
     <meta name="robots" content="index, follow"/>
     <meta property="og:url" content="{{url()->current()}}"/>
-    <meta name="author" content="John Doe">
+    <meta name="author" content="{{env('APP_NAME')}}">
+    
     <meta name="description" content="@yield('meta-deskripsi')"/>
     <meta name="keywords" content="@yield('meta-keywords')"/>
     <meta name="news_keywords" content="@yield('meta-news_keywords')"/>
