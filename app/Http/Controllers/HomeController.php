@@ -49,7 +49,7 @@ class HomeController extends Controller
         $literasi = Literasi::where(['slug'=>$slug,'publish'=>'Public'])->first();
         $literasi['dilihat'] = $literasi->dilihat+1;
         $literasi->save();
-        $literasivs = Berita::where('publish', 'Public')->where('status', 'Verifikasi')->orderBy('dilihat', 'DESC')->limit(10)->get();
+        $literasivs = Literasi::where('publish', 'Public')->where('status', 'Verifikasi')->orderBy('dilihat', 'DESC')->limit(10)->get();
         $videos = Video::where('publish', 'Public')->where('status', 'Verifikasi')->orderBy('created_at', 'DESC')->limit(8)->get();
         return view('front.literasi-single', compact('literasi', 'literasivs', 'videos'));
     }

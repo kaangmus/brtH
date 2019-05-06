@@ -2,7 +2,7 @@
 @section('css')
 <link rel="stylesheet" href="{{asset('vendor/galeri/css/lc_lightbox.css')}}">
 <link rel="stylesheet" href="{{asset('vendor/galeri/css/lc_lightbox.min.css')}}">
-<link href='https://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Passion+One:700' rel='stylesheet' type='text/css'>
 @endsection
 @section('content')
 
@@ -21,7 +21,7 @@
                                                 <h4 class="text-white font-weight-bold">{{$video->judul}}</h4>
                                         </div>
                                         <div class="d-none d-sm-block ">
-                                                <h3 class="text-white"  style="width: 70%; font-family: 'Bree Serif', serif;" >{{$video->judul}}</h3>
+                                                <h2 class="text-white"  style="width: 70%; font-family: 'Passion One', cursive;" >{{$video->judul}}</h2>
                                         </div>
                                         </div>
                                 </div>

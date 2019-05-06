@@ -31,7 +31,7 @@
                                 <div class="social-area d-flex" >
                                     <a href="https://www.facebook.com/sharer.php?u={{url()->current()}}" style="margin: 0px 20px; color: blue" target="_blank"><i class="fa fa-facebook"></i></a>
                                     <a href="https://twitter.com/intent/tweet?url={{url()->current()}}" style="margin: 0px 20px; color: lightblue" target="_blank"><i class="fa fa-twitter"></i></a>
-                                    <a href="   https://wa.me/?text={{url()->current()}}" style="margin: 0px 20px; color: green" target="_blank" data-action="share/whatsapp/share"><i class="fa fa-whatsapp"></i></a>
+                                    <a href="https://wa.me/?text={{url()->current()}}" style="margin: 0px 20px; color: green" target="_blank" data-action="share/whatsapp/share"><i class="fa fa-whatsapp"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -49,18 +49,18 @@
                             <div class="widget-content">
                                 
                                         @foreach ($beritavs as $beritav)
-                                        <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
-                                            <!-- Post Thumbnail -->
-                                            <div class="post-thumbnail">
-                                                <img src="{{asset($beritav->gambar)}}" alt="">
+                                        <a href="{{route('berita.single', ['slug'=>$beritav->slug])}}" class="list-group-item list-group-item-action">
+                                            <div class="media">
+                                            <img src="{{asset($beritav->gambar)}}" class="mr-3" alt="{{$beritav->slug}}" style="padding: 0px; margin: 0px;object-fit: cover; width: 90px; height: 60px">
+                                            <div class="media-body">
+                                                <b class="mt-0">{{limit_word($beritav->judul,30)}}</b>
+                                                <br>
+                                                {{-- {{$literasi->berita}} --}}
+                                                {{$beritav->reporter_id != 0 ?  ($beritav->reporter) ? $beritav->reporter->nama : 'NN' : 'Admin'}} on {{hari_tanggal_waktu($beritav->created_at)}}
+                                                
                                             </div>
-                                            <!-- Post Content -->
-                                            <div class="post-content">
-                                                <a href="{{route('berita.single', ['slug'=>$berita->slug])}}" class="headline">
-                                                    <h5 class="mb-0">{{$beritav->judul}}</h5>
-                                                </a>
                                             </div>
-                                        </div>
+                                        </a>
                                         @endforeach
         
                             </div>

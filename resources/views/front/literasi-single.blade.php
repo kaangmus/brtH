@@ -49,18 +49,18 @@
                             <div class="widget-content">
                                 
                                         @foreach ($literasivs as $literasiv)
-                                        <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
-                                            <!-- Post Thumbnail -->
-                                            <div class="post-thumbnail">
-                                                <img src="{{asset($literasiv->gambar)}}" alt="">
+                                        <a href="{{route('berita.single', ['slug'=>$literasiv->slug])}}" class="list-group-item list-group-item-action">
+                                            <div class="media">
+                                            <img src="{{asset($literasiv->gambar)}}" class="mr-3" alt="{{$literasiv->slug}}" style="padding: 0px; margin: 0px;object-fit: cover; width: 90px; height: 60px">
+                                            <div class="media-body">
+                                                <b class="mt-0">{{limit_word($literasiv->judul,30)}}</b>
+                                                <br>
+                                                {{-- {{$literasi->berita}} --}}
+                                                {{$literasiv->reporter_id != 0 ?  ($literasiv->reporter) ? $literasiv->reporter->nama : 'NN' : 'Admin'}} on {{hari_tanggal_waktu($literasiv->created_at)}}
+                                                
                                             </div>
-                                            <!-- Post Content -->
-                                            <div class="post-content">
-                                                <a href="{{route('literasi.single', ['slug'=>$literasi->slug])}}" class="headline">
-                                                    <h5 class="mb-0">{{$literasiv->judul}}</h5>
-                                                </a>
                                             </div>
-                                        </div>
+                                        </a>
                                         @endforeach
         
                             </div>
