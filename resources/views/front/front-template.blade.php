@@ -22,6 +22,7 @@
     <meta property="og:title" content="Polisi Tangkap Ibu Rumah Tangga Pengedar Narkoba di Merauke"/><meta property="og:url" content="https://kumparan.com/bumi-papua/polisi-tangkap-ibu-rumah-tangga-pengedar-narkoba-di-merauke-1r0Pi8fOuDr"/>
     <meta property="og:description" content="Pelaku RR sudah menjadi target polisi."/>
     <meta property="og:type" content="article"/>
+    
     <!-- Title  -->
     <title>Papua 60 Detik</title>
     <link rel="icon" href="{{asset(env('APP_ICON', 'images/icon.png'))}}">
