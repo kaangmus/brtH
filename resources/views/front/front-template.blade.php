@@ -26,7 +26,7 @@
     <meta property="og:description" content="@yield('meta-deskripsi')">
     <meta property="og:image" content="@yield('meta-image')">
     <meta property="og:url" content="{{url()->current()}}">
-    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:card" content="@yield('meta-image')">
     <!--  Non-Essential, But Recommended -->
     <meta property="og:site_name" content="{{env('APP_NAME')}}">
     <meta name="twitter:image:alt" content="{{env('APP_NAME')}}">
