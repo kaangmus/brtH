@@ -29,6 +29,7 @@
     <meta name="twitter:card" content="@yield('meta-image')">
     <!--  Non-Essential, But Recommended -->
     <meta property="og:site_name" content="{{env('APP_NAME')}}">
+    <meta property="twitter:image" content="@yield('meta-image')">
     <meta name="twitter:image:alt" content="{{env('APP_NAME')}}">
     <!--  Non-Essential, But Required for Analytics -->
     <meta property="fb:app_id" content="{{env('APLIKASI_FB')}}" />
