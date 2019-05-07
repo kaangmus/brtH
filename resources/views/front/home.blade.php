@@ -69,7 +69,7 @@
             <div class="row">
                 <div class="col-12 col-lg-8">
                     <div class="title">
-                        <h5>Berita Terbaru</h5>
+                        <h5>Story Terbaru</h5>
                     </div>
 
                     <!-- Single Blog Post -->
@@ -99,7 +99,7 @@
 
 
                         <div class="title" >
-                            <h5>Berita Terpopuler</h5>
+                            <h5>Story Terpopuler</h5>
                         </div>
     
                         <!-- Single Blog Post -->

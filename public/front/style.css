@@ -57,7 +57,8 @@ a {
   font-size: 14px;
   font-weight: 400;
   font-family: "Century Gothic", sans-serif;
-  color: #ffffff; }
+  color: white;
+ }
   a:hover, a:focus {
     font-family: "Century Gothic", sans-serif;
     -webkit-transition-duration: 500ms;
@@ -66,7 +67,7 @@ a {
     outline: none;
     font-size: 14px;
     font-weight: 400;
-    color: #0000ff; }
+}
 
 #preloader {
   display: -webkit-box;
@@ -1042,7 +1043,7 @@ textarea:focus ~ .highlight {
     content: "";
     width: 14px;
     height: 2px;
-    background-color: #8d8d8d;
+    background-color: white;
     -webkit-transform: rotate(45deg) scaleX(0);
     transform: rotate(45deg) scaleX(0);
     transform-origin: 0 50%;
@@ -1052,7 +1053,7 @@ textarea:focus ~ .highlight {
     color: #ffffff;
     background: none;
     border: 2px solid;
-    border-color: #8d8d8d;
+    border-color: white;
     outline: none;
     padding: 0 9px;
     border-radius: 1000px;
