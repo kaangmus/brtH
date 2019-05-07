@@ -41,6 +41,7 @@
                                     <a href="https://twitter.com/intent/tweet?url={{url()->current()}}" style="margin: 0px 5px; color: lightblue" target="_blank"><img src="{{asset('images/icon/twitter.png')}}" alt="" width="22px"></a>
                                     <a href="   https://wa.me/?text={{url()->current()}}" style="margin: 0px 5px; color: green" target="_blank" data-action="share/whatsapp/share"><img src="{{asset('images/icon/wa.png')}}" alt="" width="25px"></a>
                             </div>
+                            <br>
                         </div>
                         
                     </div>
@@ -84,7 +85,7 @@
                 @foreach ($videos as $video)
                 <div class="col-12 col-md-4 col-lg-3">
                     <!-- Single Blog Post -->
-                    <div class="single-blog-post">
+                    <div class="single-blog-post" style="padding: 2px">
                         <!-- Post Thumbnail -->
                         <div class="post-thumbnail">
                             <a href="{{route('video.single', ['slug'=>$video->slug])}}">
@@ -102,7 +103,6 @@
                             <!-- Post Meta -->
                             <div class="post-meta">
                                 <p><a href="#" class="post-author">{{$video->reporter_id != 0 ?  ($video->reporter) ? $video->reporter->nama : 'NN' : 'Admin'}}</a> on <a href="#" class="post-date">{{hari_tanggal_waktu($video->created_at, true)}}</a></p>
-
                             </div>
                         </div>
                     </div>
