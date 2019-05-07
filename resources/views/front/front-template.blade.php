@@ -11,25 +11,32 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <meta name="googlebot-news" content="index,follow"/><meta charSet="utf-8"/>
-    <meta property="og:card" content="{{env('APP_NAME')}}"/>
-    <meta property="og:site" content="{{env('APP_NAME')}}"/>
-    <meta property="og:creator" content="{{env('APP_NAME')}}"/>
-    <meta property="og:site_name" content="{{env('APP_NAME')}}"/>
     <meta name="robots" content="index, follow"/>
-    <meta property="og:url" content="{{url()->current()}}"/>
     <meta name="author" content="{{env('APP_NAME')}}">
     
     <meta name="description" content="@yield('meta-deskripsi')"/>
     <meta name="keywords" content="@yield('meta-keywords')"/>
     <meta name="news_keywords" content="@yield('meta-news_keywords')"/>
-    <meta property="og:image" content="@yield('meta-image')"/>
-    <meta property="og:image:width" content="600"/>
-    <meta property="og:image:height" content="315"/>
-    <meta property="og:locale" content="id_ID"/>
-    <meta property="og:title" content="@yield('meta-judul')"/>
-    <meta property="og:description" content="@yield('meta-deskripsi')"/>
+
+    {{-- SEO share --}}
+    <!--  Essential META Tags -->
+    <meta property="og:site" content="{{env('APP_NAME')}}"/>
+    <meta property="og:creator" content="{{env('APP_NAME')}}"/>
+    <meta property="og:title" content="@yield('meta-judul')">
+    <meta property="og:description" content="@yield('meta-deskripsi')">
+    <meta property="og:image" content="@yield('meta-image')">
+    <meta property="og:url" content="{{url()->current()}}">
+    <meta name="twitter:card" content="summary_large_image">
+    <!--  Non-Essential, But Recommended -->
+    <meta property="og:site_name" content="{{env('APP_NAME')}}">
+    <meta name="twitter:image:alt" content="{{env('APP_NAME')}}">
+    <!--  Non-Essential, But Required for Analytics -->
+    <meta property="fb:app_id" content="{{env('APLIKASI_FB')}}" />
+    <meta name="twitter:site" content="{{env('AKUN_TWITTER')}}">
+
+
     <!-- Title  -->
-    <title>Papua 60 Detik</title>
+    <title>{{env('APP_NAME')}}</title>
     <link rel="icon" href="{{asset(env('APP_ICON', 'images/icon.png'))}}">
 
     <!-- Style CSS -->
