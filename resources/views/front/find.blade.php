@@ -51,7 +51,7 @@
                             <div class="widget-content">
                                 
                                         @foreach ($literasis as $literasi)
-                                        <a href="{{route('berita.single', ['slug'=>$literasi->slug])}}" class="list-group-item list-group-item-action">
+                                        <a href="{{route('literasi.single', ['slug'=>$literasi->slug])}}" class="list-group-item list-group-item-action">
                                             <div class="media">
                                             <img src="{{asset($literasi->gambar)}}" class="mr-3" alt="{{$literasi->slug}}" style="padding: 0px; margin: 0px;object-fit: cover; width: 90px; height: 60px">
                                             <div class="media-body">
@@ -84,7 +84,7 @@
                             <div class="widget-content">
                                 
                                         @foreach ($videos as $video)
-                                        <a href="{{route('berita.single', ['slug'=>$video->slug])}}" class="list-group-item list-group-item-action">
+                                        <a href="{{route('video.single', ['slug'=>$video->slug])}}" class="list-group-item list-group-item-action">
                                             <div class="media">
                                             <img src="{{$video->gambarmedium($video->url)}}" class="mr-3" alt="{{$video->slug}}" style="padding: 0px; margin: 0px;object-fit: cover; width: 90px; height: 60px">
                                             <div class="media-body">
@@ -104,8 +104,12 @@
                         
                     </div>
                 </div>
+                
                 @endif
 
+                @if(!count($beritas) && !count($literasis) && !count($videos) )
+                Konten yang anda cari tidak diketemukan
+                @endif
                 
             </div>
 
