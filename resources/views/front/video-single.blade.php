@@ -45,11 +45,10 @@
                                 </div> 
                                 <div class="col-md-5 m-hide">
                                     <div class="widget-content" style="padding: 5px;">
-                                        <div class="social-area d-flex" >
-                                            <a href="https://www.facebook.com/sharer.php?u={{url()->current()}}" style="margin: 0px 20px; color: blue" target="_blank"><i class="fa fa-facebook"></i></a>
-                                            <a href="https://twitter.com/intent/tweet?url={{url()->current()}}" style="margin: 0px 20px; color: lightblue" target="_blank"><i class="fa fa-twitter"></i></a>
-                                            <a href="   https://wa.me/?text={{url()->current()}}" style="margin: 0px 20px; color: green" target="_blank" data-action="share/whatsapp/share"><i class="fa fa-whatsapp"></i></a>
-                                        </div>
+                                            <span class="mr-2">Bagikan :</span>
+                                            <a href="https://www.facebook.com/sharer.php?u={{url()->current()}}" style="margin: 0px 5px; color: blue" target="_blank"><img src="{{asset('images/icon/fb.png')}}" alt="" width="25px"></a>
+                                            <a href="https://twitter.com/intent/tweet?url={{url()->current()}}" style="margin: 0px 5px; color: lightblue" target="_blank"><img src="{{asset('images/icon/twitter.png')}}" alt="" width="22px"></a>
+                                            <a href="   https://wa.me/?text={{url()->current()}}" style="margin: 0px 5px; color: green" target="_blank" data-action="share/whatsapp/share"><img src="{{asset('images/icon/instagram.png')}}" alt="" width="20px"></a>
                                     </div>
                                 </div>
                             </div>

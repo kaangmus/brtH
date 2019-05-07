@@ -17,7 +17,7 @@
                                         <a class="text-white" href="{{route('video.single', ['slug'=>$video->slug])}}" onMouseOver="this.style.color='black'" onMouseOut="this.style.color='white'"><i class="fa fa-play-circle-o fa-5x"></i></a>
                                         <div class="d-block d-sm-none">
                                             <br>
-                                                <h4 class="text-white font-weight-bold" style="font-family: Futura">{{$video->judul}}</h4>
+                                                <h3 class="text-white font-weight-bold" style="font-family: Futura">{{$video->judul}}</h3>
                                         </div>
                                         <div class="d-none d-sm-block ">
                                                 <h1 class="text-white font-weight-bold"  style="width: 80%; font-family: 'Futura'" >{{$video->judul}}</h1>
