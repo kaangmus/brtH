@@ -6,7 +6,7 @@
 @section('content')
 
     <div class="main-content-wrapper section-padding-100">
-        <div class="container">
+        <div class="container" style="min-height: 400px">
             <div class="row ">
                 <!-- ========== Sidebar Area ========== -->
                 @if (count($beritas))
