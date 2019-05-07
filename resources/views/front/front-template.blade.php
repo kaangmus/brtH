@@ -76,7 +76,7 @@
                                     <a class="nav-link" href="{{url('video-all')}}">Video <span class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item {{(Request::is('berita') OR \Request::is('berita/*') OR \Request::is('berita-all'))? 'active': ''}}">
-                                    <a class="nav-link" href="{{url('berita-all')}}">Berita <span class="sr-only">(current)</span></a>
+                                    <a class="nav-link" href="{{url('berita-all')}}">Stories <span class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item {{(Request::is('galeri') OR \Request::is('galeri/*') OR \Request::is('galeri-all'))? 'active': ''}}">
                                     <a class="nav-link" href="{{url('galeri-all')}}">Galeri <span class="sr-only">(current)</span></a>

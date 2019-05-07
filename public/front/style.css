@@ -341,8 +341,7 @@ img {
     border-bottom: 1px solid;
     border-color: #ffffff;
     -webkit-transition-duration: 500ms;
-    transition-duration: 500ms;
-    height: 55px; }
+    transition-duration: 500ms; }
     .header-area .navbar .navbar-nav {
       margin-right: 50px; }
       .header-area .navbar .navbar-nav .nav-link {
@@ -376,7 +375,10 @@ img {
 @media only screen and (max-width: 767px) {
   #worldNav {
     background-color: #000000;
-    padding: 15px 15px 30px 15px; } }
+    padding: 15px 15px 30px 15px; 
+    margin-top: -3px;
+  } 
+}
 
 .dropdown-menu {
   border: none;

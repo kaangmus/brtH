@@ -29,7 +29,7 @@
                                 <div class="text-center">
                                         <h3>{{$berita->judul}}</h3>
             
-                                <img src="{{asset($berita->gambar)}}" style="max-width: 70%" alt="Gambar Timline Berita">
+                                <img src="{{asset($berita->gambar)}}" style="max-width: 70%" alt="Gambar Timline Stories">
                                 <br><br>
                                     </div>
                             {!!$berita->berita!!}
@@ -52,7 +52,7 @@
                         
                         <!-- Widget Area -->
                         <div class="sidebar-widget-area">
-                            <h5 class="title">Top Berita</h5>
+                            <h5 class="title">Top Stories</h5>
                             <div class="widget-content">
                                 
                                         @foreach ($beritavs as $beritav)

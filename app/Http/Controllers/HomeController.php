@@ -74,7 +74,7 @@ class HomeController extends Controller
     public function beritalist()
     {
         $menu = 'berita';
-        $title = 'Berita';
+        $title = 'Stories';
         $contents = Berita::where('publish', 'Public')->where('status', 'Verifikasi')->orderBy('created_at', 'DESC')->paginate(10);
         $populers = Berita::where('publish', 'Public')->where('status', 'Verifikasi')->orderBy('dilihat', 'DESC')->limit(10)->get();
         return view('front.contents', compact('menu', 'title','contents', 'populers'));

@@ -3,6 +3,8 @@
 <link rel="stylesheet" href="{{asset('vendor/galeri/css/lc_lightbox.css')}}">
 <link rel="stylesheet" href="{{asset('vendor/galeri/css/lc_lightbox.min.css')}}">
 <link href='https://fonts.googleapis.com/css?family=Heebo' rel='stylesheet' type='text/css'>
+{{-- <link href="{{asset('css/carousel.css')}}" rel="stylesheet"> --}}
+
 @endsection
 @section('content')
 
@@ -11,7 +13,7 @@
             <div id="carouselExampleControls" class="background-overlay carousel slide" data-ride="carousel">
                     <div class="carousel-inner" style="max-height: 600px">
                         @foreach ($videos as $i => $video)
-                                <div class="carousel-item background-overlay {{$i == 0 ? 'active': ''}}">
+                                <div class="carousel-item {{$i == 0 ? 'active': ''}}">
                                         <img src="{{$video->thumbnail}}" style="object-fit: cover; width: 100%; height: 600px">
                                         <div class="carousel-caption text-left" style="margin-top: -40px">
                                         <a class="text-white" href="{{route('video.single', ['slug'=>$video->slug])}}" onMouseOver="this.style.color='black'" onMouseOut="this.style.color='white'"><i class="fa fa-play-circle-o fa-5x"></i></a>
