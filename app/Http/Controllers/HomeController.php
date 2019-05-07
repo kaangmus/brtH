@@ -100,4 +100,12 @@ class HomeController extends Controller
         $atribut = Atribut::where('atribut', $atribut)->first();
         return view('front.atribut', compact('atribut'));
     }
+    public function cari()
+    {
+        $videos = Video::where('judul', 'like', '%'.$_GET['word'].'%')->get();
+        $beritas = Berita::where('judul', 'like', '%'.$_GET['word'].'%')->get();
+        $literasis = Literasi::where('judul', 'like', '%'.$_GET['word'].'%')->get();
+
+        return view('front.find', compact('videos', 'beritas', 'literasis'));
+    }
 }

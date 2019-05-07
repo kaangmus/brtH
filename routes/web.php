@@ -16,6 +16,7 @@ Route::get('/berita/{slug}', 'HomeController@beritasingle')->name('berita.single
 Route::get('/literasi/{slug}', 'HomeController@literasisingle')->name('literasi.single');
 Route::get('/video/{slug}', 'HomeController@videosingle')->name('video.single');
 Route::get('/informasi/{atribut}', 'HomeController@atribut')->name('atribut.single');
+Route::get('/cari', 'HomeController@cari')->name('cari');
 
 Route::get('/berita-all', 'HomeController@beritalist')->name('berita.list');
 Route::get('/literasi-all', 'HomeController@literasilist')->name('literasi.list');
