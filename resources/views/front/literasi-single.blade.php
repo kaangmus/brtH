@@ -1,10 +1,10 @@
 @extends('front.front-template')
 
-@section('meta-judul', $video->judul)
-@section('meta-keywords', $video->kategori)
-@section('meta-news_keywords', $video->kategori)
-@section('meta-deskripsi', $video->judul)
-@section('meta-image', $video->gambarmedium($video->url))
+@section('meta-judul', $literasi->judul)
+@section('meta-keywords', $literasi->kategori)
+@section('meta-news_keywords', $literasi->kategori)
+@section('meta-deskripsi', $literasi->judul)
+@section('meta-image', $literasi->gambar)
 
 @section('css')
 
