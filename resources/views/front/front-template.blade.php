@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
-<!-- Mirrored from technext.github.io/world/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 08 Apr 2019 05:14:16 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
-    <meta name="googlebot-news" content="index,follow"/><meta charSet="utf-8"/>
-    <meta name="robots" content="index, follow"/>
-    <meta name="author" content="{{env('APP_NAME')}}">
-    
-    <meta name="description" content="@yield('meta-deskripsi')"/>
-    <meta name="keywords" content="@yield('meta-keywords')"/>
-    <meta name="news_keywords" content="@yield('meta-news_keywords')"/>
 
     {{-- SEO share --}}
+    <meta charset="UTF-8">
+    <meta name="url" property="og:url" content="{{url()->current()}}" />
+    <meta property="og:type" content="website" />
+    <meta name="title" property="og:title" content="@yield('meta-judul')" />
+    <meta name="robots" content="index, follow">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="@yield('meta-judul')">
+    <link rel="alternate" hreflang="id" href="{{url()->current()}}" />
+    <meta name="description" property="og:description" content="@yield('meta-deskripsi')" />
+    <meta name="twitter:description" content="@yield('meta-deskripsi')">
+    <meta name="picture" property="og:image" content="@yield('meta-image')" />
+    <meta name="twitter:image" content="@yield('meta-image')">
+    <meta property="og:image:width" content="1024"/>
+    <meta property="og:image:height" content="622"/>
+    <meta property="fb:app_id" content="976637702517221" />
+    
+    <meta name="fbx-token" content="19e2bf014bcd84cd3a63bd2986222f632a19b8951897894e254a90b07c37fbb7">
+    <meta name="fbx-berita-id" content="6743">
+    <meta name="fbx-berita-token" content="7fe767b1b6f0322fb55ad6df1951ee7ba827a59e">
+{{-- 
     <!--  Essential META Tags -->
     <meta property="og:site" content="{{env('APP_NAME')}}"/>
     <meta property="og:creator" content="{{env('APP_NAME')}}"/>
@@ -33,7 +40,7 @@
     <meta name="twitter:image:alt" content="{{env('APP_NAME')}}">
     <!--  Non-Essential, But Required for Analytics -->
     <meta property="fb:app_id" content="{{env('APLIKASI_FB')}}" />
-    <meta name="twitter:site" content="{{env('AKUN_TWITTER')}}">
+    <meta name="twitter:site" content="{{env('AKUN_TWITTER')}}"> --}}
 
 
     <!-- Title  -->
