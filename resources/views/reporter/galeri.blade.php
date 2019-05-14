@@ -7,7 +7,7 @@
     <div class="app-title">
         <div>
             <h1>{{env("APP_NAME")}}</h1>
-            <p>Manajemen Literasi</p>
+            <p>Manajemen Album Galeri</p>
         </div>
     </div>
 
@@ -16,43 +16,53 @@
     <div class="row">
         <div class="col-md-12">
             <div class="tile">
-                <h3 class="tile-title">Daftar Foto
+                <div class="tile-body">
+                <form class="form-horizontal" id="submit-form" method="post" action="{{route('reporter.album.store')}}">
+                {{ csrf_field() }}
 
-                    <div class="btn-group float-right" role="group" aria-label="Basic example">
-                        <a class="btn btn-primary mr-1 mb-1 btn-sm" href="{{route('reporter.foto.create')}}">
-                            <i class="fa fa-plus"></i>Tambah</a>
-                    </div>
-                </h3>
+                            <div class="form-group row">
+                                <label for="album" class="col-sm-2 col-md-2 col-form-label">Album Baru</label>
+                                <div class="col-sm-10 col-md-7">
+                                    <input type="text" class="form-control" name="album" id="album" placeholder="Nama Album Baru" value="{{old('album')}}">
+                                    @if ($errors->has('album'))
+                                        <small class="form-text text-muted">{{ $errors->first('album') }}</small>
+                                    @endif
+                                </div>
+                                <div class="col-md-3 col-sm-12">
+                                    <button class="btn btn-primary btn-block" onclick="event.preventDefault(); document.getElementById('submit-form').submit();"><i class="fa fa-fw fa-lg fa-check-circle"></i>Tambah</button>
+                                </div>
+                            </div>
+
+                </form>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="tile">
+                <h3 class="tile-title">Daftar Album</h3>
                 <div class="bs-component">
                     <table class="table table-sm">
                         <thead>
                             <tr>
-                                <th>Foto</th>
-                                <th  class="text-center">Keterangan</th>
+                                <th>Album</th>
+                                <th class="text-center">Jumlah Foto</th>
+                                <th>Reporter</th>
                                 <th  class="text-center">Hapus</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($fotos as $foto)
+                            @foreach ($albums as $album)
                             <tr>
-                                <td>
-                                    <div class="media">
-                                    <img src="{{asset($foto->foto)}}" class="leading mr-3" alt="..." style="width: 64px">
-                                    <div class="media-body">
-                                        <b>{{$foto->judul}}</b><br>
-                                        <small style="font-size: 80%">{{hari_tanggal_waktu($foto->created_at, true)}} <br> {{$foto->deskripsi}}</small> <br>
-                                       
-                                    </div>
-                                    </div>
-                                </td>
+                                <td>{{$album->album}}</td>
+                                <td class="text-center">{{$album->foto()->count()}}</td>
+                                <td>{{$album->reporter_id != 0 ? ($album->reporter) ? $album->reporter->nama: 'NN' : 'Admin'}}</td>
                                 <td class="text-center">
-                                       {{$foto->status. ' - '. $foto->publish}}    
-                                </td>
-                                <td class="text-center">
-                                        <a class="btn btn-info btn-sm" href="{{route('reporter.foto.edit', ['id'=> $foto->id])}}">
+                                        <a class="btn btn-info btn-sm" href="{{route('admin.album.edit', ['id'=> $album->id])}}">
                                                 <i class="fa fa-edit"></i>Edit</a>
 
-                                        <button onClick="hapus('{{route('reporter.foto.delete', ['id'=> $foto->id])}}', 'Foto yakin ingin dihapus')" class="btn btn-danger btn-sm">Hapus</button>
+                                        <button onClick="hapus('{{route('admin.album.delete', ['id'=> $album->id])}}', 'Foto yakin ingin dihapus')" class="btn btn-danger btn-sm">Hapus</button>
+                                        <a href="{{route('admin.album.show',['album_id'=>$album->id])}}" class="btn btn-sm btn-primary">Album</a>
                                 </td>
                             </tr>
                             @endforeach

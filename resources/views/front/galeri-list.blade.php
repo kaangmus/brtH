@@ -17,7 +17,7 @@
                         <h5>Geleri</h5>
                     </div>
 
-                    <div class="row text-center ">
+                    {{-- <div class="row text-center ">
                         <div id="aniimated-thumbnials">
                             @forelse ($fotos as $foto)
                             <a href="{{$foto->foto}}" class="mybox md-5" title="{{$foto->judul}}" data-lcl-txt="{{$foto->deskripsi}}" data-lcl-author="{{$foto->reporter_id != 0 ?  ($foto->reporter) ? $foto->reporter->nama : 'NN' : 'Admin'}}">
@@ -27,10 +27,22 @@
                             Belum ada content Foto
                             @endforelse
                         </div>
+                    </div> --}}
+                    <div class="row">
+                    @foreach ($albums as $album)
+                        @if ($album->foto()->first())
+                        <figure class="figure col-md-3">
+                            <a href="{{route('album.single', ['slug'=>$album->slug])}}" >
+                            <img src="{{asset($album->foto()->first()->foto)}}" class="figure-img img-fluid rounded" alt="{{$album->slug}}" style="padding: 0px; margin: 0px;object-fit: cover; width: 100%; height: 200px">
+                            <figcaption class="figure-caption" style="font-weight: bold">{{$album->album}} - Foto ({{$album->foto()->count()}})</figcaption>
+                            </a>
+                        </figure>
+                        @endif
+                    @endforeach
                     </div>
 
                     <div class="row justify-content-md-center" style="padding: 20px">
-                        {{$fotos->links('pagination.default')}}
+                        {{$albums->links('pagination.default')}}
                     </div>
                                 
                 </div>

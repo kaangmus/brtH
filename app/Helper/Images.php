@@ -15,7 +15,8 @@ class Images extends Model
         $filenamefile = empty($name)? $filename.uniqid().'.'.$extension: $name.'_'.$filename.uniqid().'.'.$extension;
         $request->move($directori,$filenamefile);
         return [
-            'url' => $directori.$filenamefile
+            'url' => $directori.$filenamefile,
+            'name' => $filename
         ];
     }
 }

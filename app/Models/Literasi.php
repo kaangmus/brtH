@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Literasi extends Model
 {
     protected $fillable = [
-        'reporter_id','judul','gambar','artikel','dilihat','kategori','publish','data', 'status', 'slug'
+        'reporter_id','judul','gambar', 'caption', 'artikel','dilihat','kategori','publish','data', 'status', 'slug'
     ];
 
     protected $hidden = [

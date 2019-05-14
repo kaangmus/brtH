@@ -11,17 +11,13 @@
 @endsection
 @section('content')
 
-    <div class="d-block d-sm-none">
-        <br><br><br><br>
-    </div>
     
     <!-- ********** Hero Area Start ********** -->
     <div class="hero-area bg-img background-overlay">
             <div class="row align-items-center justify-content-center">
                 <div class="col-12">
                     <div class="single-blog-title text-center">
-                            <div class="embed-responsive embed-responsive-21by9"><iframe class="embed-responsive-item" src="{{app('App\Models\Video')->embed($video->url)}}" allowfullscreen></iframe></div>
-                        <!-- Catagory -->
+                            <div class="embed-responsive embed-responsive-21by9"  style="min-height: 400px"><iframe class="embed-responsive-item" src="{{app('App\Models\Video')->embed($video->url)}}" allowfullscreen></iframe></div>
                     </div>
                     
                 </div>

@@ -48,6 +48,15 @@
                                 </div>
 
                             </div>
+                            <div class="form-group row">
+                                    <label for="caption" class="col-sm-2 col-form-label">Caption Gambar</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="caption" id="caption" placeholder="Caption Gambar" value="{{old('caption')}}">
+                                        @if ($errors->has('caption'))
+                                            <small class="form-text text-muted">{{ $errors->first('caption') }}</small>
+                                        @endif
+                                    </div>
+                                </div>
                         </div>
                         <div class="col-sm-12 col-md-3">
                             <img src="{{asset('images/thumbnail.svg')}}" style="max-height: 130px" class="rounded" alt="thumbnail" id="gambar">
@@ -85,21 +94,50 @@
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.js"></script>
+<script src="{{asset('vendor/summernote/summernote-image-captionit.js')}}"></script>
 <script>
 $(document).ready(function() {
-$("#summernote").summernote({
+    $("#summernote").summernote({
     placeholder: 'Isi Berita',
-        height: 300,
-            callbacks: {
+    height: 300,
+    toolbar: [
+        // [groupName, [list of button]]
+        ['undoredo', ['undo', 'redo']],
+        ['style', ['bold', 'italic', 'underline','strikethrough', 'clear']],
+        ['font', ['fontname', 'fontsize', 'superscript', 'subscript']],
+        ['color', ['color']],
+        ['para', ['ul', 'ol', 'paragraph']],
+        ['height', ['height']],
+        ['image',['picture']],
+        ['link', ['link']],
+        ['video', ['video']],
+        ['table', ['table']],
+        ['help', ['fullscreen','codeview','help']]
+    ],
+    callbacks: {
         onImageUpload : function(files, editor, welEditable) {
 
                 for(var i = files.length - 1; i >= 0; i--) {
                         sendFile(files[i], this);
             }
         }
-    }
+    },
+    popover: {
+        image: [
+                ['custom', ['captionIt']],
+                ['imagesize', ['imageSize100', 'imageSize50', 'imageSize25']],
+                ['float', ['floatLeft', 'floatRight', 'floatNone']],
+                ['remove', ['removeMedia']]
+            ],
+        },
+        captionIt:{
+            figureClass:'{figure-class/es}',
+            figcaptionClass:'{figcapture-class/es}',
+            captionText:'{Default Caption Editable Placeholder Text if Title or Alt are empty}'
+        }
     });
 });
+
 function sendFile(file, el) {
 var form_data = new FormData();
 form_data.append('file', file);

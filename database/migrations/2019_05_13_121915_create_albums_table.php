@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLiterasisTable extends Migration
+class CreateAlbumsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,15 @@ class CreateLiterasisTable extends Migration
      */
     public function up()
     {
-        Schema::create('literasis', function (Blueprint $table) {
+        Schema::create('albums', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('reporter_id')->default(0);
-            $table->string('judul');
-            $table->string('slug');
-            $table->string('gambar');
-            $table->string('caption');
-            $table->longText('artikel');
-            $table->integer('dilihat');
+            $table->integer('reporter_id');
+            $table->string('album');
+            $table->text('deskripsi')->nullable();
+            $table->string('slug')->nullable();
             $table->string('kategori')->nullable();
             $table->enum('publish', ['Public', 'Private'])->default('Private');
             $table->enum('status', ['Verifikasi', 'Block', 'Pengajuan'])->default('Pengajuan');
-            $table->longText('data')->nullable();
             $table->timestamps();
         });
     }
@@ -37,6 +33,6 @@ class CreateLiterasisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('literasis');
+        Schema::dropIfExists('albums');
     }
 }

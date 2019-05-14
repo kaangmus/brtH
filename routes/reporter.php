@@ -36,9 +36,16 @@ Route::get('/video/edit/{id}', 'Reporter\VideoController@edit')->name('reporter.
 Route::put('/video/update', 'Reporter\VideoController@update')->name('reporter.video.update');
 Route::delete('/video/delete/{id}', 'Reporter\VideoController@delete')->name('reporter.video.delete');
 
+Route::get('/album', 'Reporter\AlbumController@index')->name('reporter.album');
+Route::get('/album/tambah', 'Reporter\AlbumController@create')->name('reporter.album.create');
+Route::get('/album/show/{id}', 'Reporter\AlbumController@show')->name('reporter.album.show');
+Route::post('/album/tambah', 'Reporter\AlbumController@store')->name('reporter.album.store');
+Route::get('/album/edit/{id}', 'Reporter\AlbumController@edit')->name('reporter.album.edit');
+Route::put('/album/update', 'Reporter\AlbumController@update')->name('reporter.album.update');
+Route::delete('/album/delete/{id}', 'Reporter\AlbumController@delete')->name('reporter.album.delete');
+
 Route::get('/foto', 'Reporter\FotoController@index')->name('reporter.foto');
-Route::get('/foto/publish', 'Reporter\FotoController@publish')->name('reporter.foto.publish');
-Route::get('/foto/tambah', 'Reporter\FotoController@create')->name('reporter.foto.create');
+Route::get('/foto/tambah/{album_id}', 'Reporter\FotoController@create')->name('reporter.foto.create');
 Route::post('/foto/tambah', 'Reporter\FotoController@store')->name('reporter.foto.store');
 Route::get('/foto/edit/{id}', 'Reporter\FotoController@edit')->name('reporter.foto.edit');
 Route::put('/foto/update', 'Reporter\FotoController@update')->name('reporter.foto.update');

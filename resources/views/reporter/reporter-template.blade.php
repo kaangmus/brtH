@@ -65,7 +65,7 @@
         <li><a class="app-menu__item {{(Request::is('reporter/berita') OR \Request::is('reporter/berita/*'))? 'active': ''}}" href="{{route('reporter.berita')}}"><i class="app-menu__icon fa fa-tasks"></i><span class="app-menu__label">Berita</span></a></li>
 
         <li><a class="app-menu__item {{(Request::is('reporter/video') OR \Request::is('reporter/video/*'))? 'active': ''}}" href="{{route('reporter.video')}}"><i class="app-menu__icon fa fa-tasks"></i><span class="app-menu__label">URL Video</span></a></li>
-        <li><a class="app-menu__item {{(Request::is('reporter/foto') OR \Request::is('reporter/foto/*'))? 'active': ''}}" href="{{route('reporter.foto')}}"><i class="app-menu__icon fa fa-tasks"></i><span class="app-menu__label">Galeri</span></a></li>
+        <li><a class="app-menu__item {{(Request::is('reporter/album') OR \Request::is('reporter/album/*'))? 'active': ''}}" href="{{route('reporter.album')}}"><i class="app-menu__icon fa fa-tasks"></i><span class="app-menu__label">Galeri</span></a></li>
 
         <li><a class="app-menu__item {{(Request::is('reporter/literasi') OR \Request::is('reporter/literasi/*'))? 'active': ''}}" href="{{route('reporter.literasi')}}"><i class="app-menu__icon fa fa-tasks"></i><span class="app-menu__label">Literasi</span></a></li>
 

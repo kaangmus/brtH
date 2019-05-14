@@ -48,6 +48,15 @@
                                 </div>
 
                             </div>
+                             <div class="form-group row">
+                                <label for="caption" class="col-sm-2 col-form-label">Caption Gambar</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="caption" id="caption" placeholder="Caption Gambar" value="{{$literasi->caption}}">
+                                    @if ($errors->has('caption'))
+                                        <small class="form-text text-muted">{{ $errors->first('caption') }}</small>
+                                    @endif
+                                </div>
+                            </div>
                         </div>
                         <div class="col-sm-12 col-md-3">
                             @if (!empty($literasi->gambar))

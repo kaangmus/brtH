@@ -16,7 +16,7 @@
                 <div class="tile">
                   <div class="tile-body">
                     <form class="form-horizontal" id="submit-form" enctype="multipart/form-data" method="post" action="{{route('reporter.foto.store')}}">
-                    {{ csrf_field() }}
+                    {{ csrf_field() }} <input type="hidden" name="album_id" value="{{$album_id}}">
     
                         <div class="row">
                             <div class="col-md-9 col-sm-12">

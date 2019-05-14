@@ -29,7 +29,10 @@
                                 <div class="text-center">
                                         <h3>{{$berita->judul}}</h3>
             
-                                <img src="{{asset($berita->gambar)}}" style="max-width: 70%" alt="Gambar Timline Stories">
+                                        <figure class="figure">
+                                                <img src="{{asset($berita->gambar)}}" class="figure-img img-fluid rounded" alt="{{$berita->caption}}">
+                                                            <figcaption class="figure-caption text-left"><i class="fa fa-camera" aria-hidden="true" style="padding-right: 4px"></i> {{$berita->caption}}</figcaption>
+                                                          </figure>
                                 <br><br>
                                     </div>
                             {!!$berita->berita!!}

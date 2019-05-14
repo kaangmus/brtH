@@ -65,10 +65,18 @@ Route::get('/atribut/edit/{id}', 'Admin\AtributController@edit')->name('admin.at
 Route::put('/atribut/update', 'Admin\AtributController@update')->name('admin.atribut.update');
 Route::delete('/atribut/delete/{id}', 'Admin\AtributController@delete')->name('admin.atribut.delete');
 
+Route::get('/album', 'Admin\AlbumController@index')->name('admin.album');
+Route::get('/album/tambah', 'Admin\AlbumController@create')->name('admin.album.create');
+Route::get('/album/show/{id}', 'Admin\AlbumController@show')->name('admin.album.show');
+Route::get('/album/publish', 'Admin\AlbumController@publish')->name('admin.album.publish');
+Route::get('/album/verifikasi', 'Admin\AlbumController@verifikasi')->name('admin.album.verifikasi');
+Route::post('/album/tambah', 'Admin\AlbumController@store')->name('admin.album.store');
+Route::get('/album/edit/{id}', 'Admin\AlbumController@edit')->name('admin.album.edit');
+Route::put('/album/update', 'Admin\AlbumController@update')->name('admin.album.update');
+Route::delete('/album/delete/{id}', 'Admin\AlbumController@delete')->name('admin.album.delete');
+
 Route::get('/foto', 'Admin\FotoController@index')->name('admin.foto');
-Route::get('/foto/tambah', 'Admin\FotoController@create')->name('admin.foto.create');
-Route::get('/foto/publish', 'Admin\FotoController@publish')->name('admin.foto.publish');
-Route::get('/foto/verifikasi', 'Admin\FotoController@verifikasi')->name('admin.foto.verifikasi');
+Route::get('/foto/tambah/{album_id}', 'Admin\FotoController@create')->name('admin.foto.create');
 Route::post('/foto/tambah', 'Admin\FotoController@store')->name('admin.foto.store');
 Route::get('/foto/edit/{id}', 'Admin\FotoController@edit')->name('admin.foto.edit');
 Route::put('/foto/update', 'Admin\FotoController@update')->name('admin.foto.update');

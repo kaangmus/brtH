@@ -7,6 +7,7 @@ use App\Models\Video;
 use App\Models\Literasi;
 use App\Models\Foto;
 use App\Models\Atribut;
+use App\Models\Album;
 
 class HomeController extends Controller
 {
@@ -18,7 +19,7 @@ class HomeController extends Controller
 
         $literasis = Literasi::where('publish', 'Public')->where('status', 'Verifikasi')->orderBy('created_at', 'DESC')->limit(10)->get();
         $literasivs = Literasi::where('publish', 'Public')->where('status', 'Verifikasi')->orderBy('dilihat', 'DESC')->limit(10)->get();
-        $fotos = Foto::where('publish', 'Public')->where('status', 'Verifikasi')->orderBy('created_at', 'DESC')->limit(15)->get();
+        $fotos = Foto::orderBy('created_at', 'DESC')->limit(15)->get();
         return view('front.home', compact('beritavs', 'beritas', 'videos', 'literasis','literasivs', 'fotos'));
     }
 
@@ -88,12 +89,17 @@ class HomeController extends Controller
         $populers = Literasi::where('publish', 'Public')->where('status', 'Verifikasi')->orderBy('dilihat', 'DESC')->limit(10)->get();
         return view('front.contents', compact('menu', 'title','contents', 'populers'));
     }
+    public function album($slug)
+    {
+        $album = Album::where(['slug'=>$slug,'publish'=>'Public'])->first();
+        $videos = Video::where('publish', 'Public')->where('status', 'Verifikasi')->orderBy('created_at', 'DESC')->limit(8)->get();
+        return view('front.album', compact('album', 'videos'));
+    }
 
     public function fotolist()
     {
-        $fotos = Foto::where('publish', 'Public')->where('status', 'Verifikasi')->orderBy('created_at', 'DESC')->paginate(10);
-        // $populers = Foto::where('publish', 'Public')->orderBy('dilihat', 'DESC')->limit(10)->get();
-        return view('front.galeri-list', compact('fotos'));
+        $albums = Album::where(['publish'=> 'Public','status'=>'Verifikasi'])->orderBy('id', 'DESC')->paginate(10);
+        return view('front.galeri-list', compact('albums'));
     }
     public function atribut($atribut)
     {
@@ -102,9 +108,9 @@ class HomeController extends Controller
     }
     public function cari()
     {
-        $videos = Video::where('judul', 'like', '%'.$_GET['word'].'%')->get();
-        $beritas = Berita::where('judul', 'like', '%'.$_GET['word'].'%')->get();
-        $literasis = Literasi::where('judul', 'like', '%'.$_GET['word'].'%')->get();
+        $videos = Video::where(['publish'=> 'Public','status'=>'Verifikasi'])->where('judul', 'like', '%'.$_GET['word'].'%')->get();
+        $beritas = Berita::where(['publish'=> 'Public','status'=>'Verifikasi'])->where('judul', 'like', '%'.$_GET['word'].'%')->get();
+        $literasis = Literasi::where(['publish'=> 'Public','status'=>'Verifikasi'])->where('judul', 'like', '%'.$_GET['word'].'%')->get();
 
         return view('front.find', compact('videos', 'beritas', 'literasis'));
     }

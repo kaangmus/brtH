@@ -19,6 +19,7 @@ class CreateBeritasTable extends Migration
             $table->string('judul');
             $table->string('slug');
             $table->string('gambar');
+            $table->string('caption');
             $table->longText('berita');
             $table->integer('dilihat');
             $table->string('kategori')->nullable();

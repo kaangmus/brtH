@@ -35,6 +35,7 @@ class BeritaController extends Controller
             'judul' => 'required|string|max:255',
             'berita' => 'required|string',
             'gambar' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'capiton' => 'required|string|max:255',
         ]);
 
         $berita = new Berita();
@@ -79,6 +80,7 @@ class BeritaController extends Controller
             'judul' => 'required|string|max:255',
             'berita' => 'required|string',
             'gambar' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'capiton' => 'required|string|max:255',
         ]);
 
         $berita =Berita::findOrFail($request->id);

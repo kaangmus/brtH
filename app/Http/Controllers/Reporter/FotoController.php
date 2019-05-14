@@ -20,14 +20,14 @@ class FotoController extends Controller
     	return view('reporter.galeri', compact('fotos'));
     }
    
-    public function create()
+    public function create($album_id)
     {
-        return view('reporter.foto-tambah');
+        return view('reporter.foto-tambah', compact('album_id'));
     }
     public function store(Request $request)
     {
         $this->validate($request, [
-            'judul' => 'required|string|max:255',
+            'deskripsi' => 'required|string',
             'foto' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         ]);
 
@@ -37,12 +37,12 @@ class FotoController extends Controller
         if($request->hasFile('foto')){
             $upload = app('App\Helper\Images')->upload($request->file('foto'), 'literasi');
             $foto['foto'] = $upload['url'];
+            $foto['slug'] = str_slug($upload['name'], '-');
         }
-        $foto['slug'] = str_slug($request->judul, '-');
         $foto->save();
 
         if($foto){
-            return redirect(route('reporter.foto'))
+            return redirect(route('reporter.album.show', ['album_id'=> $foto->album_id]))
             ->with(['alert'=> "'title':'Berhasil','text':'Data Berhasil Disimpan', 'icon':'success','buttons': false, 'timer': 1200"]);
         }else{
             return back()
@@ -75,7 +75,7 @@ class FotoController extends Controller
     public function update(Request $request)
     {
         $this->validate($request, [
-            'judul' => 'required|string|max:255',
+            'deskripsi' => 'required|string',
             'foto' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         ]);
 
@@ -87,8 +87,8 @@ class FotoController extends Controller
 
             $upload = app('App\Helper\Images')->upload($request->file('foto'), 'galeri');
             $foto['foto'] = $upload['url'];
+            $foto['slug'] = str_slug($upload['name'], '-');
         }
-        $foto['slug'] = str_slug($request->judul, '-');
         $foto->save();
 
         if($foto){

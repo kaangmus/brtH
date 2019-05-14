@@ -22,26 +22,33 @@
         <div class="col-md-9 col-sm-12">
 			<div class="tile">
                     <div class="text-center" style="padding-bottom: 20px">
-                        <h3>{{$literasi->judul}}
-                            @if ($literasi->reporter_id != 0 )
+                        <h3>{{$literasi->judul}} 
+                            @if ($literasi->reporter_id != 0  && $literasi->reporter)
                             <br><small style="font-size: 14px">Reporter : <a href="{{url('/admin/reporter/show/'.$literasi->reporter_id)}}">{{$literasi->reporter->nama}}</a></small>
                             @endif
                         </h3>
                         <br>
-                    <img src="{{asset($literasi->gambar)}}" style="max-width: 70%" alt="Gambar Timline literasi">
+                        <figure class="figure">
+                    <img src="{{asset($literasi->gambar)}}" class="figure-img img-fluid rounded" alt="{{$literasi->caption}}">
+                                <figcaption class="figure-caption text-left">{{$literasi->caption}}</figcaption>
+                              </figure>
                     </div>
 
-                    {!!$literasi->artikel!!}
-            <div class="tile-footer">
-                Terakhir update {{hari_tanggal_waktu($literasi->updated_at, true)}}
+                    {!!$literasi->literasi!!}
+            <div class="tile-footer row">
+                <div class="col-sm-9" style="padding-bottom: 10px">
+                        Terakhir update {{hari_tanggal_waktu($literasi->updated_at, true)}} 
+                </div>
+               
+                <div class="col-sm-3">
+                <div class="btn-group " role="group" aria-label="Basic example">
 
-                <div class="btn-group float-right" role="group" aria-label="Basic example">
-
-                    <a class="btn btn-outline-secondary mr-1 mb-1 btn-sm" href="{{route('admin.literasi.edit', ['id'=> $literasi->id])}}">
+                    <a class="btn btn-secondary mr-1 mb-1 btn-sm" href="{{route('admin.literasi.edit', ['id'=> $literasi->id])}}">
                     <i class="fa fa-edit"></i>Edit</a>
-                    <button class="btn btn-outline-danger mr-1 mb-1 btn-sm" data-pesan="Apakah kamu yakin ingin menghapus deskripsi literasi {{$literasi->judul}}" data-url="{{route('admin.literasi.delete', ['id'=> $literasi->id])}}" data-redirect="{{route('admin.literasi')}}" id="hapus">
+                    <button class="btn btn-danger mr-1 mb-1 btn-sm" data-pesan="Apakah kamu yakin ingin menghapus deskripsi literasi {{$literasi->judul}}" data-url="{{route('admin.literasi.delete', ['id'=> $literasi->id])}}" data-redirect="{{route('admin.literasi')}}" id="hapus">
                     <i class="fa fa-fire"></i>Hapus</button>
                 </div>
+            </div>
             </div>
             </div>
         </div>
@@ -56,7 +63,8 @@
 <script>
     function publish(no) {
         $.get('{{ route('admin.literasi.publish')}}?id='+no, function(response){
-            console.log(response);
+            // console.log(response.publish);
+            $(this).value = response.publish;
         });
     }
     function status(no) {

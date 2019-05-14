@@ -16,11 +16,10 @@ class CreateFotosTable extends Migration
         Schema::create('fotos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('reporter_id');
+            $table->integer('album_id');
             $table->string('foto');
-            $table->string('judul')->nullable();
-            $table->string('slug')->nullable();
-            $table->string('deskripsi')->nullable();
-            $table->string('kategori')->nullable();
+            $table->string('slug');
+            $table->text('deskripsi')->nullable();
             $table->enum('publish', ['Public', 'Private'])->default('Private');
             $table->enum('status', ['Verifikasi', 'Block', 'Pengajuan'])->default('Pengajuan');
             $table->timestamps();
