@@ -28,7 +28,6 @@
                             <h4>{{$album->album}}</h4>
                             <p>{{$album->deskripsi}}</p>
                            
-                            <br><br>
                             <div class="widget-content float-right" style="padding: 5px;">
                                     <span class="mr-2">Bagikan :</span>
                                     <a href="https://www.facebook.com/sharer.php?u={{url()->current()}}" style="margin: 0px 5px; color: blue" target="_blank"><img src="{{asset('images/icon/fb.png')}}" alt="" width="25px"></a>
