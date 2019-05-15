@@ -5,7 +5,7 @@
 @section('meta-keywords', $album->album)
 @section('meta-news_keywords', $album->album)
 @section('meta-deskripsi', $album->album)
-@section('meta-image', $album->foto()->first()->foto)
+@section('meta-image', env('APP_URL').$album->foto()->first()->foto)
 
 @section('css')
 

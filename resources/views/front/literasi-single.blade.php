@@ -4,7 +4,7 @@
 @section('meta-keywords', $literasi->kategori)
 @section('meta-news_keywords', $literasi->kategori)
 @section('meta-deskripsi', $literasi->judul)
-@section('meta-image', $literasi->gambar)
+@section('meta-image', env('APP_URL').$literasi->gambar)
 
 @section('css')
 
