@@ -16,11 +16,10 @@ class HomeController extends Controller
         $videos = Video::where('publish', 'Public')->where('status', 'Verifikasi')->orderBy('created_at', 'DESC')->limit(4)->get();
         $beritas = Berita::where('publish', 'Public')->where('status', 'Verifikasi')->orderBy('created_at', 'DESC')->limit(10)->get();
         $beritavs = Berita::where('publish', 'Public')->where('status', 'Verifikasi')->orderBy('dilihat', 'DESC')->limit(10)->get();
-
+        $albums = Album::where(['publish'=> 'Public','status'=>'Verifikasi'])->orderBy('id', 'DESC')->limit(5)->get();
         $literasis = Literasi::where('publish', 'Public')->where('status', 'Verifikasi')->orderBy('created_at', 'DESC')->limit(10)->get();
         $literasivs = Literasi::where('publish', 'Public')->where('status', 'Verifikasi')->orderBy('dilihat', 'DESC')->limit(10)->get();
-        $fotos = Foto::orderBy('created_at', 'DESC')->limit(15)->get();
-        return view('front.home', compact('beritavs', 'beritas', 'videos', 'literasis','literasivs', 'fotos'));
+        return view('front.home', compact('beritavs', 'beritas', 'videos', 'literasis','literasivs', 'albums'));
     }
 
     public function index2()

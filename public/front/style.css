@@ -268,7 +268,12 @@ img {
     #scrollUp {
       bottom: 30px;
       right: 30px; } }
-
+.image-icon {
+  position: absolute
+  ;top: 213px;
+  left: 14px; 
+  color: white}
+  
 .section-padding-100 {
   padding: 100px 0; }
 

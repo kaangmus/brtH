@@ -134,29 +134,28 @@
 
                         <div class="sidebar-widget-area">
                             <h5 class="title">Galeri</h5>
-                            <div style="padding: 10px; border: 1px solid #DFDFDB; margin-top: 10px">
-                                <div class="col-md-12">
-                                    <div class="tile">
-                                            <div class="row">
-                                                @forelse ($fotos as $foto)
-                                                <a href="{{$foto->foto}}" class="mybox md-5" title="{{$foto->judul}}" data-lcl-txt="{{$foto->deskripsi}}" data-lcl-author="{{$foto->reporter_id != 0 ?  ($foto->reporter) ? $foto->reporter->nama : 'NN' : 'Admin'}}">
-                                                    <img src="{{$foto->foto}}" width="500px" style="padding: 0px; margin: 0px;object-fit: cover; width: 80px; height: 80px">
-                                                </a>
-                                                @empty
-                                                "Belum ada foto"
-                                                @endforelse
+                            @foreach ($albums as $album)
+                            @if ($album->foto()->first())
+                                    <div class="single-blog-post wow fadeInUpBig" data-wow-delay="0.2s" style="margin: 10px 0px">
+                                        <div class="post-thumbnail">
+                                            <a href="{{route('album.single', ['slug'=>$album->slug])}}">
+                                                <img src="{{asset($album->foto()->first()->foto)}}" alt="" style="object-fit: cover; width: 100%; height: 240px">
+                                            </a>
+                                            <div class="image-icon">
+                                                <i class="fa fa-picture-o" aria-hidden="true"></i> {{$album->foto()->count()}}
                                             </div>
-
-                                            @if (count($fotos) == 15)
-                                                <div class="load-more-btn mt-50 text-center">
-                                                    <a href="{{url('galeri-all')}}" class="btn world-btn">Selengkapanya</a>
-                                                </div>
-                                            @endif
-                        
+                                        </div>
+                                        <div class="post-content" style="padding: 10px 15px">
+                                            <a href="{{route('album.single', ['slug'=>$album->slug])}}" class="headline">
+                                                <h5 data-toggle="tooltip" data-placement="bottom" title="{{$album->album}}" style="font-weight: bold">{{limit_word($album->album, 35)}}</h5>
+                                            </a>
+                                            <div class="post-meta">
+                                                <p><a href="#" class="post-author">{{$album->reporter_id != 0 ?  ($foto->reporter) ? $album->reporter->nama : 'NN' : 'Admin'}}</a> on <a href="#" class="post-date">{{hari_tanggal_waktu($album->created_at)}}</a></p>
+                                            </div>
+                                        </div>
                                     </div>
-                                    
-                                </div>
-                            </div>
+                            @endif
+                            @endforeach
                         </div>
                         <div class="sidebar-widget-area">
                             <h5 class="title">Literasi</h5>

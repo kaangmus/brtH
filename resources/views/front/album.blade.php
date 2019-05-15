@@ -25,7 +25,7 @@
 
                         <!-- Post Content -->
                         <div>
-                            <h5>{{$album->album}}</h5>
+                            <h4>{{$album->album}}</h4>
                             <p>{{$album->deskripsi}}</p>
                            
                             <br><br>

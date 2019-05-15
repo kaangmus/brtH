@@ -7,35 +7,73 @@
 @section('meta-image', $video->gambarmedium($video->url))
 
 @section('css')
-
+<style>
+    .thumbnail {
+        width: 300px;
+        height: 160px;
+    }
+    .thumbnail iframe {
+        width: 900px;
+        height: 480px;
+        -webkit-transform-origin: 0 0;
+        -moz-transform-origin: 0 0;
+        transform-origin: 0 0;
+        -webkit-transform:  scale(0.3, 0.3);
+        -moz-transform:  scale(0.3, 0.3);
+        transform:  scale(0.3, 0.3);
+        overflow: hidden;
+    }
+    .thumbnail.overlay {
+        position: relative;
+    }
+    .thumbnail.overlay iframe {
+        position: relative;
+        z-index: 1;
+    }
+    .thumbnail.overlay a {
+        display: block;
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        color: #fff;
+        background-color: #fff;
+        opacity: 0;
+    }
+    </style>
 @endsection
 @section('content')
 
     
     <!-- ********** Hero Area Start ********** -->
-    <div class="hero-area bg-img background-overlay">
+    {{-- <div class="hero-area bg-img background-overlay">
             <div class="row align-items-center justify-content-center">
                 <div class="col-12">
                     <div class="single-blog-title text-center">
                             <div class="embed-responsive embed-responsive-21by9"  style="min-height: 400px"><iframe class="embed-responsive-item" src="{{app('App\Models\Video')->embed($video->url)}}" allowfullscreen></iframe></div>
-                    </div>
-                    
+                    </div> 
                 </div>
             </div>
-    </div>
+    </div> --}}
     <!-- ********** Hero Area End ********** -->
     
     <div class="main-content-wrapper">
             <div class="container">
+                <br><br><br><br>
+                    <div class="single-blog-title text-center">
+                            <div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" src="{{app('App\Models\Video')->embed($video->url)}}" allowfullscreen></iframe></div>
+                    </div>
         
                 <div class="world-latest-articles">
                     <div class="row">
                         <div class="col-12 col-lg-8">
-                            <div class="title">
-                            <h5>{{$video->judul}}</h5>
+                            <div class="title" style="margin-top: 0px">
+                            <h5 style="font-size: 25px">{{$video->judul}}</h5>
 
                             
-                            <div class="row mb-2 mt-4 align-items-center">
+                            <div class="row mb-2 align-items-center">
                                 <div class="col-md-7">
                                     <div class="post-date"><span class="doted">Dipublikasikan pada {{hari_tanggal_waktu($video->created_at)}}</span></div>
                                 </div> 
@@ -53,6 +91,7 @@
 
 
                             {!!$video->deskripsi!!}
+                            <hr>
 
                             <div class="title">
                                 <h5>Video Terbaru</h5>

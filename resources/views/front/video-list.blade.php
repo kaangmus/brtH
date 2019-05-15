@@ -31,7 +31,7 @@
                                     <!-- Post Content -->
                                     <div class="post-content" style="padding: 10px 15px">
                                         <a href="{{route('video.single', ['slug'=>$video->slug])}}" class="headline">
-                                            <h6 data-toggle="tooltip" data-placement="bottom" title="{{$video->judul}}">{{limit_word($video->judul, 40)}}</h6>
+                                            <h6 data-toggle="tooltip" data-placement="bottom" title="{{$video->judul}}">{{limit_word($video->judul, 37)}}</h6>
                                         </a>
                                         {{-- <p>How Did van Gogh’s Turbulent Mind Depict One of the Most Complex Concepts in...</p> --}}
                                         <!-- Post Meta -->
