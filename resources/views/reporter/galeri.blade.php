@@ -58,11 +58,11 @@
                                 <td class="text-center">{{$album->foto()->count()}}</td>
                                 <td>{{$album->reporter_id != 0 ? ($album->reporter) ? $album->reporter->nama: 'NN' : 'Admin'}}</td>
                                 <td class="text-center">
-                                        <a class="btn btn-info btn-sm" href="{{route('admin.album.edit', ['id'=> $album->id])}}">
+                                        <a class="btn btn-info btn-sm" href="{{route('reporter.album.edit', ['id'=> $album->id])}}">
                                                 <i class="fa fa-edit"></i>Edit</a>
 
-                                        <button onClick="hapus('{{route('admin.album.delete', ['id'=> $album->id])}}', 'Foto yakin ingin dihapus')" class="btn btn-danger btn-sm">Hapus</button>
-                                        <a href="{{route('admin.album.show',['album_id'=>$album->id])}}" class="btn btn-sm btn-primary">Album</a>
+                                        <button onClick="hapus('{{route('reporter.album.delete', ['id'=> $album->id])}}', 'Foto yakin ingin dihapus')" class="btn btn-danger btn-sm">Hapus</button>
+                                        <a href="{{route('reporter.album.show',['album_id'=>$album->id])}}" class="btn btn-sm btn-primary">Album</a>
                                 </td>
                             </tr>
                             @endforeach
