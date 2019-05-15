@@ -34,6 +34,7 @@ class LiterasiController extends Controller
             'judul' => 'required|string|max:255',
             'artikel' => 'required|string',
             'gambar' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'caption' => 'required|string|max:255',
         ]);
 
         $literasi = new Literasi();
@@ -89,6 +90,7 @@ class LiterasiController extends Controller
             'judul' => 'required|string|max:255',
             'artikel' => 'required|string',
             'gambar' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'caption' => 'required|string|max:255',
         ]);
 
         $literasi =Literasi::findOrFail($request->id);
