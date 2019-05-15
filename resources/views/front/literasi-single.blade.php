@@ -67,7 +67,7 @@
                                                 <b class="mt-0">{{limit_word($literasiv->judul,30)}}</b>
                                                 <br>
                                                 {{-- {{$literasi->literasi}} --}}
-                                                {{$literasiv->reporter_id != 0 ?  ($literasiv->reporter) ? $literasiv->reporter->nama : 'NN' : 'Admin'}} on {{hari_tanggal_waktu($literasiv->created_at)}}
+                                                {{$literasiv->reporter_id != 0 ?  ($literasiv->reporter) ? $literasiv->reporter->nama : 'NN' : 'Admin'}} - {{hari_tanggal_waktu($literasiv->created_at)}}
                                                 
                                             </div>
                                             </div>
@@ -105,7 +105,7 @@
                             {{-- <p>How Did van Gogh’s Turbulent Mind Depict One of the Most Complex Concepts in...</p> --}}
                             <!-- Post Meta -->
                             <div class="post-meta">
-                                <p><a href="#" class="post-author">{{$video->reporter_id != 0 ?  ($video->reporter) ? $video->reporter->nama : 'NN' : 'Admin'}}</a> on <a href="#" class="post-date">{{hari_tanggal_waktu($video->created_at, true)}}</a></p>
+                                <p><a href="#" class="post-author">{{$video->reporter_id != 0 ?  ($video->reporter) ? $video->reporter->nama : 'NN' : 'Admin'}}</a> - <a href="#" class="post-date">{{hari_tanggal_waktu($video->created_at, true)}}</a></p>
                             </div>
                         </div>
                     </div>

@@ -74,7 +74,7 @@
                                             <b class="mt-0">{{limit_word($video->judul,30)}}</b>
                                             <br>
                                             {{-- {{$literasi->berita}} --}}
-                                            {{$video->reporter_id != 0 ?  ($video->reporter) ? $video->reporter->nama : 'NN' : 'Admin'}} on {{hari_tanggal_waktu($video->created_at)}}
+                                            {{$video->reporter_id != 0 ?  ($video->reporter) ? $video->reporter->nama : 'NN' : 'Admin'}} - {{hari_tanggal_waktu($video->created_at)}}
                                             
                                         </div>
                                         </div>

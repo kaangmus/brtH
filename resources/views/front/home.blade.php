@@ -84,7 +84,7 @@
                                     <div class="media-body">
                                         <h6 class="mt-0" style="font-weight: 600">{{$berita->judul}}</h6>
                                         {{-- {{$berita->berita}} --}}
-                                        {{$berita->reporter_id != 0 ?  ($berita->reporter) ? $berita->reporter->nama : 'NN' : 'Admin'}} on {{hari_tanggal_waktu($berita->created_at)}}
+                                        {{$berita->reporter_id != 0 ?  ($berita->reporter) ? $berita->reporter->nama : 'NN' : 'Admin'}} - {{hari_tanggal_waktu($berita->created_at)}}
                                         
                                     </div>
                                     </div>
@@ -114,7 +114,7 @@
                                 <div class="media-body">
                                     <h6 class="mt-0" style="font-weight: 600">{{$beritav->judul}}</h6>
                                     {{-- {{$beritav->berita}} --}}
-                                    {{$beritav->reporter_id != 0 ?  ($beritav->reporter) ? $beritav->reporter->nama : 'NN' : 'Admin'}} on {{hari_tanggal_waktu($beritav->created_at)}}
+                                    {{$beritav->reporter_id != 0 ?  ($beritav->reporter) ? $beritav->reporter->nama : 'NN' : 'Admin'}} - {{hari_tanggal_waktu($beritav->created_at)}}
                                     
                                 </div>
                                 </div>
@@ -150,7 +150,7 @@
                                                 <h5 data-toggle="tooltip" data-placement="bottom" title="{{$album->album}}" style="font-weight: bold">{{limit_word($album->album, 35)}}</h5>
                                             </a>
                                             <div class="post-meta">
-                                                <p><a href="#" class="post-author">{{$album->reporter_id != 0 ?  ($album->reporter) ? $album->reporter->nama : 'NN' : 'Admin'}}</a> on <a href="#" class="post-date">{{hari_tanggal_waktu($album->created_at)}}</a></p>
+                                                <p><a href="#" class="post-author">{{$album->reporter_id != 0 ?  ($album->reporter) ? $album->reporter->nama : 'NN' : 'Admin'}}</a> - <a href="#" class="post-date">{{hari_tanggal_waktu($album->created_at)}}</a></p>
                                             </div>
                                         </div>
                                     </div>
@@ -168,7 +168,7 @@
                                         <div class="media-body">
                                             <h6 class="mt-0" style="font-weight: 600">{{$literasi->judul}}</h6>
                                             {{-- {{$literasi->berita}} --}}
-                                            {{$literasi->reporter_id != 0 ?  ($literasi->reporter) ? $literasi->reporter->nama : 'NN' : 'Admin'}} on {{hari_tanggal_waktu($literasi->created_at)}}
+                                            {{$literasi->reporter_id != 0 ?  ($literasi->reporter) ? $literasi->reporter->nama : 'NN' : 'Admin'}} - {{hari_tanggal_waktu($literasi->created_at)}}
                                             
                                         </div>
                                         </div>
