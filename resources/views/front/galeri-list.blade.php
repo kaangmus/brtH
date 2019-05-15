@@ -52,7 +52,7 @@
                                             <h5 data-toggle="tooltip" data-placement="bottom" title="{{$album->album}}">{{limit_word($album->album, 35)}}</h5>
                                         </a>
                                         <div class="post-meta">
-                                            <p><a href="#" class="post-author">{{$album->reporter_id != 0 ?  ($foto->reporter) ? $album->reporter->nama : 'NN' : 'Admin'}}</a> on <a href="#" class="post-date">{{hari_tanggal_waktu($album->created_at)}}</a></p>
+                                            <p><a href="#" class="post-author">{{$album->reporter_id != 0 ?  ($album->reporter) ? $album->reporter->nama : 'NN' : 'Admin'}}</a> on <a href="#" class="post-date">{{hari_tanggal_waktu($album->created_at)}}</a></p>
                                         </div>
                                     </div>
                                 </div>
