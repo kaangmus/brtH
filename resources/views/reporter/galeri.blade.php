@@ -9,6 +9,10 @@
             <h1>{{env("APP_NAME")}}</h1>
             <p>Manajemen Album Galeri</p>
         </div>
+        <div class="btn-group float-right" role="group" aria-label="Basic example">
+                <a class="btn btn-primary mr-1 mb-1 btn-sm" href="{{route('reporter.album.create')}}">
+                    <i class="fa fa-plus"></i>Tambah</a>
+            </div>
     </div>
 
     
@@ -16,39 +20,15 @@
     <div class="row">
         <div class="col-md-12">
             <div class="tile">
-                <div class="tile-body">
-                <form class="form-horizontal" id="submit-form" method="post" action="{{route('reporter.album.store')}}">
-                {{ csrf_field() }}
-
-                            <div class="form-group row">
-                                <label for="album" class="col-sm-2 col-md-2 col-form-label">Album Baru</label>
-                                <div class="col-sm-10 col-md-7">
-                                    <input type="text" class="form-control" name="album" id="album" placeholder="Nama Album Baru" value="{{old('album')}}">
-                                    @if ($errors->has('album'))
-                                        <small class="form-text text-muted">{{ $errors->first('album') }}</small>
-                                    @endif
-                                </div>
-                                <div class="col-md-3 col-sm-12">
-                                    <button class="btn btn-primary btn-block" onclick="event.preventDefault(); document.getElementById('submit-form').submit();"><i class="fa fa-fw fa-lg fa-check-circle"></i>Tambah</button>
-                                </div>
-                            </div>
-
-                </form>
-
-                </div>
-            </div>
-        </div>
-        <div class="col-md-12">
-            <div class="tile">
                 <h3 class="tile-title">Daftar Album</h3>
+                
                 <div class="bs-component">
                     <table class="table table-sm">
                         <thead>
                             <tr>
                                 <th>Album</th>
                                 <th class="text-center">Jumlah Foto</th>
-                                <th>Reporter</th>
-                                <th  class="text-center">Hapus</th>
+                                <th  class="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -56,7 +36,7 @@
                             <tr>
                                 <td>{{$album->album}}</td>
                                 <td class="text-center">{{$album->foto()->count()}}</td>
-                                <td>{{$album->reporter_id != 0 ? ($album->reporter) ? $album->reporter->nama: 'NN' : 'Admin'}}</td>
+                              
                                 <td class="text-center">
                                         <a class="btn btn-info btn-sm" href="{{route('reporter.album.edit', ['id'=> $album->id])}}">
                                                 <i class="fa fa-edit"></i>Edit</a>

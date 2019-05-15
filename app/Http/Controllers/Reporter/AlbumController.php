@@ -20,6 +20,10 @@ class AlbumController extends Controller
         $albums = Album::orderBy('id', 'DESC')->where('reporter_id', Auth::user()->id)->paginate(20);
     	return view('reporter.galeri', compact('albums'));
     }
+    public function create()
+    {
+        return view('reporter.album-tambah');
+    }
     public function store(Request $request)
     {
         $this->validate($request, [
