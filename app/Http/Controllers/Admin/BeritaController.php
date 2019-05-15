@@ -92,7 +92,7 @@ class BeritaController extends Controller
         $this->validate($request, [
             'judul' => 'required|string|max:255',
             'berita' => 'required|string',
-            'gambar' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'gambar' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             'caption' => 'required|string|max:255',
         ]);
 
