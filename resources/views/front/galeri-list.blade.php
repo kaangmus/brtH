@@ -76,13 +76,5 @@
 @endsection
 
 @section('script')
-<script src="{{asset('vendor/galeri/lib/AlloyFinger/alloy_finger.min.js')}}"></script>
-<script src="{{asset('vendor/galeri/js/lc_lightbox.lite.min.js')}}"></script>
-<script>
-        lc_lightbox('.mybox',{
-            wrap_class: 'lcl_fade_oc',
-            gallery: true,
-            skin: 'minimal',
-        })
-</script>
+
 @endsection
