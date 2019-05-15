@@ -1,5 +1,6 @@
 @extends('front.front-template')
 
+
 @section('meta-judul', $literasi->judul)
 @section('meta-keywords', $literasi->kategori)
 @section('meta-news_keywords', $literasi->kategori)
@@ -19,7 +20,7 @@
                     <div class="single-blog-content mb-100">
                         <!-- Post Meta -->
                         <div class="post-meta">
-                            <p><a href="#" class="post-date">{{hari_tanggal_waktu($literasi->created_at, true)}}</a> <a href="#" class="post-author">{{$literasi->reporter_id != 0 ?  ($literasi->reporter) ? $literasi->reporter->nama : 'NN' : 'Admin'}}</a> - Papua 60 Detik</p>
+                            <p><a href="#" class="post-date">{{hari_tanggal_waktu($literasi->created_at, true)}}</a> <a href="#" class="post-author">{{$literasi->reporter_id != 0 ?  ($literasi->reporter) ? $literasi->reporter->nama: 'NN' : 'Admin'}}</a> - Papua 60 Detik</p>
                         </div>
 
                         <!-- Post Content -->
@@ -28,7 +29,10 @@
                                 <div class="text-center">
                                         <h3>{{$literasi->judul}}</h3>
             
-                                <img src="{{asset($literasi->gambar)}}" style="max-width: 70%" alt="Gambar Timline literasi">
+                                        <figure class="figure">
+                                                <img src="{{asset($literasi->gambar)}}" class="figure-img img-fluid rounded" alt="{{$literasi->caption}}">
+                                                            <figcaption class="figure-caption text-left"><i class="fa fa-camera" aria-hidden="true" style="padding-right: 4px"></i> {{$literasi->caption}}</figcaption>
+                                                          </figure>
                                 <br><br>
                                     </div>
                             {!!$literasi->literasi!!}
@@ -52,17 +56,17 @@
                         
                         <!-- Widget Area -->
                         <div class="sidebar-widget-area">
-                            <h5 class="title">Top literasi</h5>
+                            <h5 class="title">Top Stories</h5>
                             <div class="widget-content">
                                 
                                         @foreach ($literasivs as $literasiv)
-                                        <a href="{{route('berita.single', ['slug'=>$literasiv->slug])}}" class="list-group-item list-group-item-action">
+                                        <a href="{{route('literasi.single', ['slug'=>$literasiv->slug])}}" class="list-group-item list-group-item-action">
                                             <div class="media">
                                             <img src="{{asset($literasiv->gambar)}}" class="mr-3" alt="{{$literasiv->slug}}" style="padding: 0px; margin: 0px;object-fit: cover; width: 90px; height: 60px">
                                             <div class="media-body">
                                                 <b class="mt-0">{{limit_word($literasiv->judul,30)}}</b>
                                                 <br>
-                                                {{-- {{$literasi->berita}} --}}
+                                                {{-- {{$literasi->literasi}} --}}
                                                 {{$literasiv->reporter_id != 0 ?  ($literasiv->reporter) ? $literasiv->reporter->nama : 'NN' : 'Admin'}} on {{hari_tanggal_waktu($literasiv->created_at)}}
                                                 
                                             </div>
@@ -84,7 +88,7 @@
                 @foreach ($videos as $video)
                 <div class="col-12 col-md-4 col-lg-3">
                     <!-- Single Blog Post -->
-                    <div class="single-blog-post">
+                    <div class="single-blog-post" style="padding: 2px">
                         <!-- Post Thumbnail -->
                         <div class="post-thumbnail">
                             <a href="{{route('video.single', ['slug'=>$video->slug])}}">
@@ -101,8 +105,7 @@
                             {{-- <p>How Did van Gogh’s Turbulent Mind Depict One of the Most Complex Concepts in...</p> --}}
                             <!-- Post Meta -->
                             <div class="post-meta">
-                                <p><a href="#" class="post-author">{{$video->reporter_id != 0 ?  ($foto->reporter) ? $video->reporter->nama : 'NN' : 'Admin'}}</a> on <a href="#" class="post-date">{{hari_tanggal_waktu($video->created_at, true)}}</a></p>
-
+                                <p><a href="#" class="post-author">{{$video->reporter_id != 0 ?  ($video->reporter) ? $video->reporter->nama : 'NN' : 'Admin'}}</a> on <a href="#" class="post-date">{{hari_tanggal_waktu($video->created_at, true)}}</a></p>
                             </div>
                         </div>
                     </div>
