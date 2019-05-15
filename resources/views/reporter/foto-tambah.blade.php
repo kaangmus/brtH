@@ -23,7 +23,7 @@
                                 <div class="form-group row">
                                     <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi Foto</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="deskripsi" id="deskripsi" placeholder="Deskripsi foto" value="{{old('deskripsi')}}">
+                                        <textarea type="text" class="form-control" name="deskripsi" id="deskripsi" placeholder="Deskripsi foto" rows="8">{{old('deskripsi')}}</textarea>
                                         @if ($errors->has('deskripsi'))
                                             <small class="form-text text-muted">{{ $errors->first('deskripsi') }}</small>
                                         @endif
