@@ -34,7 +34,7 @@
                               </figure>
                     </div>
 
-                    {!!$literasi->literasi!!}
+                    {!!$literasi->artikel!!}
             <div class="tile-footer row">
                 <div class="col-sm-9" style="padding-bottom: 10px">
                         Terakhir update {{hari_tanggal_waktu($literasi->updated_at, true)}} 

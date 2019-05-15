@@ -35,7 +35,7 @@
                                                           </figure>
                                 <br><br>
                                     </div>
-                            {!!$literasi->literasi!!}
+                            {!!$literasi->artikel!!}
 
                             <br><br><br>
                             <div class="widget-content float-right" style="padding: 5px;">
