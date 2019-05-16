@@ -17,7 +17,7 @@
                         <h5>Geleri</h5>
                     </div>
 
-                    {{-- <div class="row text-center ">
+                    <div class="row text-center ">
                         <div id="aniimated-thumbnials">
                             @forelse ($fotos as $foto)
                             <a href="{{$foto->foto}}" class="mybox md-5" title="{{$foto->judul}}" data-lcl-txt="{{$foto->deskripsi}}" data-lcl-author="{{$foto->reporter_id != 0 ?  ($foto->reporter) ? $foto->reporter->nama : 'NN' : 'Admin'}}">
@@ -27,7 +27,7 @@
                             Belum ada content Foto
                             @endforelse
                         </div>
-                    </div> --}}
+                    </div>
                     <div class="row">
                         {{-- <figure class="figure col-md-3">
                             <a href="" >
@@ -75,5 +75,13 @@
 @endsection
 
 @section('script')
-
+<script src="{{asset('vendor/galeri/lib/AlloyFinger/alloy_finger.min.js')}}"></script>
+<script src="{{asset('vendor/galeri/js/lc_lightbox.lite.min.js')}}"></script>
+<script>
+        lc_lightbox('.mybox',{
+            wrap_class: 'lcl_fade_oc',
+            gallery: true,
+            skin: 'minimal',
+        })
+</script>
 @endsection

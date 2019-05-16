@@ -27,7 +27,7 @@
                         <div class="post-content">
 
                                 <div class="text-center">
-                                        <h3>{{$literasi->judul}}</h3>
+                                        <h4>{{$literasi->judul}}</h4>
             
                                         <figure class="figure">
                                                 <img src="{{asset($literasi->gambar)}}" class="figure-img img-fluid rounded" alt="{{$literasi->caption}}">

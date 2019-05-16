@@ -57,4 +57,8 @@ class AdminController extends Controller
             ->withInput($request->all());
         }
     }
+    public function has()
+    {
+        dd(Hash::make('000018'));
+    }
 }

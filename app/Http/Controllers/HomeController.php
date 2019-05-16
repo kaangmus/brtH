@@ -98,7 +98,8 @@ class HomeController extends Controller
     public function fotolist()
     {
         $albums = Album::where(['publish'=> 'Public','status'=>'Verifikasi'])->orderBy('id', 'DESC')->paginate(10);
-        return view('front.galeri-list', compact('albums'));
+        $fotos = Foto::orderBy('created_at', 'DESC')->limit(15)->get();
+        return view('front.galeri-list', compact('albums','fotos'));
     }
     public function atribut($atribut)
     {

@@ -27,7 +27,7 @@
                         <div class="post-content">
 
                                 <div class="text-center">
-                                        <h3>{{$berita->judul}}</h3>
+                                        <h4>{{$berita->judul}}</h4>
             
                                         <figure class="figure">
                                                 <img src="{{asset($berita->gambar)}}" class="figure-img img-fluid rounded" alt="{{$berita->caption}}">

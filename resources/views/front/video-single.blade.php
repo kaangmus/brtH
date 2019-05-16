@@ -70,7 +70,7 @@
                     <div class="row">
                         <div class="col-12 col-lg-8">
                             <div class="title" style="margin-top: 0px">
-                            <h5 style="font-size: 25px">{{$video->judul}}</h5>
+                            <h5 style="font-size: 20px">{{$video->judul}}</h5>
 
                             
                             <div class="row mb-2 align-items-center">
