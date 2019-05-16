@@ -71,7 +71,7 @@
         <div class="my-gallery" itemscope itemtype="{{url()->current()}}">
             @foreach ($fotos as $foto)
           <figure itemprop="associatedMedia" itemscope itemtype="{{url()->current()}}">
-            <a href="{{asset($foto->foto)}}" itemprop="contentUrl" data-size="964x1024">
+            <a href="{{asset($foto->foto)}}" itemprop="contentUrl" data-size="100x100">
                 <img src="{{asset($foto->foto)}}" itemprop="thumbnail" alt="{{$foto->deskripsi}}" style="object-fit: cover; width: 100%; height: 200px" />
             </a>
             <figcaption itemprop="caption description">{{$foto->deskripsi}}</figcaption>
