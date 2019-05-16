@@ -8,6 +8,8 @@
 @section('meta-image', env('APP_URL').$album->foto()->first()->foto)
 
 @section('css')
+<link rel="stylesheet" href="{{asset('vendor/photoswipe/photoswipe.css')}}">
+<link rel="stylesheet" href="{{asset('vendor/photoswipe/default-skin/default-skin.css')}}">
 
 @endsection
 @section('content')
@@ -36,23 +38,21 @@
                             </div>
                             <br>
 
-                            @foreach ($album->foto()->get() as $foto)
-                            <div class="card border-light float-left" style="width: 100%">
-                                <figure class="figure">
-{{-- 
-                                        <a href="{{asset($foto->foto)}}" class="mybox" title="{{$foto->judul}}">
-                                                <img src="{{asset($foto->foto)}}" style="padding: 0px; margin: 0px;object-fit: cover; width: 200px; height: 200px">
-                                            </a> --}}
+                            <div class="my-gallery" itemscope itemtype="{{url()->current()}}">
+                                @foreach ($album->foto()->get() as $foto)
+                              <figure itemprop="associatedMedia" itemscope itemtype="{{url()->current()}}">
+                                <a href="{{asset($foto->foto)}}" itemprop="contentUrl" data-size="964x1024">
+                                    <img src="{{asset($foto->foto)}}" itemprop="thumbnail" alt="{{$foto->deskripsi}}" />
+                                </a>
+                                <figcaption class="figure-caption text-left"><i class="fa fa-camera" aria-hidden="true" style="padding: 2px 12px"></i> {{$foto->reporter_id != 0 ? ($foto->reporter) ? $foto->reporter->nama: 'NN' : 'Admin'}} - {{hari_tanggal_waktu($foto->updated_at, true)}}</figcaption>
 
+                                <p style="padding: 20px 0px">{{$foto->deskripsi}}</p>
 
-                                    <img src="{{asset($foto->foto)}}" class="figure-img img-fluid rounded" style="width: 100%">
-                                    <figcaption class="figure-caption text-left"><i class="fa fa-camera" aria-hidden="true" style="padding: 2px 12px"></i> {{$foto->reporter_id != 0 ? ($foto->reporter) ? $foto->reporter->nama: 'NN' : 'Admin'}} - {{hari_tanggal_waktu($foto->updated_at, true)}}</figcaption>
-                                </figure>
-                                <div class="card-body">
-                                <p class="card-text">{{$foto->deskripsi}}</p>
+                              </figure>
+                              
+                              @endforeach
                             </div>
-                            </div>
-                            @endforeach
+
                     </div>
                 </div>
                 </div>
@@ -95,13 +95,8 @@
 
 
 @section('script')
-<script src="{{asset('vendor/galeri/lib/AlloyFinger/alloy_finger.min.js')}}"></script>
-<script src="{{asset('vendor/galeri/js/lc_lightbox.lite.min.js')}}"></script>
-<script>
-        lc_lightbox('.mybox',{
-            wrap_class: 'lcl_fade_oc',
-            gallery: true,
-            skin: 'minimal',
-        })
-</script>
+@include('pagination.swipe')
+    <script src="{{asset('vendor/photoswipe/photoswipe.min.js')}}"></script> 
+    <script src="{{asset('vendor/photoswipe/photoswipe-ui-default.min.js')}}"></script> 
+    <script src="{{asset('vendor/photoswipe/swipe.js')}}"></script>
 @endsection

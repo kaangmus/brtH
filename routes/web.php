@@ -28,6 +28,11 @@ Route::post('/upload/gambar', 'ImagesController@upload')->name('upload.gambar');
 Route::post('/galeri/store', 'ImagesController@store')->name('galeri.store');
 Route::delete('/galeri/delete/{id}', 'ImagesController@delete')->name('galeri.delete');
 
+Route::get('photoswipe', function(){
+    $fotos = App\Models\Foto::all();
+    return view('front.swipe', compact('fotos'));
+});
+
 Route::get('login', function (){
     print("Halaman Belum Tersedia");
 })->name('login');
