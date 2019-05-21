@@ -25,23 +25,6 @@
     <meta name="fbx-token" content="19e2bf014bcd84cd3a63bd2986222f632a19b8951897894e254a90b07c37fbb7">
     <meta name="fbx-berita-id" content="6743">
     <meta name="fbx-berita-token" content="7fe767b1b6f0322fb55ad6df1951ee7ba827a59e">
-{{-- 
-    <!--  Essential META Tags -->
-    <meta property="og:site" content="{{env('APP_NAME')}}"/>
-    <meta property="og:creator" content="{{env('APP_NAME')}}"/>
-    <meta property="og:title" content="@yield('meta-judul')">
-    <meta property="og:description" content="@yield('meta-deskripsi')">
-    <meta property="og:image" content="@yield('meta-image')">
-    <meta property="og:url" content="{{url()->current()}}">
-    <meta name="twitter:card" content="@yield('meta-image')">
-    <!--  Non-Essential, But Recommended -->
-    <meta property="og:site_name" content="{{env('APP_NAME')}}">
-    <meta property="twitter:image" content="@yield('meta-image')">
-    <meta name="twitter:image:alt" content="{{env('APP_NAME')}}">
-    <!--  Non-Essential, But Required for Analytics -->
-    <meta property="fb:app_id" content="{{env('APLIKASI_FB')}}" />
-    <meta name="twitter:site" content="{{env('AKUN_TWITTER')}}"> --}}
-
 
     <!-- Title  -->
     <title>{{env('APP_NAME')}}</title>
