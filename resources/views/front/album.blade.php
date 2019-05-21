@@ -5,7 +5,7 @@
 @section('meta-keywords', $album->album)
 @section('meta-news_keywords', $album->album)
 @section('meta-deskripsi', $album->album)
-@section('meta-image', env('APP_URL').$album->foto()->first()->foto)
+@section('meta-image', '//cdn.example.com/uploads/images/webpage_300x200.png')
 
 @section('css')
 <link rel="stylesheet" href="{{asset('vendor/galeri/css/lc_lightbox.css')}}">
