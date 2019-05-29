@@ -36,7 +36,7 @@
                                         {{-- <p>How Did van Gogh’s Turbulent Mind Depict One of the Most Complex Concepts in...</p> --}}
                                         <!-- Post Meta -->
                                         <div class="post-meta">
-                                            <p><a href="#" class="post-author">{{$video->reporter_id != 0 ?  ($foto->reporter) ? $video->reporter->nama : 'NN' : 'Admin'}}</a> - <a href="#" class="post-date">{{hari_tanggal_waktu($video->created_at)}}</a></p>
+                                            <p><a href="#" class="post-author">{{$video->reporter_id != 0 ?  ($video->reporter) ? $video->reporter->nama : 'NN' : 'Admin'}}</a> - <a href="#" class="post-date">{{hari_tanggal_waktu($video->created_at)}}</a></p>
                                         </div>
                                     </div>
                                 </div>
