@@ -42,7 +42,7 @@
                                     <a href="{{asset($foto->foto)}}" class="mybox md-5" title="{{$foto->judul}}" data-lcl-txt="{{$foto->deskripsi}}" data-lcl-author="{{$foto->reporter_id != 0 ?  ($foto->reporter) ? $foto->reporter->nama : 'NN' : 'Admin'}}">
                                             <img src="{{asset($foto->foto)}}" width="100%">
                                         </a>
-                                        <figcaption class="figure-caption text-left"><i class="fa fa-camera" aria-hidden="true" style="padding: 2px 12px"></i> {{$foto->reporter_id != 0 ? ($foto->reporter) ? $foto->reporter->nama: 'NN' : 'Admin'}} - {{hari_tanggal_waktu($foto->updated_at, true)}}</figcaption>
+                                        <figcaption class="figure-caption text-left"><i class="fa fa-camera" aria-hidden="true" style="padding: 2px 12px"></i> {{$foto->reporter_id != 0 ? ($foto->reporter) ? $foto->reporter->nama: 'NN' : 'Admin'}}</figcaption>
 
                                         <p style="padding: 20px 0px">{{$foto->deskripsi}}</p>
                                     @empty
