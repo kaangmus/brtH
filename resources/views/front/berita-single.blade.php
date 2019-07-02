@@ -1,6 +1,5 @@
 @extends('front.front-template')
 
-
 @section('meta-judul', $berita->judul)
 @section('meta-keywords', $berita->kategori)
 @section('meta-news_keywords', $berita->kategori)
@@ -10,6 +9,7 @@
 @section('css')
 
 @endsection
+
 @section('content')
 
     <div class="main-content-wrapper section-padding-100">
