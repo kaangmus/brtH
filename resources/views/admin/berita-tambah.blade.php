@@ -101,6 +101,7 @@ $(document).ready(function() {
 $("#summernote").summernote({
     placeholder: 'Isi Berita',
     height: 300,
+    fontSizes: ['8', '9', '10', '11', '12', '14', '16', '18', '24', '36', '48' , '64', '82', '150'],
     toolbar: [
         // [groupName, [list of button]]
         ['undoredo', ['undo', 'redo']],
