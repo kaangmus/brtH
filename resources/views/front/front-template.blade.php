@@ -99,7 +99,7 @@
                 <div class="col-12 col-md-4">
                     <div class="footer-single-widget">
                         <img src="{{asset(env('APP_LOGO'))}}" class="mt-4" alt="..." style="max-width: 200px">
-                        <p class="text-white">Copyright &copy 2019 - Papua60Detik.id</p>
+                        <p class="text-white">Copyright &copy 2020 - Papua60Detik.id</p>
 
                         <?php
                             $atributs = App\Models\Atribut::all();
