@@ -4,7 +4,7 @@
 @section('meta-keywords', $berita->kategori)
 @section('meta-news_keywords', $berita->kategori)
 @section('meta-deskripsi', $berita->judul)
-@section('meta-image', env('APP_URL').$berita->gambar)
+@section('meta-image', env('APP_URL').$berita->thumbnails)
 
 @section('css')
 
