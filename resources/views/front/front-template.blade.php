@@ -19,7 +19,6 @@
     <meta name="picture" property="og:image" content="@yield('meta-image')" />
     <meta name="twitter:image" content="@yield('meta-image')">
     <meta property="og:image:secure_url" content="@yield('meta-image')" /> 
-    <meta property="og:image:type" content="image/jpg" />
     <meta property="og:image:width" content="1024"/>
     <meta property="og:image:height" content="622"/>
     <meta property="fb:app_id" content="976637702517221" />
