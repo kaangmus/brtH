@@ -102,9 +102,11 @@ class BeritaController extends Controller
         if($request->hasFile('gambar')){
             $beritad =Berita::findOrFail($request->id);
             File::delete($beritad->gambar);
+            File::delete($beritad->thumbnails);
 
             $upload = app('App\Helper\Images')->upload($request->file('gambar'), 'berita');
             $berita['gambar'] = $upload['url'];
+            $berita['thumbnails'] = $upload['thumbnails'];
         }
         $berita['slug'] = str_slug($request->judul, '-');
         $berita->save();
