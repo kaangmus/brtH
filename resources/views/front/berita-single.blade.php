@@ -10,7 +10,6 @@
 @section('meta-image', env('APP_URL').$thumbnails)
 
 @section('css')
-
 @endsection
 
 @section('content')

@@ -15,7 +15,7 @@ class Images extends Model
         $filenamefile = empty($name)? $filename.uniqid().'.'.$extension: $name.'_'.$filename.uniqid().'.'.$extension;
         $request->move($directori,$filenamefile);
         
-        $this->resize_crop_image(120, 100, $directori.$filenamefile, $directori."tumb_".$filenamefile);
+        $this->resize_crop_image(180, 120, $directori.$filenamefile, $directori."tumb_".$filenamefile);
         return [
             'url' => $directori.$filenamefile,
             'name' => $filename,
