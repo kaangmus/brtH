@@ -28,6 +28,8 @@ Route::post('/upload/gambar', 'ImagesController@upload')->name('upload.gambar');
 Route::post('/galeri/store', 'ImagesController@store')->name('galeri.store');
 Route::delete('/galeri/delete/{id}', 'ImagesController@delete')->name('galeri.delete');
 
+Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+
 Route::get('photoswipe', function(){
     $fotos = App\Models\Foto::all();
     return view('front.swipe', compact('fotos'));
