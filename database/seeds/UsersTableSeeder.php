@@ -12,14 +12,14 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        if (env('APP_ENV'!="productions")) {
-            DB::table('admins')->truncate();
-            DB::table('reporters')->truncate();
-        }
+        // if (env('APP_ENV'!="productions")) {
+        //     DB::table('admins')->truncate();
+        //     DB::table('reporters')->truncate();
+        // }
         
         DB::table('admins')->insert([
             'username'=>'admin',
-            'password'=>bcrypt(12121212)
+            'password'=> bcrypt(12121212)
         ]);
         $reporter[] = [
             'nama'=>'reporter',

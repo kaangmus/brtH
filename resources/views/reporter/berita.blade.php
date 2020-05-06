@@ -59,6 +59,8 @@
                         </tbody>
                     </table>
 
+                    {{$beritas->lins()}}
+
                 </div>
 
             </div>

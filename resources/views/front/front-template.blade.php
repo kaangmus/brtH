@@ -33,6 +33,62 @@
     <!-- Style CSS -->
     <link rel="stylesheet" href="{{asset('front/style.css')}}">
 
+    <style>
+        *{margin: 0; padding: 0}
+@keyframes autopopup {
+    from {opacity: 0;margin-top:-200px;}
+    to {opacity: 1;}
+}
+#close {
+    background-color: rgba(64, 68, 65, 0.5);
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    animation:autopopup 3.5s;
+}
+#close:target {
+    -webkit-transition:all 1s;
+    -moz-transition:all 1s;
+    transition:all 1s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+@media (min-width: 768px){
+    .container-popup {
+        width:30%;
+    }
+}
+@media (max-width: 767px){
+    .container-popup {
+        width:30%;
+    }
+}
+.container-popup {
+    position: relative;
+    margin: 5% auto;
+    padding: 4px 3px;
+    background-color: #e1fff5;
+    color: #333;
+    border-radius: 8px;
+}
+.container-popup img {
+    width: 100%
+}
+.close {
+    position: absolute;
+    top:3px;
+    right:3px;
+    background-color: #33898B;
+    padding:7px 10px;
+    font-size: 15px;
+    text-decoration: none;
+    line-height: 1;
+    color:#fff;
+}
+    </style>
     @yield('css')
 
 </head>
@@ -91,6 +147,15 @@
     <!-- ***** Header Area End ***** -->
 
     @yield('content')
+
+    <div id="close">
+        <div class="container-popup">
+            <form action="#" method="post" class="popup-form">
+                <img src="{{asset('images/IklanKenapaKodirumahSaja.jpg')}}" alt="">
+            </form>
+            <a class="close" href="#close">close</a>
+        </div>
+    </div>
 
     <!-- ***** Footer Area Start ***** -->
     <footer class="footer-area">

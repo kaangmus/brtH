@@ -72,6 +72,7 @@
         <li><a class="app-menu__item {{(Request::is('admin/literasi') OR \Request::is('admin/literasi/*'))? 'active': ''}}" href="{{route('admin.literasi')}}"><i class="app-menu__icon fa fa-tasks"></i><span class="app-menu__label">Literasi</span></a></li>
         {{-- <li><a class="app-menu__item {{(Request::is('admin/berita') OR \Request::is('admin/berita/*'))? 'active': ''}}" href="{{route('admin.berita')}}"><i class="app-menu__icon fa fa-newspaper-o"></i><span class="app-menu__label"> Berita</span></a></li> --}}
         <li><a class="app-menu__item {{(Request::is('admin/atribut') OR \Request::is('admin/atribut/*'))? 'active': ''}}" href="{{route('admin.atribut')}}"><i class="app-menu__icon fa fa-tasks"></i><span class="app-menu__label">Atribut</span></a></li>
+        <li><a class="app-menu__item {{(Request::is('admin/iklan') OR \Request::is('admin/iklan/*'))? 'active': ''}}" href="{{route('admin.iklan')}}"><i class="app-menu__icon fa fa-tasks"></i><span class="app-menu__label">Iklan</span></a></li>
       </ul>
     </aside>
     @yield('content')
