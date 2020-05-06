@@ -95,14 +95,7 @@
 
 <body>
 
-    <div id="close">
-        <div class="container-popup">
-            <form action="#" method="post" class="popup-form">
-                <img src="{{asset('images/IklanKenapaKodirumahSaja.jpg')}}" alt="">
-            </form>
-            <a class="close" href="#close">close</a>
-        </div>
-    </div>
+    
     <!-- Preloader Start -->
     {{-- <div id="preloader">
         <div class="preload-content">
@@ -154,6 +147,15 @@
         </div>
     </header>
     <!-- ***** Header Area End ***** -->
+
+    <div id="close">
+        <div class="container-popup">
+            <form action="#" method="post" class="popup-form">
+                <img src="{{asset('images/IklanKenapaKodirumahSaja.jpg')}}" alt="">
+            </form>
+            <a class="close" href="#close">close</a>
+        </div>
+    </div>
 
     @yield('content')
 
