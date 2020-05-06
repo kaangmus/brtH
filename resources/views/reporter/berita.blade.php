@@ -59,7 +59,7 @@
                         </tbody>
                     </table>
 
-                    {{$beritas->lins()}}
+                    {{$beritas->links()}}
 
                 </div>
 
