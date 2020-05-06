@@ -147,6 +147,7 @@
         </div>
     </header>
     <!-- ***** Header Area End ***** -->
+    @yield('content')
 
     <div id="close">
         <div class="container-popup">
@@ -157,7 +158,6 @@
         </div>
     </div>
 
-    @yield('content')
 
   
 
