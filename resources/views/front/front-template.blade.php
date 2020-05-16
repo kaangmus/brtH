@@ -34,7 +34,6 @@
     <link rel="stylesheet" href="{{asset('front/style.css')}}">
     @if ($iklan1)
         
-    @endif
     <style>
     #myImg {
         border-radius: 5px;
@@ -99,9 +98,6 @@
       
       /* The Close Button */
       .close {
-        position: absolute;
-        top: 100px;
-        right: 300px;
         color: #f1f1f1;
         font-size: 40px;
         font-weight: bold;
@@ -123,6 +119,7 @@
         }
       }
       </style>
+    @endif
 
     @yield('css')
 
