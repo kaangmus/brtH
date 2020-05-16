@@ -73,19 +73,17 @@ class IklanController extends Controller
     public function update(Request $request)
     {
         $this->validate($request, [
-            'deskripsi' => 'required|string',
-            'iklan' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'foto' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         ]);
 
         $iklan =Iklan::findOrFail($request->id);
         $iklan->fill($request->all());
-        if($request->hasFile('iklan')){
+        if($request->hasFile('foto')){
             $ikland =Iklan::findOrFail($request->id);
             File::delete($ikland->iklan);
 
-            $upload = app('App\Helper\Images')->upload($request->file('iklan'), 'galeri');
-            $iklan['iklan'] = $upload['url'];
-            $iklan['slug'] = str_slug($upload['name'], '-');
+            $upload = app('App\Helper\Images')->upload($request->file('foto'), 'iklan');
+            $iklan['foto'] = $upload['url'];
         }
         $iklan->save();
 

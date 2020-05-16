@@ -23,7 +23,7 @@
                     <img src="{{asset($reporter->foto)}}" style="max-width: 70%" alt="Gambar Timline Berita">
                     </div>
             <div class="tile-footer">
-                Terakhir diupdate {{hari_tanggal_waktu($reporter->updated_at, true)}}
+                Terakhir diupdate {{!empty($reporter->updated_at)?hari_tanggal_waktu($reporter->updated_at, true): ''}}
 
                 <div class="btn-group float-right" role="group" aria-label="Basic example">
 

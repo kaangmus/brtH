@@ -25,9 +25,10 @@
                     <table class="table table-sm">
                         <thead>
                             <tr>
-                                <th>Nama Gunung</th>
-                                <th class="text-center">Verifikasi</th>
+                                <th>Berita</th>
+                                <th class="text-center">Dilihat</th>
                                 <th class="text-center">Publish</th>
+                                <th class="text-center">Verifikasi</th>
                                 <th class="text-center">Berita</th>
                                 <th></th>
                             </tr>

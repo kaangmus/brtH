@@ -131,7 +131,17 @@
                 <div class="col-12 col-md-8 col-lg-4">
                     <div class="post-sidebar-area wow fadeInUpBig" data-wow-delay="0.2s">
                         <!-- Widget Area -->
-
+                        <?php 
+                            $iklan2 = DB::table('iklans')->where('spase',2)
+                                    ->where('start_date', '<=', $datenow)
+                                    ->where('end_date', '>=', $datenow)
+                                    ->first();
+                        ?>
+                        @if ($iklan2)
+                            <img src="{{asset($iklan2->foto)}}" alt="" style="width: 100%">
+                        @endif
+                        <div class="sidebar-widget-area">
+                        </div>
                         <div class="sidebar-widget-area">
                             <h5 class="title">Galeri</h5>
                             @foreach ($albums as $album)

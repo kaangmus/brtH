@@ -32,77 +32,103 @@
 
     <!-- Style CSS -->
     <link rel="stylesheet" href="{{asset('front/style.css')}}">
-
+    @if ($iklan1)
+        
+    @endif
     <style>
-        *{margin: 0; padding: 0}
-@keyframes autopopup {
-    from {opacity: 0;margin-top:-200px;}
-    to {opacity: 1;}
-}
-#close {
-    background-color: rgba(64, 68, 65, 0.5);
-    position: fixed;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-    animation:autopopup 3.5s;
-}
-#close:target {
-    -webkit-transition:all 1s;
-    -moz-transition:all 1s;
-    transition:all 1s;
-    opacity: 0;
-    visibility: hidden;
-}
+    #myImg {
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      
+      #myImg:hover {opacity: 0.7;}
+      
+      /* The Modal (background) */
+      .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+      }
+      
+      /* Modal Content (image) */
+      .modal-content {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 500px;
+      }
+      
+      /* Caption of Modal Image */
+      #caption {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 500px;
+        text-align: center;
+        color: #ccc;
+        padding: 10px 0;
+        height: 150px;
+      }
+      
+      /* Add Animation */
+      .modal-content, #caption {  
+        -webkit-animation-name: zoom;
+        -webkit-animation-duration: 0.6s;
+        animation-name: zoom;
+        animation-duration: 0.6s;
+      }
+      
+      @-webkit-keyframes zoom {
+        from {-webkit-transform:scale(0)} 
+        to {-webkit-transform:scale(1)}
+      }
+      
+      @keyframes zoom {
+        from {transform:scale(0)} 
+        to {transform:scale(1)}
+      }
+      
+      /* The Close Button */
+      .close {
+        position: absolute;
+        top: 100px;
+        right: 300px;
+        color: #f1f1f1;
+        font-size: 40px;
+        font-weight: bold;
+        transition: 0.3s;
+        text-align: center
+      }
+      
+      .close:hover,
+      .close:focus {
+        color: #bbb;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      
+      /* 100% Image Width on Smaller Screens */
+      @media only screen and (max-width: 700px){
+        .modal-content {
+          width: 100%;
+        }
+      }
+      </style>
 
-@media (min-width: 768px){
-    .container-popup {
-        width:30%;
-    }
-}
-@media (max-width: 767px){
-    .container-popup {
-        width:30%;
-    }
-}
-.container-popup {
-    position: relative;
-    margin: 5% auto;
-    padding: 4px 3px;
-    background-color: #e1fff5;
-    color: #333;
-    border-radius: 8px;
-}
-.container-popup img {
-    width: 100%
-}
-.close {
-    position: absolute;
-    top:3px;
-    right:3px;
-    background-color: #33898B;
-    padding:7px 10px;
-    font-size: 15px;
-    text-decoration: none;
-    line-height: 1;
-    color:#fff;
-}
-    </style>
     @yield('css')
 
 </head>
 
 <body>
-
-    
-    <!-- Preloader Start -->
-    {{-- <div id="preloader">
-        <div class="preload-content">
-            <div id="world-load"></div>
-        </div>
-    </div> --}}
-    <!-- Preloader End -->
 
     <!-- ***** Header Area Start ***** -->
     <header class="header-area {{(Request::is('/'))? '': 'sticky'}}">
@@ -146,11 +172,21 @@
             </div>
         </div>
     </header>
-    <!-- ***** Header Area End ***** -->
-    @yield('content')
+   
+    
 
- 
-  
+    <div style="min-height: 800px">
+        @yield('content')
+    </div>
+    @if ($iklan1)
+    <div id="myModal" class="modal">
+        <img class="modal-content" id="img01" src="{{asset($iklan1->foto)}}">
+        <span class="close">&times;</span>
+    </div>
+    @endif    
+
+
+    
 
     <!-- ***** Footer Area Start ***** -->
     <footer class="footer-area">
@@ -165,10 +201,6 @@
                             $atributs = App\Models\Atribut::all();
                         ?>
 
-                        {{-- <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com/" target="_blank">Colorlib</a>
-                        <p>Proudly distributed by <a href="https://themewagon.com/" target="_blank">ThemeWagon</a></p> --}}
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                     </div>
                 </div>
                 <div class="col-sm-4">
@@ -182,15 +214,15 @@
                 <div class="col-12 col-md-3">
                     <div class="footer-single-widget">
                             <div class="sidebar-widget-area">
-                                    <h5 class="title">Sosial Media</h5>
-                                    <div class="widget-content" style="padding: 5px;">
-                                        <div class="social-area d-flex ">
-                                            <a target="_blank" href="{{env('URL_FACEBOOK')}}" style="margin: 0px 20px"><i class="fa fa-facebook"></i></a>
-                                            <a target="_blank" href="{{env('URL_INSTAGRAM')}}" style="margin: 0px 20px"><i class="fa fa-instagram"></i></a>
-                                            <a target="_blank" href="{{env('URL_YOUTUBE')}}" style="margin: 0px 20px"><i class="fa fa-youtube"></i></a>
-                                        </div>
+                                <h5 class="title">Sosial Media</h5>
+                                <div class="widget-content" style="padding: 5px;">
+                                    <div class="social-area d-flex ">
+                                        <a target="_blank" href="{{env('URL_FACEBOOK')}}" style="margin: 0px 20px"><i class="fa fa-facebook"></i></a>
+                                        <a target="_blank" href="{{env('URL_INSTAGRAM')}}" style="margin: 0px 20px"><i class="fa fa-instagram"></i></a>
+                                        <a target="_blank" href="{{env('URL_YOUTUBE')}}" style="margin: 0px 20px"><i class="fa fa-youtube"></i></a>
                                     </div>
                                 </div>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -208,6 +240,26 @@
     <script src="{{asset('front/js/plugins.js')}}"></script>
     <!-- Active js -->
     <script src="{{asset('front/js/active.js')}}"></script>
+
+
+    @if ($iklan1)
+    <script>
+         $(window).on('load',function(){
+            $('#myModal').modal('show');
+            $('.modal-backdrop').remove();
+        });
+        // Get the modal
+        var modal = document.getElementById("myModal");
+        
+        var span = document.getElementsByClassName("close")[0];
+        
+        span.onclick = function() { 
+          modal.style.display = "none";
+        }
+        
+    </script>
+    @endif
+
     @yield('script')
 </body>
 </html>
