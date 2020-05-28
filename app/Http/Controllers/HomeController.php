@@ -14,6 +14,7 @@ class HomeController extends Controller
 {
     public function index()
     {
+        abort(500);
         $datenow = date('Y-m-d');
 
         $iklan1 = Iklan::where('spase',1)

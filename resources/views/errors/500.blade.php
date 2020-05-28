@@ -1,22 +1,25 @@
 <style>
     .container {
-      height: 1000px;
+      height: 300px;
       position: relative;
       /* border: 3px solid green; */
     }
     
     .vertical-center {
       text-align: center;
-      margin: 0;
-      position: absolute;
+      margin-top: 80px;
       top: 50%;
-      -ms-transform: translateY(-50%);
-      transform: translateY(-50%);
+      
+    }
+    p{
+      font-size: 37px;
+      font-family: monospace;
     }
     </style>
     
     <div class="container">
       <div class="vertical-center">
-        <img src="{{asset('images/maintenance.jpg')}}" alt="" style="width: 100%; max-width: 800px;">
+        <img src="{{asset('images/maintenance.jpg')}}" alt="" style="width: 100%; max-width: 700px;"><br>
+        <p>Maintenance</p>
       </div>
     </div>
