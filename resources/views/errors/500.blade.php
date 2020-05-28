@@ -1,8 +1,8 @@
 <style>
     .container {
-      height: 200px;
+      height: 1000px;
       position: relative;
-      border: 3px solid green;
+      /* border: 3px solid green; */
     }
     
     .vertical-center {
@@ -13,10 +13,9 @@
       transform: translateY(-50%);
     }
     </style>
-
-<div class="container">
-    <div class="vertical-center">
-    <img src="{{asset('images/maintenance.jpg')}}" alt="" style="width: 100%; max-width: 800px;">
+    
+    <div class="container">
+      <div class="vertical-center">
+        <img src="{{asset('images/maintenance.jpg')}}" alt="" style="width: 100%; max-width: 800px;">
+      </div>
     </div>
-</div>
-
