@@ -6,6 +6,7 @@
     }
     
     .vertical-center {
+      text-align: center;
       margin: 0;
       position: absolute;
       top: 50%;
