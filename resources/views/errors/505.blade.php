@@ -1,0 +1,1 @@
+<img src="{{asset('images/maintenance.png')}}" alt="" srcset="" style="width: 100%; max-width: 400px;">
